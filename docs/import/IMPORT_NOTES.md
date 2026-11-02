@@ -35,7 +35,7 @@ Základ: `https://www.shot-c.cz/wp-content/uploads/`. Všechny stažené 2026-11
 |---|---|---|
 | `2020/01/SHOT-C-crop1.png` | `assets/img/SHOT-C-crop1.png` | logo |
 | `2020/01/cropped-SHOT-C-color1-{32x32,192x192,180x180}.png` | `assets/img/…` | favicon, apple-touch-icon |
-| `elementor/thumbs/LBL_2894-scaled-puvzwh2umjp1pl90kyo6loh69idr2ubxq4yhpeyh5k.jpg` | `assets/img/…` | úvodní fotka |
+| `2022/09/LBL_2894-scaled.jpg` (2560 px) | `assets/img/LBL_2894-scaled.jpg` + zmenšenina `LBL_2894-1280.jpg` | úvodní fotka (originál používal rozmazanou ořezanou miniaturu Elementoru, nahrazeno plným rozlišením) |
 | `2020/09/cropped-cropped-DSC_1271-scaled-4.jpg` | `assets/img/…` | `og:image` |
 | `2022/09/LBL_2799-1024x684.jpg` | `assets/img/…` | karusel 1 |
 | `2020/09/cropped-cropped-DSC_1271-scaled-4-1024x575.jpg` | `assets/img/…` | karusel 2 |
