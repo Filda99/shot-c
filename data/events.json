@@ -1,0 +1,38 @@
+[
+  {
+    "id": "2026-12-19-blansko",
+    "start": "2026-12-19T15:30:00+01:00",
+    "end": "2026-12-19T16:30:00+01:00",
+    "city": "Blansko"
+  },
+  {
+    "id": "2026-12-05-jedovnice",
+    "start": "2026-12-05T16:00:00+01:00",
+    "end": "2026-12-05T17:00:00+01:00",
+    "city": "Jedovnice"
+  },
+  {
+    "id": "2026-11-15-praha-intonic",
+    "start": "2026-11-15T17:00:00+01:00",
+    "end": "2026-11-15T18:00:00+01:00",
+    "city": "Praha",
+    "note": "koncert s a cappellou Intonic"
+  },
+  {
+    "id": "2026-09-18-kurim-800-let",
+    "start": "2026-09-18T00:00:00+02:00",
+    "end": "2026-09-18T23:59:59+02:00",
+    "allDay": true,
+    "city": "Kuřim",
+    "note": "OSLAVY 800 LET KUŘIMI"
+  },
+  {
+    "id": "2026-09-11-brno-ruku-v-ruce",
+    "start": "2026-09-11T00:00:00+02:00",
+    "end": "2026-09-11T23:59:59+02:00",
+    "allDay": true,
+    "city": "Brno",
+    "venue": "Moravské nám.",
+    "note": "festival Ruku v ruce"
+  }
+]
