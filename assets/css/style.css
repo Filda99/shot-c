@@ -326,3 +326,12 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 3px); }
   .site-header, .nav-toggle, .gallery, .slant-top { display: none; }
   body { background: #fff; color: #000; }
 }
+
+/* ---------- "under reconstruction" notice ---------- */
+.notice { background: #fff4d6; color: #3d2e00; border-bottom: 1px solid #f0c040; font-family: var(--roboto); font-size: 14px; line-height: 1.4; }
+.notice-inner { display: flex; align-items: center; gap: 10px; padding-top: 8px; padding-bottom: 8px; }
+.notice-icon {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%; background: #f5a300; color: #000; font-weight: 700; font-size: 15px;
+}
+.notice p { margin: 0; }

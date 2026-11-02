@@ -6,10 +6,22 @@
     "title": "Blansko"
   },
   {
+    "id": "2026-12-12-breclav",
+    "start": "2026-12-12T16:30:00+01:00",
+    "end": "2026-12-12T17:30:00+01:00",
+    "title": "Břeclav"
+  },
+  {
     "id": "2026-12-05-jedovnice",
     "start": "2026-12-05T16:00:00+01:00",
     "end": "2026-12-05T17:00:00+01:00",
     "title": "Jedovnice"
+  },
+  {
+    "id": "2026-12-04-olomouc-soukroma-akce",
+    "start": "2026-12-04T19:30:00+01:00",
+    "end": "2026-12-04T20:30:00+01:00",
+    "title": "Olomouc – soukromá akce"
   },
   {
     "id": "2026-11-15-praha-koncert-s-a-cappellou-intonic",

@@ -66,6 +66,7 @@ Převod:
 Nejasnosti (označené, nic nevymyšleno):
 
 - `2024-05-24-2415`: akce nemá ve WordPressu název ani místo. Zobrazuje se jako „Akce (název neuveden)“.
+- 2026-11-02: podle kalendáře kapely přidány `2026-12-04-olomouc-soukroma-akce` (firemní večírek, 19:30) a `2026-12-12-breclav` (16:30), obě s délkou 1 h. Celkem 77 akcí.
 - `2026-01-24-praha-s-acappellou-choirizzo`: ve WordPressu začátek i konec 00:00, tj. čas nebyl zadán. Zobrazuje se jako „celý den“.
 - „~ Soukromá akce ~“ (2023-12-14) a „/firemní akce/“ (2025-11-28) mají názvy převzaté doslova i se znaky.
 - Popis akce 2023-10-13 („Shot-C a Intonic v Brně…“) obsahuje ve WordPressu i kus CSS kódu; v archivu je ponechán tak, jak byl.
