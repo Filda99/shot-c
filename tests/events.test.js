@@ -122,10 +122,10 @@ test('missing end uses start + 2 h and shows only the start time', () => {
   assert.equal(E.eventStatus(ev, at('2026-11-15T19:00:01+01:00')), 'past');
 });
 
-test('all-day event without end lasts 24 h and prints "Celý den"', () => {
+test('all-day event without end lasts 24 h and prints "celý den"', () => {
   const ev = load([{ id: 'd', start: '2026-09-11T00:00:00+02:00', allDay: true }])[0];
   assert.equal(ev.endMs - ev.startMs, E.ALL_DAY_DURATION_MS);
-  assert.equal(E.formatTimeRange(ev), 'Celý den');
+  assert.equal(E.formatTimeRange(ev), 'celý den');
 });
 
 test('invalid entries are skipped or repaired and reported, never thrown', () => {

@@ -135,7 +135,7 @@
 
   /** "17:00–18:00", "17:00" (end unknown), "Celý den" (all-day). */
   function formatTimeRange(ev) {
-    if (ev.allDay) { return 'Celý den'; }
+    if (ev.allDay) { return 'celý den'; }
     var start = formatTime(ev.startMs);
     if (ev.endDerived) { return start; }
     if (pragueDateKey(ev.startMs) === pragueDateKey(ev.endMs)) {
