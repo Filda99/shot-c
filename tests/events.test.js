@@ -161,7 +161,10 @@ test('bundled data/events.json is valid and complete', () => {
   assert.equal(result.events.length, raw.length);
   // On 2026-11-02 the three published upcoming concerts are the ones on the home page.
   const upcoming = E.selectUpcoming(result.events, at('2026-11-02T12:00:00+01:00'));
-  assert.deepEqual(ids(upcoming), ['2026-11-15-praha-intonic', '2026-12-05-jedovnice', '2026-12-19-blansko']);
+  assert.deepEqual(ids(upcoming), ['2026-11-15-praha-koncert-s-a-cappellou-intonic', '2026-12-05-jedovnice', '2026-12-19-blansko']);
+  // All 75 events from the WordPress export (2022-2026), each with a title or city.
+  assert.equal(raw.length, 75);
+  raw.forEach((ev) => assert.ok(ev.title || ev.city, ev.id + ' has no title or city'));
 });
 
 console.log(passed + ' tests passed' + (process.exitCode ? ' (with failures)' : ''));

@@ -4,24 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Koncerty vokální skupiny Shot-C</title>
-  <meta name="description" content="Koncerty vokální skupiny Shot-C, seznam koncertů s možností sledovat, kde se kapela objeví">
+  <meta name="description" content="Koncerty vokální skupiny Shot-C. Seznam koncertů české vokální skupiny Shot-C. Podívejte se, kde se můžeme vidět a společně si zazpívat!">
   <meta name="robots" content="max-image-preview:large">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#000000">
 
   <!-- Open Graph / Twitter. og:image is a local path; make it absolute (https://<domain>/assets/img/...) once the canonical domain is known. -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="cs_CZ">
   <meta property="og:site_name" content="Shot-C Vocal Band">
   <meta property="og:title" content="Koncerty vokální skupiny Shot-C">
-  <meta property="og:description" content="Koncerty vokální skupiny Shot-C, seznam koncertů s možností sledovat, kde se kapela objeví">
+  <meta property="og:description" content="Koncerty vokální skupiny Shot-C. Seznam koncertů české vokální skupiny Shot-C. Podívejte se, kde se můžeme vidět a společně si zazpívat!">
   <meta property="og:image" content="../assets/img/cropped-cropped-DSC_1271-scaled-4.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Koncerty vokální skupiny Shot-C">
-  <meta name="twitter:description" content="Koncerty vokální skupiny Shot-C, seznam koncertů s možností sledovat, kde se kapela objeví">
+  <meta name="twitter:description" content="Koncerty vokální skupiny Shot-C. Seznam koncertů české vokální skupiny Shot-C. Podívejte se, kde se můžeme vidět a společně si zazpívat!">
   <meta name="twitter:image" content="../assets/img/cropped-cropped-DSC_1271-scaled-4.jpg">
 
-  <link rel="icon" type="image/png" href="../assets/img/cropped-SHOT-C-color1-270x270.png">
-  <link rel="apple-touch-icon" href="../assets/img/cropped-SHOT-C-color1-270x270.png">
+  <link rel="icon" href="../assets/img/cropped-SHOT-C-color1-32x32.png" sizes="32x32">
+  <link rel="icon" href="../assets/img/cropped-SHOT-C-color1-192x192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="../assets/img/cropped-SHOT-C-color1-180x180.png">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script>document.documentElement.className += ' js';</script>
 </head>
@@ -30,7 +31,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="../"><img src="../assets/img/SHOT-C-crop1.png" alt="Shot-C"></a>
+      <a class="logo" href="../"><img src="../assets/img/SHOT-C-crop1.png" width="1024" height="435" alt="Shot-C Vocal Band"></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
         <span class="nav-toggle-bars" aria-hidden="true"></span>
         <span class="sr-only">Menu</span>
@@ -48,10 +49,14 @@
   </header>
 
   <main id="content">
-    <section class="section page-intro">
+    <div class="page-head">
       <div class="container">
-        <h1>Koncerty</h1>
-        <p class="lead">Seznam veškerých koncertů, od nejnovějších po nejstarší.</p>
+        <h1>Seznam veškerých odehraných koncertů</h1>
+        <p>Od nejnovějších po nejstarší.</p>
+      </div>
+    </div>
+    <section class="section-page" aria-label="Koncerty">
+      <div class="container">
         <div data-events data-events-mode="all" data-events-src="../data/events.json">
           <p class="events-status">Načítám koncerty…</p>
         </div>
@@ -62,7 +67,7 @@
             <a href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener noreferrer">YouTube</a>
             nebo nám napište na <a href="mailto:shotc.band@gmail.com">shotc.band@gmail.com</a>.</p>
         </noscript>
-        <p class="events-more"><a class="button button-ghost" href="../#events">Zpět na hlavní stránku</a></p>
+        <p class="events-more"><a class="button" href="../#events">Zpět na hlavní stránku</a></p>
       </div>
     </section>
   </main>

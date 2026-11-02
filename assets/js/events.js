@@ -211,26 +211,38 @@
     return p;
   }
 
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  function capitalize(text) { return text ? text.charAt(0).toUpperCase() + text.slice(1) : text; }
+  /** "15.11.26", as on the original site. */
+  function formatDateShort(ms) {
+    var p = pragueParts(ms);
+    return p.day + '.' + p.month + '.' + p.year.slice(-2);
+  }
+
   function renderEvent(doc, ev, status, level) {
     var li = el(doc, 'li', 'event is-' + status);
     var time = el(doc, 'time', 'event-date');
     time.setAttribute('datetime', ev.start);
     time.title = formatDateLong(ev.startMs);
-    time.appendChild(el(doc, 'span', 'event-day', formatDay(ev.startMs)));
-    time.appendChild(el(doc, 'span', 'event-month', formatMonthShort(ev.startMs)));
+    time.appendChild(el(doc, 'span', 'event-day', pad2(Number(formatDay(ev.startMs)))));
+    time.appendChild(el(doc, 'span', 'event-month', capitalize(formatMonthShort(ev.startMs))));
     li.appendChild(time);
 
     var body = el(doc, 'div', 'event-body');
-    var heading = el(doc, level, 'event-place', ev.city || ev.title || '');
-    if (ev.venue) { heading.appendChild(el(doc, 'span', 'event-venue', ', ' + ev.venue)); }
+    var heading = el(doc, level, 'event-place', ev.title || ev.city || '');
     body.appendChild(heading);
 
     if (status === 'ongoing') { body.appendChild(el(doc, 'p', 'event-badge', 'Právě probíhá')); }
     else if (status === 'past') { body.appendChild(el(doc, 'p', 'event-badge', 'Proběhlo')); }
 
-    if (ev.title && ev.city) { body.appendChild(el(doc, 'p', 'event-title', ev.title)); }
-    var timeLine = el(doc, 'p', 'event-time', formatDateLong(ev.startMs) + ', ' + formatTimeRange(ev));
-    body.appendChild(timeLine);
+    var meta = el(doc, 'p', 'event-meta');
+    var dateSpan = el(doc, 'span', 'event-meta-date', formatDateShort(ev.startMs));
+    dateSpan.title = formatDateLong(ev.startMs);
+    meta.appendChild(dateSpan);
+    meta.appendChild(el(doc, 'span', 'event-meta-time', formatTimeRange(ev).replace('–', ' – ')));
+    body.appendChild(meta);
+    if (ev.venue) { body.appendChild(el(doc, 'p', 'event-venue', ev.venue)); }
+    if (ev.title && ev.city) { body.appendChild(el(doc, 'p', 'event-note', ev.city)); }
     if (ev.note) { body.appendChild(el(doc, 'p', 'event-note', ev.note)); }
     if (isSafeUrl(ev.url)) {
       var a = el(doc, 'a', 'event-link', 'Více informací');
@@ -332,6 +344,7 @@
     formatMonthShort: formatMonthShort,
     formatTime: formatTime,
     formatTimeRange: formatTimeRange,
-    formatDateLong: formatDateLong
+    formatDateLong: formatDateLong,
+    formatDateShort: formatDateShort
   };
 }));

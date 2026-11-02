@@ -1,0 +1,756 @@
+[
+  {
+    "id": "2026-12-19-blansko",
+    "wpUrl": "https://www.shot-c.cz/events/blansko/",
+    "summary": "Blansko",
+    "dtstart": "20261219T153000",
+    "dtend": "20261219T163000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2026-12-05-jedovnice",
+    "wpUrl": "https://www.shot-c.cz/events/jedovnice/",
+    "summary": "Jedovnice",
+    "dtstart": "20261205T160000",
+    "dtend": "20261205T170000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2026-11-15-praha-koncert-s-a-cappellou-intonic",
+    "wpUrl": "https://www.shot-c.cz/events/praha-koncert-s-a-cappellou-intonic/",
+    "summary": "Praha - koncert s a cappellou Intonic",
+    "dtstart": "20261115T170000",
+    "dtend": "20261115T180000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2026-09-18-kurim-oslavy-800-let-kurimi",
+    "wpUrl": "https://www.shot-c.cz/events/kurim-oslavy-800-let-kurimi/",
+    "summary": "Kuřim - OSLAVY 800 LET KUŘIMI",
+    "dtstart": "20260918",
+    "dtend": "20260919",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2026-09-11-brno-festival-ruku-v-ruce-moravske-nam",
+    "wpUrl": "https://www.shot-c.cz/events/brno-festival-ruku-v-ruce-moravske-nam/",
+    "summary": "Brno - festival Ruku v ruce - Moravské nám.",
+    "dtstart": "20260911",
+    "dtend": "20260912",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2026-07-18-nepomysl",
+    "wpUrl": "https://www.shot-c.cz/events/nepomysl/",
+    "summary": "Nepomyšl",
+    "dtstart": "20260718",
+    "dtend": "20260719",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2026-07-14-poslech-brno",
+    "wpUrl": "https://www.shot-c.cz/events/poslech-brno/",
+    "summary": "Poslech Brno",
+    "dtstart": "20260714",
+    "dtend": "20260715",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2026-06-14-pohorelice",
+    "wpUrl": "https://www.shot-c.cz/events/pohorelice/",
+    "summary": "Pohořelice",
+    "dtstart": "20260614",
+    "dtend": "20260615",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2026-06-13-hudba-na-kolech",
+    "wpUrl": "https://www.shot-c.cz/events/hudba-na-kolech/",
+    "summary": "Hudba na kolech",
+    "dtstart": "20260613",
+    "dtend": "20260614",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2026-05-27-soukroma-akce-2",
+    "wpUrl": "https://www.shot-c.cz/events/soukroma-akce-2/",
+    "summary": "Soukromá akce",
+    "dtstart": "20260527T150000",
+    "dtend": "20260527T170000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2026-05-14-kurim-sportovec-roku",
+    "wpUrl": "https://www.shot-c.cz/events/kurim-sportovec-roku/",
+    "summary": "Kuřim - Sportovec roku",
+    "dtstart": "20260514T190000",
+    "dtend": "20260514T210000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2026-04-23-opava",
+    "wpUrl": "https://www.shot-c.cz/events/opava/",
+    "summary": "Opava",
+    "dtstart": "20260423",
+    "dtend": "20260424",
+    "location": "",
+    "description": "Více informací zde: https://www.facebook.com/events/1208305284800661",
+    "flags": []
+  },
+  {
+    "id": "2026-01-24-praha-s-acappellou-choirizzo",
+    "wpUrl": "https://www.shot-c.cz/events/praha-s-acappellou-choirizzo/",
+    "summary": "Praha s acappellou Choirizzo",
+    "dtstart": "20260124T000000",
+    "dtend": "20260124T000000",
+    "location": "",
+    "description": "",
+    "flags": [
+      "cas-neuveden (00:00-00:00 ve WP)"
+    ]
+  },
+  {
+    "id": "2025-12-21-vanocni-koncert-blansko",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-koncert-blansko/",
+    "summary": "Vánoční koncert Blansko",
+    "dtstart": "20251221T173000",
+    "dtend": "20251221T183000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-12-20-vanocni-koncert-brno-svobodak",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-koncert-brno-svobodak/",
+    "summary": "Vánoční koncert Brno Svoboďák",
+    "dtstart": "20251220T150000",
+    "dtend": "20251220T160000",
+    "location": "",
+    "description": "❗Změna data i času❗",
+    "flags": []
+  },
+  {
+    "id": "2025-12-04-vanocni-koncert-zlin",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-koncert-zlin/",
+    "summary": "Vánoční koncert Zlín",
+    "dtstart": "20251204T190000",
+    "dtend": "20251204T200000",
+    "location": "",
+    "description": "Lístky zde: https://zivyzlin.enigoo.cz/app/tickets/events/200",
+    "flags": []
+  },
+  {
+    "id": "2025-11-28-2718",
+    "wpUrl": "https://www.shot-c.cz/events/2718/",
+    "summary": "/firemní akce/",
+    "dtstart": "20251128",
+    "dtend": "20251129",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-11-08-koncert-v-mikulove",
+    "wpUrl": "https://www.shot-c.cz/events/koncert-v-mikulove/",
+    "summary": "Koncert v Mikulově",
+    "dtstart": "20251108T133000",
+    "dtend": "20251108T143000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-10-19-praha-narodni-dum-na-vinohradech-w-big-band",
+    "wpUrl": "https://www.shot-c.cz/events/praha-narodni-dum-na-vinohradech-w-big-band/",
+    "summary": "Praha Národní dům na Vinohradech - Golden Big Band Prague w/ Shot-C",
+    "dtstart": "20251019T180000",
+    "dtend": "20251019T200000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-09-12-brno-u-josta",
+    "wpUrl": "https://www.shot-c.cz/events/brno-u-josta/",
+    "summary": "Brno u Jošta - Ruku v ruce",
+    "dtstart": "20250912T181500",
+    "dtend": "20250912T190000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-07-20-jablonec",
+    "wpUrl": "https://www.shot-c.cz/events/jablonec/",
+    "summary": "Jablonec",
+    "dtstart": "20250720T150000",
+    "dtend": "20250720T163000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-06-12-rock-for-people-2025",
+    "wpUrl": "https://www.shot-c.cz/events/rock-for-people-2025/",
+    "summary": "Rock For People 2025",
+    "dtstart": "20250612T181000",
+    "dtend": "20250612T191000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-06-07-lednice-hudba-na-kole",
+    "wpUrl": "https://www.shot-c.cz/events/lednice-hudba-na-kole/",
+    "summary": "Lednice - Hudba na kole",
+    "dtstart": "20250607T100000",
+    "dtend": "20250607T170000",
+    "location": "Lednice - Apollónův chrám, Chrám Apollo 196, Lednice , 691 44, Česká republika",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-05-30-brno-poslech-bar-w-choirizzo",
+    "wpUrl": "https://www.shot-c.cz/events/brno-poslech-bar-w-choirizzo/",
+    "summary": "Brno Poslech bar w. Choirizzo",
+    "dtstart": "20250530T193000",
+    "dtend": "20250530T203000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-05-24-kurimsky-gulmen-gulasfest",
+    "wpUrl": "https://www.shot-c.cz/events/kurimsky-gulmen-gulasfest/",
+    "summary": "Kuřimský Gulmen - GulášFest",
+    "dtstart": "20250524T133000",
+    "dtend": "20250524T143000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-04-24-saty-pro-krtka",
+    "wpUrl": "https://www.shot-c.cz/events/saty-pro-krtka/",
+    "summary": "Šaty pro KRTKA",
+    "dtstart": "20250424T190000",
+    "dtend": "20250424T210000",
+    "location": "Brno - KC BABYLON, Kounicova 686/22, Brno, 602 00 , Česká republika",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-03-24-cesky-rozhlas-brno-zive-vysilani",
+    "wpUrl": "https://www.shot-c.cz/events/cesky-rozhlas-brno-zive-vysilani/",
+    "summary": "Český rozhlas Brno (živé vysílání)",
+    "dtstart": "20250324T110000",
+    "dtend": "20250324T120000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-03-20-hodonin",
+    "wpUrl": "https://www.shot-c.cz/events/hodonin/",
+    "summary": "Hodonín",
+    "dtstart": "20250320T190000",
+    "dtend": "20250320T210000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-03-14-tisnov-plesa-2",
+    "wpUrl": "https://www.shot-c.cz/events/tisnov-plesa-2/",
+    "summary": "Tišnov Plesá",
+    "dtstart": "20250314",
+    "dtend": "20250315",
+    "location": "Tišnov - Sokolovna, Riegrova, Tišnov, Česká republika",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-03-07-holic-slovensko",
+    "wpUrl": "https://www.shot-c.cz/events/holic-slovensko/",
+    "summary": "Holíč (Slovensko)",
+    "dtstart": "20250307T163000",
+    "dtend": "20250307T173000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2025-01-30-fosfa-sport-lednice",
+    "wpUrl": "https://www.shot-c.cz/events/fosfa-sport-lednice/",
+    "summary": "FOSFA sport Lednice",
+    "dtstart": "20250130T150000",
+    "dtend": "20250130T160000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2024-12-18-koncert-na-svobodaku",
+    "wpUrl": "https://www.shot-c.cz/events/koncert-na-svobodaku/",
+    "summary": "Koncert na Svoboďáku",
+    "dtstart": "20241218T190000",
+    "dtend": "20241218T200000",
+    "location": "Brno - náměstí Svobody, náměstí Svobody, Brno, Česká republika",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2024-12-08-vanocni-jarmark-v-hodonine",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-jarmark-v-hodonine/",
+    "summary": "Vánoční jarmark v Hodoníně",
+    "dtstart": "20241208T160000",
+    "dtend": "20241208T170000",
+    "location": "Hodonín náměstí, Hodonin namesti, Hodonin, Česká republika",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2024-12-06-slavnostni-vecer-jmk-a-mesta-brna",
+    "wpUrl": "https://www.shot-c.cz/events/slavnostni-vecer-jmk-a-mesta-brna/",
+    "summary": "Slavnostní večer JMK a města Brna",
+    "dtstart": "20241206T170000",
+    "dtend": "20241206T181500",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2024-12-04-koncert-ve-zline",
+    "wpUrl": "https://www.shot-c.cz/events/koncert-ve-zline/",
+    "summary": "Koncert ve Zlíně",
+    "dtstart": "20241204T190000",
+    "dtend": "20241204T200000",
+    "location": "Zlín - Zámek, Soudní 1, Zlín, 760 01 , Česká republika",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2024-11-30-koncert-v-moravske-trebove",
+    "wpUrl": "https://www.shot-c.cz/events/koncert-v-moravske-trebove/",
+    "summary": "Koncert v Moravské Třebové",
+    "dtstart": "20241130T173000",
+    "dtend": "20241130T183000",
+    "location": "Moravská Třebová - Náměstí, Město, Moravská Třebová, Česká republika",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2024-09-21-beneficni-koncert-brno",
+    "wpUrl": "https://www.shot-c.cz/events/beneficni-koncert-brno/",
+    "summary": "Benefiční koncert Brno",
+    "dtstart": "20240921",
+    "dtend": "20240922",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2024-09-07-palavske-vinobrani-2024",
+    "wpUrl": "https://www.shot-c.cz/events/palavske-vinobrani-2024/",
+    "summary": "Pálavské vinobraní",
+    "dtstart": "20240907T181500",
+    "dtend": "20240907T191500",
+    "location": "Mikulov - náměstí, Náměstí, Mikulov, Česká republika",
+    "description": "Oficiální stránky eventu + program: 👉 https://palavske-vinobrani.cz/program/sobota 👈",
+    "flags": []
+  },
+  {
+    "id": "2024-09-06-singletrailfest-jedovnice",
+    "wpUrl": "https://www.shot-c.cz/events/singletrailfest-jedovnice/",
+    "summary": "SingleTrailFest Jedovnice",
+    "dtstart": "20240906T193000",
+    "dtend": "20240906T203000",
+    "location": "Jedovnice - Single Trail, Autokemp Olšovec, Jedovnice, Česká republika",
+    "description": "Oficiální event: 👉 https://www.facebook.com/events/1252387242687472 👈",
+    "flags": []
+  },
+  {
+    "id": "2024-08-17-dny-mesta-plasy",
+    "wpUrl": "https://www.shot-c.cz/events/dny-mesta-plasy/",
+    "summary": "Dny města Plasy",
+    "dtstart": "20240817T141500",
+    "dtend": "20240817T151500",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2024-08-10-dny-obce-lubenec",
+    "wpUrl": "https://www.shot-c.cz/events/dny-obce-lubenec/",
+    "summary": "Dny obce Lubenec",
+    "dtstart": "20240810T153000",
+    "dtend": "20240810T163000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2024-07-03-uprostred-brno",
+    "wpUrl": "https://www.shot-c.cz/events/uprostred-brno/",
+    "summary": "Uprostřed - Brno",
+    "dtstart": "20240703T190000",
+    "dtend": "20240703T200000",
+    "location": "",
+    "description": "Oficiální událost: https://festivaluprostred.cz/program/shot-c/",
+    "flags": []
+  },
+  {
+    "id": "2024-06-22-festival-slunovrat-opava",
+    "wpUrl": "https://www.shot-c.cz/events/festival-slunovrat-opava/",
+    "summary": "Festival Slunovrat - Opava",
+    "dtstart": "20240622T140000",
+    "dtend": "20240622T144500",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2024-06-20-poslech-music-bar-brno",
+    "wpUrl": "https://www.shot-c.cz/events/poslech-music-bar-brno/",
+    "summary": "Poslech music bar Brno",
+    "dtstart": "20240620",
+    "dtend": "20240621",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2024-06-19-galavecer-brno",
+    "wpUrl": "https://www.shot-c.cz/events/galavecer-brno/",
+    "summary": " Galavečer Brno",
+    "dtstart": "20240619T180000",
+    "dtend": "20240619T200000",
+    "location": "",
+    "description": "Informace o akci již brzy přidáme.",
+    "flags": []
+  },
+  {
+    "id": "2024-05-25-gulasfest-kurim",
+    "wpUrl": "https://www.shot-c.cz/events/gulasfest-kurim/",
+    "summary": "GulášFest Kuřim",
+    "dtstart": "20240525T130000",
+    "dtend": "20240525T140000",
+    "location": "",
+    "description": "Informace o akci již brzy přidáme.",
+    "flags": []
+  },
+  {
+    "id": "2024-05-24-2415",
+    "wpUrl": "https://www.shot-c.cz/events/2415/",
+    "summary": "",
+    "dtstart": "20240524",
+    "dtend": "20240525",
+    "location": "",
+    "description": "",
+    "flags": [
+      "bez-nazvu"
+    ]
+  },
+  {
+    "id": "2024-02-25-schokoladefest-wien-2024",
+    "wpUrl": "https://www.shot-c.cz/events/schokoladefest-wien-2024/",
+    "summary": "SchokoladeFest Wien 2024",
+    "dtstart": "20240225T140000",
+    "dtend": "20240225T170000",
+    "location": "Wien - MARX HALLE, Karl-Farkas-Gasse 19, 1030, Wien, Rakousko, Rakousko",
+    "description": "Vídeňský čokoládový festival 2024\nOd 23. do 25. února - MarxHalle. Akce je jedinečnou akcí pro všechny milovníky čokolády a cukrovinek, kteří se chtějí pobavit, pochutnat si na skvělém jídle a případně se naučit vařit s čokoládou.\nNávštěvníci čokoládového festivalu se mohou těšit i na velkou atrakci: výstavu mega balónů složenou z téměř 80 000 balónků.\nA budem u toho i my! Můžete nás vidět na této akci v tři různé časy mezi 14-17 hodinou. Budeme mít celkově čtyři půlhodinové výstupy.\n\n\n\n👉VSTUPENKY K ZAKOUPENÍ ZDE👈\n\n\nTěšíme se na Vás.\n\nOficiální událost na FB: Wien SchokoFestival 2024\n\nUž jste slyšeli naše nejnovější hity?\nPoslechněte si nás na našem youtube a sledujte naše sociální sítě!\n\n\n\n\n\nSHOT-C\nBrněnská vokální skupina, která vám představí show plnou známých hitů i vlastních skladeb.\nBěhem svého působení měli příležitost spolupracovat s umělci jako jsou Čechomor nebo Bára Basiková. Přijď se přesvědčit o tom, že i na a cappella muziku se dá skvěle zapařit.\n\n\n\"Kdysi se u piva 🍻 a limonády potkalo 5 zpěváků a 1 beatboxer 🎤, a tak vznikla vokální skupina Shot-C. Jejich žánrem je a cappella - hudba tvořena pouze pomocí hlasů 🗣️.\"\n\nKapela vystupuje na festivalech 🔥, slavnostech, trzích ❄️, ale i svatbách či firemních akcích 🥳. Pocházíme z Brna a jsme na to pyšní!",
+    "flags": []
+  },
+  {
+    "id": "2023-12-16-vanocni-koncert-ve-znojme",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-koncert-ve-znojme/",
+    "summary": "Vánoční koncert ve Znojmě",
+    "dtstart": "20231216T160000",
+    "dtend": "20231216T170000",
+    "location": "",
+    "description": "Vánoční koncert brněnské vokální skupiny Shot-C\nV sobotu 16.12. v 16:00 🕐 se ve Znojmě na náměstí uskuteční vánoční koncert brněnské vokální skupiny Shot-C, která vám představí show plnou známých hitů i vlastních skladeb. Premiéru zažijí vánoční písně, které kapela nacvičila speciálně pro tuto příležitost.\nPřijďte si užít jedinečnou atmosféru vánočního koncertu. Budeme sice venku, ale svařáček zahřeje... A to nejlepší....\n\n\n\n😍 VSTUPNÉ ZDARMA 😍\n\n\nTěšíme se na Vás.\n\nUž jste slyšeli naše nejnovější hity?\nPoslechněte si nás na našem youtube a sledujte naše sociální sítě!\n\n\n\n\n\nSHOT-C\nBrněnská vokální skupina, která vám představí show plnou známých hitů i vlastních skladeb.\nBěhem svého působení měli příležitost spolupracovat s umělci jako jsou Čechomor nebo Bára Basiková. Přijď se přesvědčit o tom, že i na a cappella muziku se dá skvěle zapařit.\n\n\n\"Kdysi se u piva 🍻 a limonády potkalo 5 zpěváků a 1 beatboxer 🎤, a tak vznikla vokální skupina Shot-C. Jejich žánrem je a cappella - hudba tvořena pouze pomocí hlasů 🗣️.\"\n\nKapela vystupuje na festivalech 🔥, slavnostech, trzích ❄️, ale i svatbách či firemních akcích 🥳. Pocházíme z Brna a jsme na to pyšní!",
+    "flags": []
+  },
+  {
+    "id": "2023-12-16-vanocni-koncert-v-pohorelicich",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-koncert-v-pohorelicich/",
+    "summary": "Vánoční koncert v Pohořelicích",
+    "dtstart": "20231216T130000",
+    "dtend": "20231216T140000",
+    "location": "Pohořelice - Hudební ateliér Mgr. Pavla Kratochvíla, Tyršova 560, Pohořelice , Česká republika",
+    "description": "Vánoční koncert brněnské vokální skupiny Shot-C\nV sobotu 16.12. v 13:00 🕐 se v Pohořelicích v Hudebním ateliéru Mgr. Pavla Kratochvíla uskuteční vánoční koncert brněnské vokální skupiny Shot-C, která vám představí show plnou známých hitů i vlastních skladeb. Premiéru zažijí vánoční písně, které kapela nacvičila speciálně pro tuto příležitost.\nPřijďte si užít jedinečnou atmosféru vánočního koncertu. Budeme sice venku, ale svařáček zahřeje... A to nejlepší....\n\n\n\n😍 VSTUPNÉ ZDARMA 😍\n\n\nTěšíme se na Vás.\n\nUž jste slyšeli naše nejnovější hity?\nPoslechněte si nás na našem youtube a sledujte naše sociální sítě!\n\n\n\n\n\nSHOT-C\nBrněnská vokální skupina, která vám představí show plnou známých hitů i vlastních skladeb.\nBěhem svého působení měli příležitost spolupracovat s umělci jako jsou Čechomor nebo Bára Basiková. Přijď se přesvědčit o tom, že i na a cappella muziku se dá skvěle zapařit.\n\n\n\"Kdysi se u piva 🍻 a limonády potkalo 5 zpěváků a 1 beatboxer 🎤, a tak vznikla vokální skupina Shot-C. Jejich žánrem je a cappella - hudba tvořena pouze pomocí hlasů 🗣️.\"\n\nKapela vystupuje na festivalech 🔥, slavnostech, trzích ❄️, ale i svatbách či firemních akcích 🥳. Pocházíme z Brna a jsme na to pyšní!",
+    "flags": []
+  },
+  {
+    "id": "2023-12-14-soukroma-akce",
+    "wpUrl": "https://www.shot-c.cz/events/soukroma-akce/",
+    "summary": "~ Soukromá akce ~",
+    "dtstart": "20231214",
+    "dtend": "20231215",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2023-12-10-vanocni-koncert-v-tisnove",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-koncert-v-tisnove/",
+    "summary": "Vánoční koncert v Tišnově",
+    "dtstart": "20231210T180000",
+    "dtend": "20231210T190000",
+    "location": "Tišnov - Náměstí Míru, Tišnov náměstí, Tišnov, Česká republika",
+    "description": "Vánoční koncert brněnské vokální skupiny Shot-C\nV neděli 10.12. v 18:00 🕕 se v Tišnově na náměstí uskuteční vánoční koncert brněnské vokální skupiny Shot-C, která vám představí show plnou známých hitů i vlastních skladeb. Premiéru zažijí vánoční písně, které kapela nacvičila speciálně pro tuto příležitost.\nPřijďte si užít jedinečnou atmosféru vánočního koncertu. Budeme sice venku, ale svařáček zahřeje... A to nejlepší....\n\n\n\n😍 VSTUPNÉ ZDARMA 😍\n\n\nTěšíme se na Vás.\n\nUž jste slyšeli naše nejnovější hity?\nPoslechněte si nás na našem youtube a sledujte naše sociální sítě!\n\n\n\n\n\nSHOT-C\nBrněnská vokální skupina, která vám představí show plnou známých hitů i vlastních skladeb.\nBěhem svého působení měli příležitost spolupracovat s umělci jako jsou Čechomor nebo Bára Basiková. Přijď se přesvědčit o tom, že i na a cappella muziku se dá skvěle zapařit.\n\n\n\"Kdysi se u piva 🍻 a limonády potkalo 5 zpěváků a 1 beatboxer 🎤, a tak vznikla vokální skupina Shot-C. Jejich žánrem je a cappella - hudba tvořena pouze pomocí hlasů 🗣️.\"\n\nKapela vystupuje na festivalech 🔥, slavnostech, trzích ❄️, ale i svatbách či firemních akcích 🥳. Pocházíme z Brna a jsme na to pyšní!",
+    "flags": []
+  },
+  {
+    "id": "2023-12-09-vanocni-koncert-v-lednici",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-koncert-v-lednici/",
+    "summary": "Vánoční koncert v Lednici",
+    "dtstart": "20231209T124000",
+    "dtend": "20231209T134000",
+    "location": "Lednice - kolonáda, Kolonada, Lednice, Česká republika",
+    "description": "Vánoční koncert brněnské vokální skupiny Shot-C\nV sobotu 9.12. v 12:40 🕧 se v Lednici na kolonádě uskuteční vánoční koncert brněnské vokální skupiny Shot-C, která vám představí show plnou známých hitů i vlastních skladeb. Premiéru zažijí vánoční písně, které kapela nacvičila speciálně pro tuto příležitost.\nPřijďte si užít jedinečnou atmosféru vánočního koncertu. Budeme sice venku, ale svařáček zahřeje... A to nejlepší....\n\n\n\n😍 VSTUPNÉ ZDARMA 😍\n\n\nTěšíme se na Vás.\n\nUž jste slyšeli naše nejnovější hity?\nPoslechněte si nás na našem youtube a sledujte naše sociální sítě!\n\n\n\n\n\nSHOT-C\nBrněnská vokální skupina, která vám představí show plnou známých hitů i vlastních skladeb.\nBěhem svého působení měli příležitost spolupracovat s umělci jako jsou Čechomor nebo Bára Basiková. Přijď se přesvědčit o tom, že i na a cappella muziku se dá skvěle zapařit.\n\n\n\"Kdysi se u piva 🍻 a limonády potkalo 5 zpěváků a 1 beatboxer 🎤, a tak vznikla vokální skupina Shot-C. Jejich žánrem je a cappella - hudba tvořena pouze pomocí hlasů 🗣️.\"\n\nKapela vystupuje na festivalech 🔥, slavnostech, trzích ❄️, ale i svatbách či firemních akcích 🥳. Pocházíme z Brna a jsme na to pyšní!",
+    "flags": []
+  },
+  {
+    "id": "2023-12-04-vanocni-koncert-na-svobodaku",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-koncert-na-svobodaku/",
+    "summary": "Vánoční koncert na Svoboďáku",
+    "dtstart": "20231204T190000",
+    "dtend": "20231204T200000",
+    "location": "Brno - náměstí Svobody, náměstí Svobody, Brno, Česká republika",
+    "description": "Vánoční koncert brněnské vokální skupiny Shot-C\nV pondělí 4.12. v 19:30 🕣 se v Brně na náměstí Svobody uskuteční vánoční koncert brněnské vokální skupiny Shot-C, která vám představí show plnou známých hitů i vlastních skladeb. Premiéru zažijí vánoční písně, které kapela nacvičila speciálně pro tuto příležitost.\nPřijďte si užít jedinečnou atmosféru vánočního koncertu. Budeme sice venku, ale svařáček zahřeje... A to nejlepší....\n\n\n\n😍 VSTUPNÉ ZDARMA 😍\n\n\nTěšíme se na Vás.\n\nBrněnské vánoce událost: https://brnenskevanoce.cz/udalost/shot-c/\n\nUž jste slyšeli naše nejnovější hity?\nPoslechněte si nás na našem youtube a sledujte naše sociální sítě!\n\n\n\n\n\nSHOT-C\nBrněnská vokální skupina, která vám představí show plnou známých hitů i vlastních skladeb.\nBěhem svého působení měli příležitost spolupracovat s umělci jako jsou Čechomor nebo Bára Basiková. Přijď se přesvědčit o tom, že i na a cappella muziku se dá skvěle zapařit.\n\n\n\"Kdysi se u piva 🍻 a limonády potkalo 5 zpěváků a 1 beatboxer 🎤, a tak vznikla vokální skupina Shot-C. Jejich žánrem je a cappella - hudba tvořena pouze pomocí hlasů 🗣️.\"\n\nKapela vystupuje na festivalech 🔥, slavnostech, trzích ❄️, ale i svatbách či firemních akcích 🥳. Pocházíme z Brna a jsme na to pyšní!",
+    "flags": []
+  },
+  {
+    "id": "2023-12-03-koncert-v-rozdrojovicich",
+    "wpUrl": "https://www.shot-c.cz/events/koncert-v-rozdrojovicich/",
+    "summary": "Vánoční koncert v Rozdrojovicích",
+    "dtstart": "20231203T183000",
+    "dtend": "20231203T193000",
+    "location": "",
+    "description": "Vánoční koncert brněnské vokální skupiny Shot-C\nV neděli 3.12. v 18:30 🕢 se v Rozdrojovicích v sále U Helánů uskuteční vánoční koncert brněnské vokální skupiny Shot-C, která vám představí show plnou známých hitů i vlastních skladeb. Premiéru zažijí vánoční písně, které kapela nacvičila speciálně pro tuto příležitost.\nBěhem svého působení měli Shot-C příležitost spolupracovat s umělci jako jsou Bára Basiková nebo Čechomor, se kterými kapela nahrála společnou píseň. Na svém kontě mají také jednu desku, která nese název Multipotenciál.\nPřijďte si užít jedinečnou atmosféru vánočního koncertu. Budeme vevnitř, takže nezmrznete, a to nejlepší....\n\n\n\n😍 VSTUPNÉ DOBROVOLNÉ 😍\n\n\nTěšíme se na Vás.\n\nFB událost: https://fb.me/e/1GmuaESyR\n\nUž jste slyšeli naše nejnovější hity?\nPoslechněte si nás na našem youtube a sledujte naše sociální sítě!\n\n\n\n\n\nSHOT-C\nBrněnská vokální skupina, která vám představí show plnou známých hitů i vlastních skladeb.\nBěhem svého působení měli příležitost spolupracovat s umělci jako jsou Čechomor nebo Bára Basiková. Přijď se přesvědčit o tom, že i na a cappella muziku se dá skvěle zapařit.\n\n\n\"Kdysi se u piva 🍻 a limonády potkalo 5 zpěváků a 1 beatboxer 🎤, a tak vznikla vokální skupina Shot-C. Jejich žánrem je a cappella - hudba tvořena pouze pomocí hlasů 🗣️.\"\n\nKapela vystupuje na festivalech 🔥, slavnostech, trzích ❄️, ale i svatbách či firemních akcích 🥳. Pocházíme z Brna a jsme na to pyšní!",
+    "flags": []
+  },
+  {
+    "id": "2023-10-13-koncert-vokalni-skupiny-brno-102023",
+    "wpUrl": "https://www.shot-c.cz/events/koncert-vokalni-skupiny-brno-102023/",
+    "summary": "Shot-C a Intonic v Brně/ a cappella koncert",
+    "dtstart": "20231013T193000",
+    "dtend": "20231013T220000",
+    "location": "",
+    "description": "@media (min-width: 768px) {\n /* Styly pro rozložení sloupců na širších obrazovkách */\n .row {\n display: flex;\n }\n \n .left-side {\n flex: 70%;\n max-width: 70%;\n padding: 20px;\n }\n .right-side {\n flex: 0 0 25%; /* 25% šířky na širších obrazovkách */\n max-width: 80%;\n padding: 20px;\n }\n }\n\n /* Styly pro mobilní verzi */\n @media (max-width: 768px) {\n .row {\n flex-direction: column !important; /* Na mobilu zobrazí sekce nad sebou */\n }\n\n .left-side, .right-side {\n width: 100%!important; /* Šířka levé a pravé sekce na mobilu */\n }\n }\n\n\nKoncert vokální skupiny v Brně\nDokonce rovnou dvou vokálních těles! Zveme vás na námi jediný pořádaný koncert tohoto roku!\nDveře otevíráme již v 19:30 🕢.\nDoufáme, že se tam potkáme a užijeme si společně akapelový nářez!\nBude to pecka, tak přijďte 😍\n\nTěšíme se na Vás.\n\nUž jste slyšeli naše nejnovější hity?\nPoslechněte si nás na našem youtube a sledujte naše sociální sítě!\n\n\n\nLístky na koncert\n\n\nPřipravte se na nezapomenutelný hudební zážitek roku! Vstupenky námi jediného pořádaného koncertu tohoto roku jsou nyní v předprodeji za pouhých 150,- Kč ✅, ale ❗pozor❗, na místě budou k dispozici za 200,- Kč 💸! Nejenže si tak můžete zajistit místo na této exkluzivní události🔝, ale také ušetřit peníze 💰.\nNechte se unést hudbou a rezervujte si svou vstupenku ještě dnes, než budou pryč 📈!\n\nLístky jsou k zakoupení skrze smsticket.\n\n\n\nO kapelách\n\n\n \n SHOT-C\n Brněnská vokální skupina, která vám představí show plnou známých hitů i vlastních skladeb.\nBěhem svého působení měli příležitost spolupracovat s umělci jako jsou Čechomor nebo\nBára Basiková. Přijď se přesvědčit o tom, že i na a cappella muziku se dá skvěle zapařit.\nKdysi se u piva 🍻 a limonády potkalo 5 zpěváků a 1 beatboxer 🎤, a tak vznikla vokální skupina Shot-C. Jejich žánrem je a cappella - hudba tvořena pouze pomocí hlasů 🗣️. Kapela vystupuje na festivalech 🔥, slavnostech, trzích ❄️, ale i svatbách či firemních akcích 🥳. Pocházíme z Brna a jsme na to pyšní!\n \n \n \n \n \n\n\n\n \n INTONIC\n Pražští Intonic zpívají především vlastní úpravy známých i neznámých písní od folku, přes pop až po jazz. V jejich hudbě uslyšíte také prvky improvizace. Skupina se v roce 2015 stala absolutním vítězem festivalu Jirkovský Písňovar a o dva roky později nahrála své první album V kostce.\nOdkaz na a cappellu Intonic.",
+    "flags": []
+  },
+  {
+    "id": "2023-09-09-palavske-vinobrani-2023",
+    "wpUrl": "https://www.shot-c.cz/events/palavske-vinobrani-2023/",
+    "summary": "Pálavské vinobraní 2023",
+    "dtstart": "20230909T180000",
+    "dtend": "20230909T184500",
+    "location": "Mikulov - náměstí, Náměstí, Mikulov, Česká republika",
+    "description": "PÁLAVSKÉ VINOBRANÍ 2023 a Shot-C\nTento rok hrajeme na Pálavském vinobraní na hlavním náměstí už od 18:00🕕.\nDoufáme, že se tam potkáme a užijeme si společně poslední letní dny! Bude to pecka, tak přijďte 😍\n\nTěšíme se na Vás.\nVstupenky k zakoupení zde: VSTUPENKY\nOdkaz na program: zde.",
+    "flags": []
+  },
+  {
+    "id": "2023-09-03-zahradni_slavnost_jungmannova",
+    "wpUrl": "https://www.shot-c.cz/events/zahradni_slavnost_jungmannova/",
+    "summary": "Zahradní slavnost ZŠ Jungmannova",
+    "dtstart": "20230903T173000",
+    "dtend": "20230903T183000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2023-08-19-drasov-2023",
+    "wpUrl": "https://www.shot-c.cz/events/drasov-2023/",
+    "summary": "Drásov 2023",
+    "dtstart": "20230819T163000",
+    "dtend": "20230819T173000",
+    "location": "",
+    "description": "Drásovské kulturní léto 2023\nV Drásově budeme hrát od 16:30🕟.\nDoufáme, že se tam potkáme a užijeme si společně skvělé letní dny! Bude to pecka, tak přijďte 😍\n\nTěšíme se na Vás.\nVstupenky k zakoupení na místě.\n150,- za jednoho, ale pro místňáky pouze za 100,-! 🤗\nOdkaz na program: zde.\n\n⚠️ A POZOR ⚠️\nJako host kapely WSEDĚ - která hraje po nás - bude Petr Čtvrtníček 🤩!",
+    "flags": []
+  },
+  {
+    "id": "2023-07-19-jakubak-2023",
+    "wpUrl": "https://www.shot-c.cz/events/jakubak-2023/",
+    "summary": "Jakubák 2023",
+    "dtstart": "20230719T203000",
+    "dtend": "20230719T213000",
+    "location": "Brno - Jakubák, Jakubské náměstí, Brno, Česká republika",
+    "description": "Festival Jakubák 2023\nKulturní léto na Jakubském náměstí\n\nO festivalu:\nPraha má svoji Náplavku, Ostrava Stodolní a Brno má svůj Jakubák. Jedinečné místo, které se nalézá v centru Brna za zády kostela Sv. Jakuba je obklopeno mnoha podniky, kde to prostě žije. I přes to, že se i letos kostel rekonstruuje – a je tedy celý zahalen lešením – to na Jakubáku bude žít kulturou. Koncerty, DJs, taneční show, akce pro děti… Kromě pravidlených akcí Jakubáku své místo náměstí poskytne již čtvrtý rok i dalším festivalům jako je Maraton hudby, Brno živě:, Serial Killer či Brasil Fest Brno.\n\nVSTUPNÉ ZDARMA\nProgram k nalezení zde.",
+    "flags": []
+  },
+  {
+    "id": "2023-06-29-vankovka-fest-2023",
+    "wpUrl": "https://www.shot-c.cz/events/vankovka-fest-2023/",
+    "summary": "Vaňkovka FEST 2023",
+    "dtstart": "20230629T190000",
+    "dtend": "20230629T200000",
+    "location": "Brno - Vaňkovka, Vaňkovnka, Brno, Česká republika",
+    "description": "VAŇKOVKA FEST 2023\nVaňkovka Fest je multižánrový kulturní festival, který se koná v jedinečném prostředí bývalé jeřábové dráhy mezi Galerií Vaňkovka a Fait Gallery v období červen-červenec.\nVSTUP ZDARMA!\nProgram k nalezení zde.",
+    "flags": []
+  },
+  {
+    "id": "2023-05-27-soutez-ve-vareni-gulase",
+    "wpUrl": "https://www.shot-c.cz/events/soutez-ve-vareni-gulase/",
+    "summary": "Soutěž ve vaření guláše",
+    "dtstart": "20230527T133000",
+    "dtend": "20230527T141500",
+    "location": "Kuřim - zámek, zámek, Kuřim, Česká republika",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2023-04-09-velikonocni-jarmark-v-lednici",
+    "wpUrl": "https://www.shot-c.cz/events/velikonocni-jarmark-v-lednici/",
+    "summary": "Velikonoční jarmark v Lednici",
+    "dtstart": "20230409T160000",
+    "dtend": "20230409T164500",
+    "location": "Lednice - kolonáda, Kolonada, Lednice, Česká republika",
+    "description": "Velikonoční jarmark s programem pro celou rodinu na lázeňské kolonádě v Lednici.",
+    "flags": []
+  },
+  {
+    "id": "2023-02-11-nadacni-fond-vrba-ples",
+    "wpUrl": "https://www.shot-c.cz/events/nadacni-fond-vrba-ples/",
+    "summary": "Nadační fond Vrba - ples",
+    "dtstart": "20230211T200000",
+    "dtend": "20230211T210000",
+    "location": "Nedvědice - Sokolovna, Nedvědice 169, Nedvědice, Česká republika",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2022-12-19-vanocni-trhy-hodonin",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-trhy-hodonin/",
+    "summary": "Vánoční trhy Hodonín",
+    "dtstart": "20221219T190000",
+    "dtend": "20221219T200000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2022-12-13-vanocni-trhy-brno",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-trhy-brno/",
+    "summary": "Vánoční trhy Brno",
+    "dtstart": "20221213T180000",
+    "dtend": "20221213T190000",
+    "location": "Brno - náměstí Svobody, náměstí Svobody, Brno, Česká republika",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2022-12-11-vanocni-trhy-znojmo",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-trhy-znojmo/",
+    "summary": "Vánoční trhy Znojmo",
+    "dtstart": "20221211T160000",
+    "dtend": "20221211T170000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2022-12-11-vanocni-trhy-mikulov",
+    "wpUrl": "https://www.shot-c.cz/events/vanocni-trhy-mikulov/",
+    "summary": "Vánoční trhy Mikulov",
+    "dtstart": "20221211T110000",
+    "dtend": "20221211T120000",
+    "location": "",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2022-12-07-talk-show-postel-hospoda-kostel",
+    "wpUrl": "https://www.shot-c.cz/events/talk-show-postel-hospoda-kostel/",
+    "summary": "Talk show - Postel hospoda kostel",
+    "dtstart": "20221207T170000",
+    "dtend": "20221207T180000",
+    "location": "Kuřim - Kulturní dům, nám. Osvobození 902/1, Kuřim, Česká republika, 66434, Česká republika",
+    "description": "Info k talk show:\n\nTalk show kněze Zbigniewa Czendlika. Obsahem talk show Postel hospoda kostel je vyprávění příběhů ze života osobního, kněžského i jiného...podané humorem jemu vlastním. V průběhu 90 minut se tak dotýká mimo jiné problematiky současného světa, s čímž se rád s diváky otevřeně podělí.",
+    "flags": []
+  },
+  {
+    "id": "2022-10-28-tisnov-plesa",
+    "wpUrl": "https://www.shot-c.cz/events/tisnov-plesa/",
+    "summary": "Tišnov Plesá",
+    "dtstart": "20221028T230000",
+    "dtend": "20221028T234500",
+    "location": "Tišnov - Sokolovna, Riegrova, Tišnov, Česká republika",
+    "description": "",
+    "flags": []
+  },
+  {
+    "id": "2022-09-14-brno-modni-prehlidka",
+    "wpUrl": "https://www.shot-c.cz/events/brno-modni-prehlidka/",
+    "summary": "Brno - Módní přehlídka",
+    "dtstart": "20220914T180000",
+    "dtend": "20220914T193000",
+    "location": "",
+    "description": "Módní přehlídka návrhářek\nObohatíme program módní přehlídky tří návrhářek, kterými jsou:\n\n\n Mela\n Gábina Páralová\n Pavla Francová\n\nMísto konaní: V opatství Mendlovo náměstí\n\nVstupné je 500,-\nRezervace na tel. čísle: 722014132\n\nTěšíme se na Vás, bude to zajímavé ve všech ohledech!",
+    "flags": []
+  },
+  {
+    "id": "2022-09-10-palavske-vinobrani-2022-shot-c",
+    "wpUrl": "https://www.shot-c.cz/events/palavske-vinobrani-2022-shot-c/",
+    "summary": "Pálavské vinobraní 2022 - Shot–C",
+    "dtstart": "20220910T160000",
+    "dtend": "20220910T173000",
+    "location": "Mikulov - Lormovo náměstí, Lormovo náměstí, Mikulov, Česká republika",
+    "description": "Vstupenky zde\nMikulov - město s vůni jihu vás zve\nna Pálavské vinobraní 9. - 11. 9. 2022\n\nPálavské vinobraní se pravidelně koná druhý zářijový víkend. Na milovníky vybraných kulinářských lahůdek, dobrého pití a kultury čekají tři dny bujarého veselí s rozmanitým programem. Kromě tradičního folkloru, který je s vínem na jižní Moravě spjatý, nabízí organizátoři také koncerty populárních kapel různých žánrů, dechových hudeb i cimbálových muzik.",
+    "flags": []
+  },
+  {
+    "id": "2022-09-10-skolime-koliste-shot-c",
+    "wpUrl": "https://www.shot-c.cz/events/skolime-koliste-shot-c/",
+    "summary": "Skolíme koliště - Shot–C",
+    "dtstart": "20220910T120000",
+    "dtend": "20220910T130000",
+    "location": "Brno - Janáčkovo divadlo (před divadlem), Rooseveltova 31/7,  , Brno-město, 60200, Česká republika",
+    "description": "O události\nBěžecký festival Skolíme Koliště se uskuteční 10. 9. 2022 v parku Koliště u Janáčkova divadla v Brně. První závod začíná ve 13:45. Běžíme na podporu Sociálního nadačního fondu. Akce se koná pod záštitou primátorky statutárního města Brna JUDr. Markéty Vaňkové\na starosty městské části Brno-střed Ing. arch. Vojtěcha Mencla.",
+    "flags": []
+  },
+  {
+    "id": "2022-08-28-veverska-bityska-shot-c",
+    "wpUrl": "https://www.shot-c.cz/events/veverska-bityska-shot-c/",
+    "summary": "Veverská Bítýška - Shot–C",
+    "dtstart": "20220828T140000",
+    "dtend": "20220828T150000",
+    "location": "Veverská Bítýška - Na Ostrůvku, Sady Komenského 383, Veverská Bítýška, Česká republika",
+    "description": "Shot–C podruhé ve Veverské Bítýšce\nPokud jste se na nás byli podívat minulý rok na dnech města, nemusíte se bát.\nMáme připravené nové písničky!\n\n\nVstupné zdarma!\n\nOficiální akce: veverskabityska.cz",
+    "flags": []
+  },
+  {
+    "id": "2022-08-06-central-european-jamboree-2022",
+    "wpUrl": "https://www.shot-c.cz/events/central-european-jamboree-2022/",
+    "summary": "Central European Jamboree 2022 - Shot–C",
+    "dtstart": "20220806T210000",
+    "dtend": "20220806T220000",
+    "location": "Praha - Výstaviště Holešovice, Výstaviště Holešovice, Praha, Česká republika",
+    "description": "Shot-C na mezinárodní skautské akci CEJ\nMůžete se těšit jak na známé písničky, tak na naše originály.\nCentral European Jamboree je velká mezinárodní akce, která inspiruje mladé lidi a propojuje skauty nejen z Evropy, ale z celého světa.\n\n\nRegistrace možná zde\n\nMapa, jak se dostanete ke vstupu:\n\n\n\nOfiko akce: https://cej2022.cz/about-the-event-en/\n\n\n\nKdo jsme?\nVokální skupina SHOT-C je tvořena šesti mladými muzikanty z Brna, jejichž žánrem je “a cappella” - hudba tvořena jen hlasy a beatboxem.\n\n\n „Jsme šestičlennou brněnskou vokální skupinou. Vystupujeme běžně na festivalech, firemních večírcích i soukromých akcích. Mimo to pořádáme vlastní koncerty, často ve spolupráci s dalšími českými a cappella uskupeními.“",
+    "flags": []
+  }
+]
