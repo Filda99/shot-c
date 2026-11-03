@@ -1,0 +1,513 @@
+[
+  {
+    "id": "2026-12-19-blansko",
+    "start": "2026-12-19T15:30:00+01:00",
+    "end": "2026-12-19T16:30:00+01:00",
+    "title": "Blansko"
+  },
+  {
+    "id": "2026-12-12-breclav",
+    "start": "2026-12-12T16:30:00+01:00",
+    "end": "2026-12-12T17:30:00+01:00",
+    "title": "Břeclav"
+  },
+  {
+    "id": "2026-12-05-jedovnice",
+    "start": "2026-12-05T16:00:00+01:00",
+    "end": "2026-12-05T17:00:00+01:00",
+    "title": "Jedovnice"
+  },
+  {
+    "id": "2026-12-04-olomouc-soukroma-akce",
+    "start": "2026-12-04T19:30:00+01:00",
+    "end": "2026-12-04T20:30:00+01:00",
+    "title": "Olomouc – soukromá akce"
+  },
+  {
+    "id": "2026-11-15-praha-koncert-s-a-cappellou-intonic",
+    "start": "2026-11-15T17:00:00+01:00",
+    "end": "2026-11-15T18:00:00+01:00",
+    "title": "Praha – koncert s a cappellou Intonic"
+  },
+  {
+    "id": "2026-09-18-kurim-oslavy-800-let-kurimi",
+    "start": "2026-09-18T00:00:00+02:00",
+    "end": "2026-09-18T23:59:59+02:00",
+    "allDay": true,
+    "title": "Kuřim – OSLAVY 800 LET KUŘIMI"
+  },
+  {
+    "id": "2026-09-11-brno-festival-ruku-v-ruce-moravske-nam",
+    "start": "2026-09-11T00:00:00+02:00",
+    "end": "2026-09-11T23:59:59+02:00",
+    "allDay": true,
+    "title": "Brno – festival Ruku v ruce – Moravské nám."
+  },
+  {
+    "id": "2026-07-18-nepomysl",
+    "start": "2026-07-18T00:00:00+02:00",
+    "end": "2026-07-18T23:59:59+02:00",
+    "allDay": true,
+    "title": "Nepomyšl"
+  },
+  {
+    "id": "2026-07-14-poslech-brno",
+    "start": "2026-07-14T00:00:00+02:00",
+    "end": "2026-07-14T23:59:59+02:00",
+    "allDay": true,
+    "title": "Poslech Brno"
+  },
+  {
+    "id": "2026-06-14-pohorelice",
+    "start": "2026-06-14T00:00:00+02:00",
+    "end": "2026-06-14T23:59:59+02:00",
+    "allDay": true,
+    "title": "Pohořelice"
+  },
+  {
+    "id": "2026-06-13-hudba-na-kolech",
+    "start": "2026-06-13T00:00:00+02:00",
+    "end": "2026-06-13T23:59:59+02:00",
+    "allDay": true,
+    "title": "Hudba na kolech"
+  },
+  {
+    "id": "2026-05-27-soukroma-akce-2",
+    "start": "2026-05-27T15:00:00+02:00",
+    "end": "2026-05-27T17:00:00+02:00",
+    "title": "Soukromá akce"
+  },
+  {
+    "id": "2026-05-14-kurim-sportovec-roku",
+    "start": "2026-05-14T19:00:00+02:00",
+    "end": "2026-05-14T21:00:00+02:00",
+    "title": "Kuřim – Sportovec roku"
+  },
+  {
+    "id": "2026-04-23-opava",
+    "start": "2026-04-23T00:00:00+02:00",
+    "end": "2026-04-23T23:59:59+02:00",
+    "allDay": true,
+    "title": "Opava",
+    "url": "https://www.facebook.com/events/1208305284800661"
+  },
+  {
+    "id": "2026-01-24-praha-s-acappellou-choirizzo",
+    "start": "2026-01-24T00:00:00+01:00",
+    "end": "2026-01-24T23:59:59+01:00",
+    "allDay": true,
+    "title": "Praha s acappellou Choirizzo"
+  },
+  {
+    "id": "2025-12-21-vanocni-koncert-blansko",
+    "start": "2025-12-21T17:30:00+01:00",
+    "end": "2025-12-21T18:30:00+01:00",
+    "title": "Vánoční koncert Blansko"
+  },
+  {
+    "id": "2025-12-20-vanocni-koncert-brno-svobodak",
+    "start": "2025-12-20T15:00:00+01:00",
+    "end": "2025-12-20T16:00:00+01:00",
+    "title": "Vánoční koncert Brno Svoboďák"
+  },
+  {
+    "id": "2025-12-04-vanocni-koncert-zlin",
+    "start": "2025-12-04T19:00:00+01:00",
+    "end": "2025-12-04T20:00:00+01:00",
+    "title": "Vánoční koncert Zlín",
+    "url": "https://zivyzlin.enigoo.cz/app/tickets/events/200"
+  },
+  {
+    "id": "2025-11-28-2718",
+    "start": "2025-11-28T00:00:00+01:00",
+    "end": "2025-11-28T23:59:59+01:00",
+    "allDay": true,
+    "title": "/firemní akce/"
+  },
+  {
+    "id": "2025-11-08-koncert-v-mikulove",
+    "start": "2025-11-08T13:30:00+01:00",
+    "end": "2025-11-08T14:30:00+01:00",
+    "title": "Koncert v Mikulově"
+  },
+  {
+    "id": "2025-10-19-praha-narodni-dum-na-vinohradech-w-big-band",
+    "start": "2025-10-19T18:00:00+02:00",
+    "end": "2025-10-19T20:00:00+02:00",
+    "title": "Praha Národní dům na Vinohradech – Golden Big Band Prague w/ Shot-C"
+  },
+  {
+    "id": "2025-09-12-brno-u-josta",
+    "start": "2025-09-12T18:15:00+02:00",
+    "end": "2025-09-12T19:00:00+02:00",
+    "title": "Brno u Jošta – Ruku v ruce"
+  },
+  {
+    "id": "2025-07-20-jablonec",
+    "start": "2025-07-20T15:00:00+02:00",
+    "end": "2025-07-20T16:30:00+02:00",
+    "title": "Jablonec"
+  },
+  {
+    "id": "2025-06-12-rock-for-people-2025",
+    "start": "2025-06-12T18:10:00+02:00",
+    "end": "2025-06-12T19:10:00+02:00",
+    "title": "Rock For People 2025"
+  },
+  {
+    "id": "2025-06-07-lednice-hudba-na-kole",
+    "start": "2025-06-07T10:00:00+02:00",
+    "end": "2025-06-07T17:00:00+02:00",
+    "title": "Lednice – Hudba na kole",
+    "venue": "Lednice – Apollónův chrám"
+  },
+  {
+    "id": "2025-05-30-brno-poslech-bar-w-choirizzo",
+    "start": "2025-05-30T19:30:00+02:00",
+    "end": "2025-05-30T20:30:00+02:00",
+    "title": "Brno Poslech bar w. Choirizzo"
+  },
+  {
+    "id": "2025-05-24-kurimsky-gulmen-gulasfest",
+    "start": "2025-05-24T13:30:00+02:00",
+    "end": "2025-05-24T14:30:00+02:00",
+    "title": "Kuřimský Gulmen – GulášFest"
+  },
+  {
+    "id": "2025-04-24-saty-pro-krtka",
+    "start": "2025-04-24T19:00:00+02:00",
+    "end": "2025-04-24T21:00:00+02:00",
+    "title": "Šaty pro KRTKA",
+    "venue": "Brno – KC BABYLON"
+  },
+  {
+    "id": "2025-03-24-cesky-rozhlas-brno-zive-vysilani",
+    "start": "2025-03-24T11:00:00+01:00",
+    "end": "2025-03-24T12:00:00+01:00",
+    "title": "Český rozhlas Brno (živé vysílání)"
+  },
+  {
+    "id": "2025-03-20-hodonin",
+    "start": "2025-03-20T19:00:00+01:00",
+    "end": "2025-03-20T21:00:00+01:00",
+    "title": "Hodonín"
+  },
+  {
+    "id": "2025-03-14-tisnov-plesa-2",
+    "start": "2025-03-14T00:00:00+01:00",
+    "end": "2025-03-14T23:59:59+01:00",
+    "allDay": true,
+    "title": "Tišnov Plesá",
+    "venue": "Tišnov – Sokolovna"
+  },
+  {
+    "id": "2025-03-07-holic-slovensko",
+    "start": "2025-03-07T16:30:00+01:00",
+    "end": "2025-03-07T17:30:00+01:00",
+    "title": "Holíč (Slovensko)"
+  },
+  {
+    "id": "2025-01-30-fosfa-sport-lednice",
+    "start": "2025-01-30T15:00:00+01:00",
+    "end": "2025-01-30T16:00:00+01:00",
+    "title": "FOSFA sport Lednice"
+  },
+  {
+    "id": "2024-12-18-koncert-na-svobodaku",
+    "start": "2024-12-18T19:00:00+01:00",
+    "end": "2024-12-18T20:00:00+01:00",
+    "title": "Koncert na Svoboďáku",
+    "venue": "Brno – náměstí Svobody"
+  },
+  {
+    "id": "2024-12-08-vanocni-jarmark-v-hodonine",
+    "start": "2024-12-08T16:00:00+01:00",
+    "end": "2024-12-08T17:00:00+01:00",
+    "title": "Vánoční jarmark v Hodoníně",
+    "venue": "Hodonín náměstí"
+  },
+  {
+    "id": "2024-12-06-slavnostni-vecer-jmk-a-mesta-brna",
+    "start": "2024-12-06T17:00:00+01:00",
+    "end": "2024-12-06T18:15:00+01:00",
+    "title": "Slavnostní večer JMK a města Brna"
+  },
+  {
+    "id": "2024-12-04-koncert-ve-zline",
+    "start": "2024-12-04T19:00:00+01:00",
+    "end": "2024-12-04T20:00:00+01:00",
+    "title": "Koncert ve Zlíně",
+    "venue": "Zlín – Zámek"
+  },
+  {
+    "id": "2024-11-30-koncert-v-moravske-trebove",
+    "start": "2024-11-30T17:30:00+01:00",
+    "end": "2024-11-30T18:30:00+01:00",
+    "title": "Koncert v Moravské Třebové",
+    "venue": "Moravská Třebová – Náměstí"
+  },
+  {
+    "id": "2024-09-21-beneficni-koncert-brno",
+    "start": "2024-09-21T00:00:00+02:00",
+    "end": "2024-09-21T23:59:59+02:00",
+    "allDay": true,
+    "title": "Benefiční koncert Brno"
+  },
+  {
+    "id": "2024-09-07-palavske-vinobrani-2024",
+    "start": "2024-09-07T18:15:00+02:00",
+    "end": "2024-09-07T19:15:00+02:00",
+    "title": "Pálavské vinobraní",
+    "venue": "Mikulov – náměstí",
+    "url": "https://palavske-vinobrani.cz/program/sobota"
+  },
+  {
+    "id": "2024-09-06-singletrailfest-jedovnice",
+    "start": "2024-09-06T19:30:00+02:00",
+    "end": "2024-09-06T20:30:00+02:00",
+    "title": "SingleTrailFest Jedovnice",
+    "venue": "Jedovnice – Single Trail",
+    "url": "https://www.facebook.com/events/1252387242687472"
+  },
+  {
+    "id": "2024-08-17-dny-mesta-plasy",
+    "start": "2024-08-17T14:15:00+02:00",
+    "end": "2024-08-17T15:15:00+02:00",
+    "title": "Dny města Plasy"
+  },
+  {
+    "id": "2024-08-10-dny-obce-lubenec",
+    "start": "2024-08-10T15:30:00+02:00",
+    "end": "2024-08-10T16:30:00+02:00",
+    "title": "Dny obce Lubenec"
+  },
+  {
+    "id": "2024-07-03-uprostred-brno",
+    "start": "2024-07-03T19:00:00+02:00",
+    "end": "2024-07-03T20:00:00+02:00",
+    "title": "Uprostřed – Brno",
+    "url": "https://festivaluprostred.cz/program/shot-c/"
+  },
+  {
+    "id": "2024-06-22-festival-slunovrat-opava",
+    "start": "2024-06-22T14:00:00+02:00",
+    "end": "2024-06-22T14:45:00+02:00",
+    "title": "Festival Slunovrat – Opava"
+  },
+  {
+    "id": "2024-06-20-poslech-music-bar-brno",
+    "start": "2024-06-20T00:00:00+02:00",
+    "end": "2024-06-20T23:59:59+02:00",
+    "allDay": true,
+    "title": "Poslech music bar Brno"
+  },
+  {
+    "id": "2024-06-19-galavecer-brno",
+    "start": "2024-06-19T18:00:00+02:00",
+    "end": "2024-06-19T20:00:00+02:00",
+    "title": "Galavečer Brno"
+  },
+  {
+    "id": "2024-05-25-gulasfest-kurim",
+    "start": "2024-05-25T13:00:00+02:00",
+    "end": "2024-05-25T14:00:00+02:00",
+    "title": "GulášFest Kuřim"
+  },
+  {
+    "id": "2024-05-24-2415",
+    "start": "2024-05-24T00:00:00+02:00",
+    "end": "2024-05-24T23:59:59+02:00",
+    "allDay": true,
+    "title": "Akce (název neuveden)"
+  },
+  {
+    "id": "2024-02-25-schokoladefest-wien-2024",
+    "start": "2024-02-25T14:00:00+01:00",
+    "end": "2024-02-25T17:00:00+01:00",
+    "title": "SchokoladeFest Wien 2024",
+    "venue": "Wien – MARX HALLE"
+  },
+  {
+    "id": "2023-12-16-vanocni-koncert-ve-znojme",
+    "start": "2023-12-16T16:00:00+01:00",
+    "end": "2023-12-16T17:00:00+01:00",
+    "title": "Vánoční koncert ve Znojmě"
+  },
+  {
+    "id": "2023-12-16-vanocni-koncert-v-pohorelicich",
+    "start": "2023-12-16T13:00:00+01:00",
+    "end": "2023-12-16T14:00:00+01:00",
+    "title": "Vánoční koncert v Pohořelicích",
+    "venue": "Pohořelice – Hudební ateliér Mgr. Pavla Kratochvíla"
+  },
+  {
+    "id": "2023-12-14-soukroma-akce",
+    "start": "2023-12-14T00:00:00+01:00",
+    "end": "2023-12-14T23:59:59+01:00",
+    "allDay": true,
+    "title": "~ Soukromá akce ~"
+  },
+  {
+    "id": "2023-12-10-vanocni-koncert-v-tisnove",
+    "start": "2023-12-10T18:00:00+01:00",
+    "end": "2023-12-10T19:00:00+01:00",
+    "title": "Vánoční koncert v Tišnově",
+    "venue": "Tišnov – Náměstí Míru"
+  },
+  {
+    "id": "2023-12-09-vanocni-koncert-v-lednici",
+    "start": "2023-12-09T12:40:00+01:00",
+    "end": "2023-12-09T13:40:00+01:00",
+    "title": "Vánoční koncert v Lednici",
+    "venue": "Lednice – kolonáda"
+  },
+  {
+    "id": "2023-12-04-vanocni-koncert-na-svobodaku",
+    "start": "2023-12-04T19:00:00+01:00",
+    "end": "2023-12-04T20:00:00+01:00",
+    "title": "Vánoční koncert na Svoboďáku",
+    "venue": "Brno – náměstí Svobody",
+    "url": "https://brnenskevanoce.cz/udalost/shot-c/"
+  },
+  {
+    "id": "2023-12-03-koncert-v-rozdrojovicich",
+    "start": "2023-12-03T18:30:00+01:00",
+    "end": "2023-12-03T19:30:00+01:00",
+    "title": "Vánoční koncert v Rozdrojovicích",
+    "url": "https://fb.me/e/1GmuaESyR"
+  },
+  {
+    "id": "2023-10-13-koncert-vokalni-skupiny-brno-102023",
+    "start": "2023-10-13T19:30:00+02:00",
+    "end": "2023-10-13T22:00:00+02:00",
+    "title": "Shot-C a Intonic v Brně/ a cappella koncert"
+  },
+  {
+    "id": "2023-09-09-palavske-vinobrani-2023",
+    "start": "2023-09-09T18:00:00+02:00",
+    "end": "2023-09-09T18:45:00+02:00",
+    "title": "Pálavské vinobraní 2023",
+    "venue": "Mikulov – náměstí"
+  },
+  {
+    "id": "2023-09-03-zahradni_slavnost_jungmannova",
+    "start": "2023-09-03T17:30:00+02:00",
+    "end": "2023-09-03T18:30:00+02:00",
+    "title": "Zahradní slavnost ZŠ Jungmannova"
+  },
+  {
+    "id": "2023-08-19-drasov-2023",
+    "start": "2023-08-19T16:30:00+02:00",
+    "end": "2023-08-19T17:30:00+02:00",
+    "title": "Drásov 2023"
+  },
+  {
+    "id": "2023-07-19-jakubak-2023",
+    "start": "2023-07-19T20:30:00+02:00",
+    "end": "2023-07-19T21:30:00+02:00",
+    "title": "Jakubák 2023",
+    "venue": "Brno – Jakubák"
+  },
+  {
+    "id": "2023-06-29-vankovka-fest-2023",
+    "start": "2023-06-29T19:00:00+02:00",
+    "end": "2023-06-29T20:00:00+02:00",
+    "title": "Vaňkovka FEST 2023",
+    "venue": "Brno – Vaňkovka"
+  },
+  {
+    "id": "2023-05-27-soutez-ve-vareni-gulase",
+    "start": "2023-05-27T13:30:00+02:00",
+    "end": "2023-05-27T14:15:00+02:00",
+    "title": "Soutěž ve vaření guláše",
+    "venue": "Kuřim – zámek"
+  },
+  {
+    "id": "2023-04-09-velikonocni-jarmark-v-lednici",
+    "start": "2023-04-09T16:00:00+02:00",
+    "end": "2023-04-09T16:45:00+02:00",
+    "title": "Velikonoční jarmark v Lednici",
+    "venue": "Lednice – kolonáda"
+  },
+  {
+    "id": "2023-02-11-nadacni-fond-vrba-ples",
+    "start": "2023-02-11T20:00:00+01:00",
+    "end": "2023-02-11T21:00:00+01:00",
+    "title": "Nadační fond Vrba – ples",
+    "venue": "Nedvědice – Sokolovna"
+  },
+  {
+    "id": "2022-12-19-vanocni-trhy-hodonin",
+    "start": "2022-12-19T19:00:00+01:00",
+    "end": "2022-12-19T20:00:00+01:00",
+    "title": "Vánoční trhy Hodonín"
+  },
+  {
+    "id": "2022-12-13-vanocni-trhy-brno",
+    "start": "2022-12-13T18:00:00+01:00",
+    "end": "2022-12-13T19:00:00+01:00",
+    "title": "Vánoční trhy Brno",
+    "venue": "Brno – náměstí Svobody"
+  },
+  {
+    "id": "2022-12-11-vanocni-trhy-znojmo",
+    "start": "2022-12-11T16:00:00+01:00",
+    "end": "2022-12-11T17:00:00+01:00",
+    "title": "Vánoční trhy Znojmo"
+  },
+  {
+    "id": "2022-12-11-vanocni-trhy-mikulov",
+    "start": "2022-12-11T11:00:00+01:00",
+    "end": "2022-12-11T12:00:00+01:00",
+    "title": "Vánoční trhy Mikulov"
+  },
+  {
+    "id": "2022-12-07-talk-show-postel-hospoda-kostel",
+    "start": "2022-12-07T17:00:00+01:00",
+    "end": "2022-12-07T18:00:00+01:00",
+    "title": "Talk show – Postel hospoda kostel",
+    "venue": "Kuřim – Kulturní dům"
+  },
+  {
+    "id": "2022-10-28-tisnov-plesa",
+    "start": "2022-10-28T23:00:00+02:00",
+    "end": "2022-10-28T23:45:00+02:00",
+    "title": "Tišnov Plesá",
+    "venue": "Tišnov – Sokolovna"
+  },
+  {
+    "id": "2022-09-14-brno-modni-prehlidka",
+    "start": "2022-09-14T18:00:00+02:00",
+    "end": "2022-09-14T19:30:00+02:00",
+    "title": "Brno – Módní přehlídka"
+  },
+  {
+    "id": "2022-09-10-palavske-vinobrani-2022-shot-c",
+    "start": "2022-09-10T16:00:00+02:00",
+    "end": "2022-09-10T17:30:00+02:00",
+    "title": "Pálavské vinobraní 2022 – Shot–C",
+    "venue": "Mikulov – Lormovo náměstí"
+  },
+  {
+    "id": "2022-09-10-skolime-koliste-shot-c",
+    "start": "2022-09-10T12:00:00+02:00",
+    "end": "2022-09-10T13:00:00+02:00",
+    "title": "Skolíme koliště – Shot–C",
+    "venue": "Brno – Janáčkovo divadlo (před divadlem)"
+  },
+  {
+    "id": "2022-08-28-veverska-bityska-shot-c",
+    "start": "2022-08-28T14:00:00+02:00",
+    "end": "2022-08-28T15:00:00+02:00",
+    "title": "Veverská Bítýška – Shot–C",
+    "venue": "Veverská Bítýška – Na Ostrůvku"
+  },
+  {
+    "id": "2022-08-06-central-european-jamboree-2022",
+    "start": "2022-08-06T21:00:00+02:00",
+    "end": "2022-08-06T22:00:00+02:00",
+    "title": "Central European Jamboree 2022 – Shot–C",
+    "venue": "Praha – Výstaviště Holešovice",
+    "url": "https://cej2022.cz/about-the-event-en/"
+  }
+]
