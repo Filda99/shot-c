@@ -34,7 +34,8 @@ node tests/events.test.js
 | `docs/import/IMPORT_NOTES.md` | Poznámky k importu ze starého webu |
 | `docs/import/wp-events-archive.json` | Surový export 75 akcí z WordPressu (popisy, adresy) |
 | `docs/import/wp-posts-archive.json` | Archiv 25 starých příspěvků blogu (2019–2020), na webu se nezobrazují |
-| `.nojekyll`, `robots.txt` | Pro GitHub Pages / roboty (bez řádku Sitemap, doména zatím není určena) |
+| `.nojekyll`, `robots.txt`, `CNAME` | Pro GitHub Pages / roboty (doména `shot-c.cz`; `/novy-web/` je pro roboty zakázaný) |
+| `novy-web/` | Nástřel nového webu k albu Originalno, dostupný na https://shot-c.cz/novy-web/ (samostatný, relativní cesty, vlastní kopie `data/events.json`) |
 
 ## Jak přidat koncert
 
@@ -77,4 +78,9 @@ Na stránce lze "nastavit hodiny": `/?now=2026-11-15T17:30:00+01:00` (nebo `wind
 
 ## Nasazení
 
-Zatím nenastaveno (GitHub Pages, DNS ani soubor `CNAME` nejsou součástí). Při nasazení určete kanonickou doménu a pak doplňte `CNAME`, absolutní `og:image`/`og:url`/`canonical` a případně `Sitemap:` v `robots.txt`.
+GitHub Pages z větve `main`, složka `/ (root)`, vlastní doména `shot-c.cz` (soubor `CNAME`).
+
+- Starý web: https://shot-c.cz/
+- Nový web (nástřel): https://shot-c.cz/novy-web/ (má `noindex`, aby ho vyhledávače zatím neindexovaly)
+
+Koncerty jsou zatím ve dvou kopiích (`data/events.json` a `novy-web/data/events.json`). Až nový web nahradí starý, přesune se obsah `novy-web/` do kořene.
