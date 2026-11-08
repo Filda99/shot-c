@@ -231,52 +231,27 @@ button { font: inherit; color: inherit; }
 .section { padding: clamp(64px, 10vw, 120px) 0; }
 .section--dark { background: var(--ink); color: #fff; }
 
-/* O nás: půl fotka, půl text */
-.bio { display: grid; grid-template-columns: 1fr 1fr; min-height: 640px; background: var(--ink); color: #fff; }
+/* O nás: půl fotka, půl text (světlé, aby se nespojilo s tmavým kontaktem) */
+.bio { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; background: var(--bg-tint); }
 .bio__photo {
   position: relative; display: grid; place-items: center;
   background:
-    linear-gradient(90deg, transparent 55%, var(--ink)),
+    linear-gradient(90deg, transparent 60%, var(--bg-tint)),
     linear-gradient(135deg, var(--c1), var(--c4) 35%, var(--c3) 65%, var(--c2));
-  color: rgba(255,255,255,.75); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.8); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
 }
 .bio__text { align-self: center; padding: clamp(48px, 7vw, 96px) clamp(20px, 6vw, 96px); max-width: 640px; }
-.bio__text .title { color: #fff; letter-spacing: .14em; margin-bottom: 28px; }
-.bio__text p { margin: 0 0 1em; color: rgba(255,255,255,.85); }
-.bio__lead { font-size: 1.3rem; line-height: 1.5; color: #fff !important; font-weight: 500; }
-.bio .btn--line { color: #fff; margin-top: 12px; }
-.bio .btn--line:hover { background: #fff; color: var(--ink); }
-.bio__icons { margin-top: 28px; margin-left: -10px; }
-.bio__icons a:hover { background: rgba(255,255,255,.1); }
+.bio__text .title { letter-spacing: .14em; margin-bottom: 28px; }
+.bio__text p { margin: 0 0 1em; }
+.bio__lead { font-size: 1.3rem; line-height: 1.5; font-weight: 500; }
+.bio__icons { margin-top: 20px; margin-left: -10px; }
+.bio__icons a:hover { background: rgba(0,0,0,.06); }
 @media (max-width: 860px) {
   .bio { grid-template-columns: 1fr; min-height: 0; }
   .bio__photo { aspect-ratio: 4 / 3; background:
-    linear-gradient(180deg, transparent 55%, var(--ink)),
+    linear-gradient(180deg, transparent 60%, var(--bg-tint)),
     linear-gradient(135deg, var(--c1), var(--c4) 35%, var(--c3) 65%, var(--c2)); }
 }
-
-/* Členové */
-.section--members { padding-top: clamp(48px, 7vw, 80px); padding-bottom: clamp(48px, 7vw, 80px); }
-.members { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; }
-.member { --c: var(--c1); }
-.member--2 { --c: var(--c2); }
-.member--3 { --c: var(--c3); }
-.member--4 { --c: var(--c4); }
-.member--5 { --c: var(--c5); }
-.member--6 { --c: var(--c6); }
-.member__photo {
-  aspect-ratio: 3 / 4;
-  display: grid; place-items: center;
-  background: var(--c);
-  color: rgba(255,255,255,.7);
-  font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
-  transition: transform .25s;
-}
-.member:hover .member__photo { transform: translateY(-4px) rotate(-1.5deg); }
-.member h3 { margin-top: 14px; font: 700 1.0625rem/1.25 var(--font-head); text-transform: uppercase; letter-spacing: .04em; }
-.member h3 span { color: var(--muted); font-weight: 500; }
-.member p { margin: 6px 0 0; font: 500 .75rem/1 var(--font-head); letter-spacing: .18em; text-transform: uppercase; color: var(--c); }
-.member--5 p { color: #A97A0E; } /* hořčice je na světlém pozadí málo čitelná */
 
 /* Koncerty: řádek s datem v rámečku */
 .gigs { margin-bottom: 40px; }
@@ -398,12 +373,15 @@ button { font: inherit; color: inherit; }
 .dl--todo { opacity: .55; pointer-events: none; }
 
 /* Instagram pás */
-.insta { padding: 0 0 clamp(48px, 7vw, 80px); text-align: center; }
+.insta { padding: clamp(56px, 8vw, 96px) 0 0; text-align: center; }
 .insta__title { font: 700 clamp(1.25rem, 3vw, 1.75rem)/1.2 var(--font-head); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 24px; padding: 0 20px; }
 .insta__title a { text-decoration: none; }
 .insta__title span { display: block; margin-top: 6px; font: 500 .9375rem/1 var(--font-body); letter-spacing: 0; text-transform: none; color: var(--muted); }
 .insta__row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
-.insta__row li { aspect-ratio: 1; }
+.insta__row li { aspect-ratio: 1; overflow: hidden; }
+.insta__row a { display: block; height: 100%; }
+.insta__row img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.insta__row a:hover img { transform: scale(1.05); }
 .insta__row li:nth-child(1) { background: var(--c1); } .insta__row li:nth-child(2) { background: var(--c2); }
 .insta__row li:nth-child(3) { background: var(--c3); } .insta__row li:nth-child(4) { background: var(--c4); }
 .insta__row li:nth-child(5) { background: var(--c5); } .insta__row li:nth-child(6) { background: var(--c6); }

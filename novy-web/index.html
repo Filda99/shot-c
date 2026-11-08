@@ -79,48 +79,18 @@
     <a class="nav__logo" href="#top">Shot-C</a>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
     <ul class="nav__menu" id="menu">
-      <li><a href="#o-nas">O&nbsp;nás</a></li>
       <li><a href="#koncerty">Koncerty</a></li>
-      <li><a href="#hudba">Hudba</a></li>
+      <li><a href="#hudba">Album</a></li>
       <li><a href="#videa">Videa</a></li>
+      <li><a href="#instagram">Instagram</a></li>
       <li><a href="#ke-stazeni">Ke stažení</a></li>
+      <li><a href="#o-nas">O&nbsp;nás</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
       <li><a class="nav__donio" href="#" data-donio-link>Donio</a></li>
     </ul>
   </nav>
 
   <main>
-    <!-- O nás: půlka fotka, půlka text -->
-    <section class="bio" id="o-nas">
-      <div class="bio__photo"><span>společná fotka</span></div>
-      <div class="bio__text">
-        <h2 class="title title--left">Shot-C</h2>
-        <p class="bio__lead">Jsme brněnská vokální skupina. Hrajeme bez nástrojů, všechno uděláme hlasem: harmonie, basu i&nbsp;bicí.</p>
-        <p>Na koncertě uslyšíte covery známých hitů i&nbsp;naše vlastní písně. Zpíváme na festivalech, firemních večírcích i&nbsp;soukromých akcích a&nbsp;pořádáme vlastní koncerty. Rádi přijedeme i&nbsp;k&nbsp;Vám!</p>
-        <p>Originalno je naše druhé album. Každý z&nbsp;nás si na něm jede po svém, a&nbsp;právě proto to drží pohromadě.</p>
-        <a class="btn btn--line" href="#clenove">Kdo jsme</a>
-        <ul class="icons bio__icons" aria-label="Sledujte nás">
-          <li><a href="https://open.spotify.com/album/1ZzoX03czOYonL08fPU2iG" target="_blank" rel="noopener" aria-label="Spotify"><svg><use href="#i-spotify"/></svg></a></li>
-          <li><a href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#i-youtube"/></svg></a></li>
-          <li><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a></li>
-          <li><a href="https://www.facebook.com/czshotc/" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section section--members" id="clenove">
-      <div class="wrap">
-        <ul class="members">
-          <li class="member member--1"><div class="member__photo">foto</div><h3>Jiří Pavlačka</h3><p>barytenor</p></li>
-          <li class="member member--2"><div class="member__photo">foto</div><h3>Andrea Simba Hradská</h3><p>alt</p></li>
-          <li class="member member--3"><div class="member__photo">foto</div><h3>Patrik Šudák</h3><p>tenor</p></li>
-          <li class="member member--4"><div class="member__photo">foto</div><h3>Dalibor Hradský</h3><p>baryton</p></li>
-          <li class="member member--5"><div class="member__photo">foto</div><h3>Tomáš Pizúr <span>(TOMI&nbsp;P)</span></h3><p>bass</p></li>
-          <li class="member member--6"><div class="member__photo">foto</div><h3>Filip Jahn</h3><p>beatbox</p></li>
-        </ul>
-      </div>
-    </section>
-
     <!-- Koncerty -->
     <section class="section section--dark" id="koncerty">
       <div class="wrap wrap--narrow">
@@ -140,7 +110,7 @@
     <section class="section" id="hudba">
       <div class="wrap">
         <div class="disc-head">
-          <h2 class="title title--left">Hudba</h2>
+          <h2 class="title title--left">Album</h2>
           <div class="arrows">
             <button type="button" data-disc="-1" aria-label="Předchozí album"><svg><use href="#i-left"/></svg></button>
             <button type="button" data-disc="1" aria-label="Další album"><svg><use href="#i-right"/></svg></button>
@@ -216,6 +186,15 @@
       </div>
     </section>
 
+    <!-- Instagram -->
+    <section class="insta" id="instagram">
+      <h2 class="insta__title"><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener">Sledujte nás na Instagramu <span>@shotc.band</span></a></h2>
+      <!-- Když je v main.js nastavený INSTAGRAM.feedUrl, nahradí se placeholdery posledními příspěvky -->
+      <ul class="insta__row" data-insta>
+        <li></li><li></li><li></li><li></li><li></li><li></li>
+      </ul>
+    </section>
+
     <!-- Ke stažení -->
     <section class="section" id="ke-stazeni">
       <div class="wrap">
@@ -231,12 +210,21 @@
       </div>
     </section>
 
-    <!-- Instagram -->
-    <section class="insta">
-      <h2 class="insta__title"><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener">Sledujte nás na Instagramu <span>@shotc.band</span></a></h2>
-      <ul class="insta__row" aria-hidden="true">
-        <li></li><li></li><li></li><li></li><li></li><li></li>
-      </ul>
+    <!-- O nás: půlka fotka, půlka text (úplně dole před kontaktem) -->
+    <section class="bio" id="o-nas">
+      <div class="bio__photo"><span>společná fotka</span></div>
+      <div class="bio__text">
+        <h2 class="title title--left">O&nbsp;nás</h2>
+        <p class="bio__lead">Jsme brněnská vokální skupina. Hrajeme bez nástrojů, všechno uděláme hlasem: harmonie, basu i&nbsp;bicí.</p>
+        <p>Na koncertě uslyšíte covery známých hitů i&nbsp;naše vlastní písně. Zpíváme na festivalech, firemních večírcích i&nbsp;soukromých akcích a&nbsp;pořádáme vlastní koncerty. Rádi přijedeme i&nbsp;k&nbsp;Vám!</p>
+        <p>Originalno je naše druhé album. Každý z&nbsp;nás si na něm jede po svém, a&nbsp;právě proto to drží pohromadě.</p>
+        <ul class="icons bio__icons" aria-label="Sledujte nás">
+          <li><a href="https://open.spotify.com/album/1ZzoX03czOYonL08fPU2iG" target="_blank" rel="noopener" aria-label="Spotify"><svg><use href="#i-spotify"/></svg></a></li>
+          <li><a href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#i-youtube"/></svg></a></li>
+          <li><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a></li>
+          <li><a href="https://www.facebook.com/czshotc/" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
+        </ul>
+      </div>
     </section>
 
     <!-- Kontakt -->
