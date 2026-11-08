@@ -10,6 +10,12 @@
     end: '2026-12-15T23:59:00+01:00'   // konec kampaně (ukázková hodnota)
   };
 
+  /* ===== Instagram: JSON feed (např. z behold.so). Prázdné = barevné placeholdery ===== */
+  var INSTAGRAM = {
+    feedUrl: '',
+    count: 6
+  };
+
   var TZ = 'Europe/Prague';
   var nf = new Intl.NumberFormat('cs-CZ');
 
@@ -183,6 +189,31 @@
     });
   }
 
+  /* ===== Instagram: posledních pár příspěvků ===== */
+  function initInstagram() {
+    var row = document.querySelector('[data-insta]');
+    if (!row || !INSTAGRAM.feedUrl) { return; }
+    fetch(INSTAGRAM.feedUrl)
+      .then(function (r) { if (!r.ok) { throw new Error(r.status); } return r.json(); })
+      .then(function (data) {
+        var posts = (Array.isArray(data) ? data : data.posts || []).slice(0, INSTAGRAM.count);
+        if (!posts.length) { return; }
+        row.innerHTML = '';
+        posts.forEach(function (p) {
+          var img = (p.sizes && p.sizes.medium && p.sizes.medium.mediaUrl) || p.thumbnailUrl || p.mediaUrl;
+          if (!img || !p.permalink) { return; }
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = p.permalink; a.target = '_blank'; a.rel = 'noopener';
+          var im = document.createElement('img');
+          im.src = img; im.loading = 'lazy';
+          im.alt = (p.prunedCaption || p.caption || 'Příspěvek na Instagramu').slice(0, 120);
+          a.appendChild(im); li.appendChild(a); row.appendChild(li);
+        });
+      })
+      .catch(function () { /* necháme placeholdery */ });
+  }
+
   var y = document.querySelector('[data-year]');
   if (y) { y.textContent = new Date().getFullYear(); }
 
@@ -191,4 +222,5 @@
   initGigs();
   initPast();
   initDiscs();
+  initInstagram();
 }());
