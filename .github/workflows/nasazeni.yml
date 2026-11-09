@@ -1,0 +1,76 @@
+# Nasazení webu na GitHub Pages s čerstvými daty (koncerty z kalendáře).
+#
+# Běží po každém merge do main, každou hodinu a ručně (Run workflow).
+# Data se stáhnou JEN do nasazované kopie webu, do repozitáře se nic
+# necommituje, pravidlo „do main jen přes PR“ zůstává.
+# Další zdroje dat (Donio) jsou další kroky před „Připravit web“.
+#
+# Předpoklad: Settings → Pages → Build and deployment → Source: GitHub Actions.
+name: Nasazení webu
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Testy
+        run: |
+          node tests/events.test.js
+          node tests/sync-calendar.test.js
+
+      # Když kalendář nejde stáhnout, web se nasadí s koncerty z repozitáře.
+      - name: Koncerty z kalendáře
+        env:
+          CALENDAR_ICS_URL: ${{ secrets.CALENDAR_ICS_URL }}
+        run: |
+          if ! node scripts/sync-calendar.js; then
+            echo "::warning::Kalendář se nepodařilo načíst, nasazuji koncerty z repozitáře."
+            git checkout -- data/events.json novy-web/data/events.json
+          fi
+          git diff --stat -- data/events.json novy-web/data/events.json || true
+
+      # Skript přidává PR „Tahat stav sbírky z Donio“; do té doby se krok přeskočí.
+      - name: Stav sbírky z Donia
+        continue-on-error: true
+        run: if [ -f scripts/donio.js ]; then node scripts/donio.js; fi
+
+      - name: Připravit web
+        run: |
+          mkdir _site
+          for f in $(ls -A); do
+            case "$f" in .git|.github|_site|scripts|tests) ;; *) cp -r "$f" _site/ ;; esac
+          done
+          ls -A _site
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
