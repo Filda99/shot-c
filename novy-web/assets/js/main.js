@@ -127,12 +127,21 @@
     if (!past) {
       var meta = document.createElement('p');
       meta.className = 'gig__meta';
-      meta.innerHTML = svg('i-pin');
-      var where = document.createElement('span');
+      // ikona místa jen u místa, čas samostatně bez ikony
+      if (ev.venue) {
+        meta.innerHTML = svg('i-pin');
+        var where = document.createElement('span');
+        where.textContent = ev.venue;
+        meta.appendChild(where);
+      }
       var time = ev.allDay ? '' : fmt(ev.startMs, { weekday: 'long' }) + ' ' + fmt(ev.startMs, { hour: 'numeric', minute: '2-digit' });
-      where.textContent = [ev.venue, time].filter(Boolean).join(' · ');
-      meta.appendChild(where);
-      body.appendChild(meta);
+      if (time) {
+        var when = document.createElement('span');
+        when.className = 'gig__time';
+        when.textContent = time;
+        meta.appendChild(when);
+      }
+      if (meta.childNodes.length) { body.appendChild(meta); }
     }
     li.appendChild(body);
 
