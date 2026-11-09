@@ -41,6 +41,7 @@ jobs:
         run: |
           node tests/events.test.js
           node tests/sync-calendar.test.js
+          node tests/youtube.test.js
 
       # Když kalendář nejde stáhnout, web se nasadí s koncerty z repozitáře.
       - name: Koncerty z kalendáře
@@ -57,6 +58,11 @@ jobs:
       - name: Stav sbírky z Donia
         continue-on-error: true
         run: if [ -f scripts/donio.js ]; then node scripts/donio.js; fi
+
+      # Poslední 3 videa z YouTube (RSS kanálu). Když selže, zůstanou dlaždice s odkazem na kanál.
+      - name: Videa z YouTube
+        continue-on-error: true
+        run: node scripts/youtube.js || git checkout -- novy-web/data/videos.json
 
       - name: Připravit web
         run: |

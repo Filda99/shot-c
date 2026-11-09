@@ -67,6 +67,7 @@
   watch('[data-gigs]', 'left', .1);
   watch('[data-gigs-past]', 'up', .04);
   watch('[data-insta]', 'zoom', .07);
+  watch('[data-videos]', 'tilt', .12);
 
   /* ===== 2) Scroll: ukazatel postupu, navigace, parallax ===== */
   var bar = document.createElement('div');

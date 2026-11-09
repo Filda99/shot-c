@@ -353,6 +353,15 @@ button { font: inherit; color: inherit; }
 .video:hover .video__play { transform: scale(1.1); }
 .video__play svg { width: 22px; height: 22px; margin-left: 3px; }
 .video__label { position: absolute; left: 12px; bottom: 10px; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+.video--yt { overflow: hidden; background: var(--ink); }
+.video--yt img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .4s, opacity .2s; opacity: .85; }
+.video--yt:hover img { transform: scale(1.04); opacity: 1; }
+.video--yt .video__play { position: relative; }
+.video--yt .video__label {
+  left: 0; right: 0; bottom: 0; padding: 28px 12px 10px; opacity: 1; text-transform: none; letter-spacing: 0;
+  font-size: .875rem; font-weight: 500; line-height: 1.3; background: linear-gradient(transparent, rgba(0,0,0,.75));
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 .press { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 36px; }
 .press a { font-weight: 500; text-underline-offset: 4px; }
 @media (max-width: 760px) { .video-grid { grid-template-columns: 1fr; } }
