@@ -1,9 +1,8 @@
 'use strict';
 // Stáhne stránku sbírky na Doniu a uloží stav do novy-web/data/donio.json.
-// Spouští GitHub Action .github/workflows/donio.yml, ručně: node scripts/donio.js
+// Spouští ho deploy workflow GitHub Pages před nahráním webu, ručně: node scripts/donio.js
+// Nic necommituje, jen upraví soubor v pracovní kopii, která se nasadí.
 // Odkaz na sbírku se zadává v donio.json (pole "url"). Prázdné = nic nedělat.
-// Soubor se přepíše jen když se změní částka, cíl nebo konec, ať nevznikají
-// zbytečné commity.
 
 const fs = require('node:fs');
 const path = require('node:path');
