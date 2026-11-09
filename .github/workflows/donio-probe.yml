@@ -7,12 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: dns+tls
-        run: |
-          getent hosts donio.cz || true
-          curl -sS -o /dev/null -w "code=%{http_code} connect=%{time_connect} tls=%{time_appconnect} total=%{time_total}\n" --max-time 30 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36" https://donio.cz/ || echo "FAIL $?"
       - name: page
         run: |
-          curl -sSL --max-time 40 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36" -H "Accept-Language: cs" https://donio.cz/podporme-malou-skladatelku-zoiku -o p.html || echo "FAIL $?"
+          curl -sSL --max-time 40 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36" -H "Accept-Language: cs" -w "code=%{http_code} total=%{time_total}\n" https://donio.cz/podporme-malou-skladatelku-zoiku -o p.html || echo "FAIL $?"
           wc -c p.html || true
-          grep -o -E '.{0,160}(Vybráno|Vybr\\u00e1no|targetAmount|collected|Amount|goal|endDate|deadline|endsAt|Končí).{0,160}' p.html | head -60 || true
+          python3 - <<'PY'
+          import re
+          s = open('p.html', encoding='utf-8', errors='replace').read()
+          seen = 0
+          for kw in ['Vybráno', 'Vybr\\u00e1no', 'Končí', 'zbývá', 'targetAmount', 'collectedAmount', 'Amount', 'goal', 'endDate', 'endsAt', 'deadline', 'og:title', 'ld+json']:
+              for m in list(re.finditer(re.escape(kw), s))[:4]:
+                  print('==', kw, '@', m.start(), '::', s[max(0, m.start()-200):m.start()+250].replace('\n', ' '))
+          PY

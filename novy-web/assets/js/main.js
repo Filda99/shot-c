@@ -27,7 +27,24 @@
     return many;
   }
 
+  /* Aktuální čísla stahuje GitHub Action z Donia do data/donio.json.
+     Když soubor chybí nebo je neplatný, zůstanou hodnoty z CAMPAIGN. */
   function initCampaign() {
+    fetch('data/donio.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; })
+      .then(function (d) {
+        if (d && d.raised >= 0 && d.goal > 0) {
+          CAMPAIGN.raised = d.raised;
+          CAMPAIGN.goal = d.goal;
+          if (d.url) { CAMPAIGN.url = d.url; }
+          if (d.end) { CAMPAIGN.end = d.end; }
+        }
+        renderCampaign();
+      });
+  }
+
+  function renderCampaign() {
     document.querySelectorAll('[data-donio-link]').forEach(function (a) {
       a.href = CAMPAIGN.url;
       if (CAMPAIGN.url !== '#') { a.target = '_blank'; a.rel = 'noopener'; }
