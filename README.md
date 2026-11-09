@@ -78,18 +78,20 @@ Na stránce lze "nastavit hodiny": `/?now=2026-11-15T17:30:00+01:00` (nebo `wind
 
 ## Nasazení
 
-GitHub Pages z větve `main`, složka `/ (root)`, vlastní doména `shot-c.cz` (soubor `CNAME`).
+GitHub Pages přes GitHub Actions (`.github/workflows/nasazeni.yml`), vlastní doména `shot-c.cz` (nastavená v *Settings → Pages*, soubor `CNAME` zůstává pro jistotu).
 
 - Starý web: https://shot-c.cz/
 - Nový web (nástřel): https://shot-c.cz/novy-web/ (má `noindex`, aby ho vyhledávače zatím neindexovaly)
 
 Koncerty jsou zatím ve dvou kopiích (`data/events.json` a `novy-web/data/events.json`). Až nový web nahradí starý, přesune se obsah `novy-web/` do kořene.
 
-## Koncerty z kalendáře (automaticky)
+## Nasazení a koncerty z kalendáře (automaticky)
 
-GitHub Action `.github/workflows/kalendar.yml` každou hodinu (a ručně přes *Actions → Koncerty z kalendáře → Run workflow*) stáhne kalendář a přepíše `data/events.json` i `novy-web/data/events.json`. Když se nic nezměnilo, necommituje nic. Commit jde přímo do `main` (výjimka z pravidla „jen přes PR“, týká se jen těchto dvou souborů).
+Web nasazuje GitHub Action `.github/workflows/nasazeni.yml` (*Settings → Pages → Source: GitHub Actions*). Běží po každém merge do `main`, každou hodinu a ručně přes *Actions → Nasazení webu → Run workflow*.
 
-- Adresa kalendáře (tajná iCal adresa) je v secretu `CALENDAR_ICS_URL`. Bez něj Action nic nedělá.
+Před nasazením stáhne kalendář a doplní ho do `data/events.json` a `novy-web/data/events.json`, ale **jen v nasazované kopii webu**. Do repozitáře nic necommituje, takže pravidlo „do `main` jen přes PR“ platí dál. Soubory v repu slouží jako záloha: když se kalendář nestáhne, nasadí se koncerty z nich.
+
+- Adresa kalendáře (tajná iCal adresa) je v secretu `CALENDAR_ICS_URL`. Bez něj se nasadí koncerty z repa.
 - Na web se nedostanou akce zrušené, soukromé (*Soukromé* / *Private*) a ty, jejichž název začíná `#` (např. `# zkouška`).
 - Název akce → nadpis, *Místo* → řádek s místem, odkaz v popisu → tlačítko „Více info“.
 - Starší koncerty, které v kalendáři nejsou, zůstávají v archivu. Budoucí akce, které z kalendáře zmizí, zmizí i z webu.
