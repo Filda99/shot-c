@@ -19,6 +19,12 @@
   var TZ = 'Europe/Prague';
   var nf = new Intl.NumberFormat('cs-CZ');
 
+  // Odkazy z cizích dat (kalendář, Behold) pouštíme jen jako http(s), ne javascript: apod.
+  function safeHttp(u) {
+    if (typeof u !== 'string') { return null; }
+    try { var p = new URL(u, location.href); return /^https?:$/.test(p.protocol) ? p.href : null; } catch (e) { return null; }
+  }
+
   function kc(n) { return nf.format(n).replace(/\s/g, ' ') + ' Kč'; }
 
   function plural(n, one, few, many) {
@@ -145,10 +151,11 @@
     }
     li.appendChild(body);
 
-    if (ev.url && !past) {
+    var evLink = safeHttp(ev.url);
+    if (evLink && !past) {
       var a = document.createElement('a');
       a.className = 'gig__link';
-      a.href = ev.url;
+      a.href = evLink;
       a.target = '_blank';
       a.rel = 'noopener';
       a.textContent = 'Více info';
@@ -232,10 +239,11 @@
         row.innerHTML = '';
         posts.forEach(function (p) {
           var img = (p.sizes && p.sizes.medium && p.sizes.medium.mediaUrl) || p.thumbnailUrl || p.mediaUrl;
-          if (!img || !p.permalink) { return; }
+          var link = safeHttp(p.permalink);
+          if (!img || !link) { return; }
           var li = document.createElement('li');
           var a = document.createElement('a');
-          a.href = p.permalink; a.target = '_blank'; a.rel = 'noopener';
+          a.href = link; a.target = '_blank'; a.rel = 'noopener';
           var im = document.createElement('img');
           im.src = img; im.loading = 'lazy';
           im.alt = (p.prunedCaption || p.caption || 'Příspěvek na Instagramu').slice(0, 120);

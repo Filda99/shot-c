@@ -32,6 +32,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-node@v5
         with:
@@ -68,8 +70,9 @@ jobs:
         run: |
           mkdir _site
           for f in $(ls -A); do
-            case "$f" in .git|.github|_site|scripts|tests) ;; *) cp -r "$f" _site/ ;; esac
+            case "$f" in .git|.github|_site|scripts|tests|docs|README.md|.gitignore) ;; *) cp -r "$f" _site/ ;; esac
           done
+          rm -f _site/novy-web/README.md
           ls -A _site
 
       - uses: actions/configure-pages@v5

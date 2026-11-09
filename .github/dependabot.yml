@@ -1,0 +1,7 @@
+# Hlídá nové verze akcí v GitHub Actions (bezpečnostní opravy) a otevře na ně PR.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
