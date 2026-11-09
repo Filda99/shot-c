@@ -245,6 +245,37 @@
       .catch(function () { /* necháme placeholdery */ });
   }
 
+  /* ===== Videa: poslední videa z YouTube (data/videos.json plní deploy) ===== */
+  function initVideos() {
+    var grid = document.querySelector('[data-videos]');
+    if (!grid) { return; }
+    fetch('data/videos.json', { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) { throw new Error(r.status); } return r.json(); })
+      .then(function (data) {
+        var videos = (data.videos || []).filter(function (v) { return /^[\w-]{11}$/.test(v.id); }).slice(0, 3);
+        if (!videos.length) { return; }
+        grid.innerHTML = '';
+        videos.forEach(function (v) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.className = 'video video--yt';
+          a.href = 'https://www.youtube.com/watch?v=' + v.id;
+          a.target = '_blank'; a.rel = 'noopener';
+          var im = document.createElement('img');
+          im.src = 'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg';
+          im.alt = ''; im.loading = 'lazy';
+          a.appendChild(im);
+          a.insertAdjacentHTML('beforeend', '<span class="video__play">' + svg('i-play') + '</span>');
+          var label = document.createElement('span');
+          label.className = 'video__label';
+          label.textContent = v.title || 'Video';
+          a.appendChild(label);
+          li.appendChild(a); grid.appendChild(li);
+        });
+      })
+      .catch(function () { /* necháme dlaždice s odkazem na kanál */ });
+  }
+
   var y = document.querySelector('[data-year]');
   if (y) { y.textContent = new Date().getFullYear(); }
 
@@ -254,4 +285,5 @@
   initPast();
   initDiscs();
   initInstagram();
+  initVideos();
 }());
