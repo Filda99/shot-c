@@ -27,7 +27,24 @@
     return many;
   }
 
+  /* Aktuální čísla stahuje GitHub Action z Donia do data/donio.json.
+     Když soubor chybí nebo je neplatný, zůstanou hodnoty z CAMPAIGN. */
   function initCampaign() {
+    fetch('data/donio.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; })
+      .then(function (d) {
+        if (d && d.url && d.updated && d.raised >= 0 && d.goal > 0) {
+          CAMPAIGN.url = d.url;
+          CAMPAIGN.raised = d.raised;
+          CAMPAIGN.goal = d.goal;
+          CAMPAIGN.end = d.end;          // null = sbírka bez konce
+        }
+        renderCampaign();
+      });
+  }
+
+  function renderCampaign() {
     document.querySelectorAll('[data-donio-link]').forEach(function (a) {
       a.href = CAMPAIGN.url;
       if (CAMPAIGN.url !== '#') { a.target = '_blank'; a.rel = 'noopener'; }
@@ -40,8 +57,13 @@
     box.querySelector('[data-goal]').textContent = kc(CAMPAIGN.goal);
     box.querySelector('[role=progressbar]').setAttribute('aria-valuenow', pct);
 
+    var daysEl = box.querySelector('[data-days]');
+    if (!CAMPAIGN.end) {
+      daysEl.hidden = true;
+      if (box.querySelector('.campaign__sep')) { box.querySelector('.campaign__sep').hidden = true; }
+    }
     var days = Math.ceil((Date.parse(CAMPAIGN.end) - Date.now()) / 864e5);
-    box.querySelector('[data-days]').textContent = days > 0
+    daysEl.textContent = days > 0
       ? 'zbývá ' + days + ' ' + plural(days, 'den', 'dny', 'dní')
       : 'kampaň skončila, díky!';
 
