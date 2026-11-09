@@ -5,8 +5,14 @@ on:
 jobs:
   probe:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - run: |
-          curl -sSL -A "Mozilla/5.0 (shot-c.cz sbirka)" https://donio.cz/podporme-malou-skladatelku-zoiku -o p.html
-          wc -c p.html
-          grep -o -E '.{0,200}(Vybráno|targetAmount|collected|amount|goal|endDate|deadline|ends_at|Končí).{0,200}' p.html | head -40
+      - name: dns+tls
+        run: |
+          getent hosts donio.cz || true
+          curl -sS -o /dev/null -w "code=%{http_code} connect=%{time_connect} tls=%{time_appconnect} total=%{time_total}\n" --max-time 30 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36" https://donio.cz/ || echo "FAIL $?"
+      - name: page
+        run: |
+          curl -sSL --max-time 40 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36" -H "Accept-Language: cs" https://donio.cz/podporme-malou-skladatelku-zoiku -o p.html || echo "FAIL $?"
+          wc -c p.html || true
+          grep -o -E '.{0,160}(Vybráno|Vybr\\u00e1no|targetAmount|collected|Amount|goal|endDate|deadline|endsAt|Končí).{0,160}' p.html | head -60 || true
