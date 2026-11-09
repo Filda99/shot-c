@@ -212,7 +212,10 @@ async function main() {
     console.log('CALENDAR_ICS_URL není nastavená, nic nedělám.');
     return;
   }
-  const res = await fetch(normalizeUrl(url));
+  const href = normalizeUrl(url);
+  // GitHub maskuje jen přesnou hodnotu secretu; upravenou adresu zamaskujeme zvlášť.
+  if (process.env.GITHUB_ACTIONS) { console.log('::add-mask::' + href); }
+  const res = await fetch(href, { signal: AbortSignal.timeout(30000) });
   if (!res.ok) { throw new Error('Kalendář se nepodařilo stáhnout: HTTP ' + res.status); }
   const calendar = toEvents(parseIcs(await res.text()));
   console.log('Veřejných akcí v kalendáři: ' + calendar.length);
