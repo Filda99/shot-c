@@ -84,3 +84,17 @@ GitHub Pages z větve `main`, složka `/ (root)`, vlastní doména `shot-c.cz` (
 - Nový web (nástřel): https://shot-c.cz/novy-web/ (má `noindex`, aby ho vyhledávače zatím neindexovaly)
 
 Koncerty jsou zatím ve dvou kopiích (`data/events.json` a `novy-web/data/events.json`). Až nový web nahradí starý, přesune se obsah `novy-web/` do kořene.
+
+## Koncerty z kalendáře (automaticky)
+
+GitHub Action `.github/workflows/kalendar.yml` každou hodinu (a ručně přes *Actions → Koncerty z kalendáře → Run workflow*) stáhne kalendář a přepíše `data/events.json` i `novy-web/data/events.json`. Když se nic nezměnilo, necommituje nic. Commit jde přímo do `main` (výjimka z pravidla „jen přes PR“, týká se jen těchto dvou souborů).
+
+- Adresa kalendáře (tajná iCal adresa) je v secretu `CALENDAR_ICS_URL`. Bez něj Action nic nedělá.
+- Na web se nedostanou akce zrušené, soukromé (*Soukromé* / *Private*) a ty, jejichž název začíná `#` (např. `# zkouška`).
+- Název akce → nadpis, *Místo* → řádek s místem, odkaz v popisu → tlačítko „Více info“.
+- Starší koncerty, které v kalendáři nejsou, zůstávají v archivu. Budoucí akce, které z kalendáře zmizí, zmizí i z webu.
+- Logika je ve `scripts/sync-calendar.js`, testy `node tests/sync-calendar.test.js`.
+
+## Instagram na novém webu
+
+V `novy-web/assets/js/main.js` je `INSTAGRAM.feedUrl`. Stačí tam dát JSON feed z [behold.so](https://behold.so) a sekce Instagram ukáže posledních 6 příspěvků. Prázdné = placeholdery.
