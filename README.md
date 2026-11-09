@@ -103,4 +103,4 @@ V `novy-web/assets/js/main.js` je `INSTAGRAM.feedUrl`. Stačí tam dát JSON fee
 
 ## Videa na novém webu
 
-Deploy (`nasazeni.yml`) stáhne přes veřejné RSS kanálu YouTube poslední 3 videa (bez Shorts) do `novy-web/data/videos.json`. API klíč není potřeba. Kanál je v poli `channel` (případně `channelId`). Když se stažení nepovede, zůstanou dlaždice s odkazem na kanál. Logika je ve `scripts/youtube.js`, testy `node tests/youtube.test.js`.
+Deploy (`nasazeni.yml`) stáhne ze záložky Videa na kanálu YouTube (záložně z RSS kanálu) poslední 3 videa (bez Shorts) do `novy-web/data/videos.json`. API klíč není potřeba. Kanál je v poli `channel` (případně `channelId`). Když se stažení nepovede, zůstanou dlaždice s odkazem na kanál. Logika je ve `scripts/youtube.js`, testy `node tests/youtube.test.js`.

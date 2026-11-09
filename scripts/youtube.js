@@ -49,6 +49,35 @@ function parseFeed(xml) {
   return out.sort((a, b) => Date.parse(b.published) - Date.parse(a.published));
 }
 
+/** Stránka kanálu /videos → [{ id, title }] v pořadí od nejnovějšího (bez Shorts). */
+function parseVideosPage(html) {
+  const m = /ytInitialData\s*=\s*(\{[\s\S]*?\});\s*<\/script>/.exec(html);
+  if (!m) { throw new Error('Na stránce kanálu chybí ytInitialData.'); }
+  const data = JSON.parse(m[1]);
+  const out = [];
+  const seen = new Set();
+  const text = (t) => (t ? t.simpleText || t.content || (t.runs || []).map((r) => r.text).join('') : '');
+  (function walk(node) {
+    if (!node || typeof node !== 'object') { return; }
+    if (Array.isArray(node)) { node.forEach(walk); return; }
+    const vr = node.videoRenderer;
+    if (vr && /^[\w-]{11}$/.test(vr.videoId || '') && !seen.has(vr.videoId)) {
+      seen.add(vr.videoId);
+      out.push({ id: vr.videoId, title: text(vr.title) });
+      return;
+    }
+    const lk = node.lockupViewModel;
+    if (lk && /VIDEO/.test(lk.contentType || '') && /^[\w-]{11}$/.test(lk.contentId || '') && !seen.has(lk.contentId)) {
+      seen.add(lk.contentId);
+      const meta = lk.metadata && lk.metadata.lockupMetadataViewModel;
+      out.push({ id: lk.contentId, title: meta ? text(meta.title) : '' });
+      return;
+    }
+    Object.keys(node).forEach((k) => walk(node[k]));
+  })(data);
+  return out;
+}
+
 async function get(url, opts) {
   return fetch(url, Object.assign({ headers: HEADERS, signal: AbortSignal.timeout(30000) }, opts));
 }
@@ -61,27 +90,45 @@ async function isShort(id) {
   } catch (e) { return false; }
 }
 
-async function main() {
-  const data = JSON.parse(fs.readFileSync(FILE, 'utf8'));
+async function fromPage(channel) {
+  const res = await get(channel.replace(/\/+$/, '') + '/videos');
+  if (!res.ok) { throw new Error('Stránka kanálu vrátila HTTP ' + res.status); }
+  return parseVideosPage(await res.text());
+}
+
+async function fromFeed(data) {
   let channelId = data.channelId;
   if (!channelId) {
-    if (!data.channel) { console.log('videos.json: chybí kanál, nic nedělám.'); return; }
     const res = await get(data.channel);
     if (!res.ok) { throw new Error('Stránka kanálu vrátila HTTP ' + res.status); }
     channelId = parseChannelId(await res.text());
   }
+  console.log('ID kanálu: ' + channelId);
   const res = await get('https://www.youtube.com/feeds/videos.xml?channel_id=' + channelId);
   if (!res.ok) { throw new Error('RSS kanálu vrátilo HTTP ' + res.status); }
-  const all = parseFeed(await res.text());
-
   const videos = [];
-  for (const v of all) {
+  for (const v of parseFeed(await res.text())) {
     if (videos.length >= COUNT) { break; }
-    if (await isShort(v.id)) { continue; }
-    videos.push(v);
+    if (!(await isShort(v.id))) { videos.push(v); }
   }
-  if (!videos.length) { throw new Error('Kanál nemá žádná videa.'); }
-  const out = { channel: data.channel, channelId, videos, updated: new Date().toISOString() };
+  return videos;
+}
+
+async function main() {
+  const data = JSON.parse(fs.readFileSync(FILE, 'utf8'));
+  if (!data.channel && !data.channelId) { console.log('videos.json: chybí kanál, nic nedělám.'); return; }
+
+  // 1) záložka Videa na kanálu (bez Shorts), 2) záložně RSS kanálu
+  let videos = [];
+  if (data.channel) {
+    try { videos = await fromPage(data.channel); } catch (e) { console.log('Stránka kanálu: ' + e.message); }
+  }
+  if (!videos.length) {
+    try { videos = await fromFeed(data); } catch (e) { console.log('RSS: ' + e.message); }
+  }
+  videos = videos.slice(0, COUNT);
+  if (!videos.length) { throw new Error('Videa se nepodařilo načíst.'); }
+  const out = Object.assign({}, data, { videos, updated: new Date().toISOString() });
   fs.writeFileSync(FILE, JSON.stringify(out, null, 2) + '\n');
   console.log('Videa: ' + videos.map((v) => v.title).join(' | '));
 }
@@ -90,4 +137,4 @@ if (require.main === module) {
   main().catch((err) => { console.error(err.message); process.exit(1); });
 }
 
-module.exports = { parseChannelId, parseFeed };
+module.exports = { parseChannelId, parseFeed, parseVideosPage };

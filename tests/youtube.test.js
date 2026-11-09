@@ -35,4 +35,19 @@ test('channel id is found on the channel page', () => {
   assert.throws(() => Y.parseChannelId('<html></html>'));
 });
 
+test('videos tab is parsed (old and new YouTube layout), in page order', () => {
+  const data = { contents: { tabs: [{ items: [
+    { richItemRenderer: { content: { videoRenderer: { videoId: 'CCCCCCCCCCC', title: { runs: [{ text: 'Nejnovější' }] } } } } },
+    { richItemRenderer: { content: { lockupViewModel: { contentId: 'DDDDDDDDDDD', contentType: 'LOCKUP_CONTENT_TYPE_VIDEO',
+      metadata: { lockupMetadataViewModel: { title: { content: 'Druhé "video"' } } } } } } },
+    { richItemRenderer: { content: { videoRenderer: { videoId: 'CCCCCCCCCCC', title: { simpleText: 'duplicita' } } } } }
+  ] }] } };
+  const html = '<script>var ytInitialData = ' + JSON.stringify(data) + ';</script>';
+  assert.deepEqual(Y.parseVideosPage(html), [
+    { id: 'CCCCCCCCCCC', title: 'Nejnovější' },
+    { id: 'DDDDDDDDDDD', title: 'Druhé "video"' }
+  ]);
+  assert.throws(() => Y.parseVideosPage('<html>consent</html>'));
+});
+
 console.log('\n' + passed + ' passed');
