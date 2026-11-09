@@ -1,0 +1,150 @@
+/* Shot-C | Originalno: animace.
+   Skryté výchozí stavy platí jen s třídou .anim na <html>, kterou přidá animations.js
+   (bez JS a při „omezit pohyb“ zůstane všechno vidět a v klidu). */
+
+/* ---------- odhalení při scrollu ---------- */
+.anim [data-reveal] {
+  opacity: 0;
+  transition: opacity .8s ease-out, transform .8s cubic-bezier(.2,.8,.2,1);
+  transition-delay: var(--d, 0s);
+}
+.anim [data-reveal="up"]    { transform: translateY(36px); }
+.anim [data-reveal="left"]  { transform: translateX(-48px); }
+.anim [data-reveal="right"] { transform: translateX(48px); }
+.anim [data-reveal="zoom"]  { transform: scale(.88); }
+.anim [data-reveal="tilt"]  { transform: perspective(800px) rotateX(18deg) translateY(30px); transform-origin: 50% 100%; }
+.anim [data-reveal].is-in   { opacity: 1; transform: none; }
+
+/* Nadpisy: prostrkání se „stáhne“ a pod nimi se vykreslí barevná linka */
+.anim .title[data-reveal] { letter-spacing: .4em; transition-property: opacity, transform, letter-spacing; transition-duration: .9s, .9s, 1.2s; }
+.anim .title[data-reveal].is-in { letter-spacing: .12em; }
+.anim .bio__text .title[data-reveal].is-in { letter-spacing: .14em; }
+.title::after {
+  content: ""; display: block; width: 72px; height: 4px; margin: 18px auto 0;
+  background: var(--grad); border-radius: 2px;
+  transform: scaleX(1); transform-origin: left;
+  transition: transform 1s .35s cubic-bezier(.2,.8,.2,1);
+}
+.title--left::after { margin-left: 0; }
+.title--light::after { background: #fff; }
+.anim .title[data-reveal]::after { transform: scaleX(0); }
+.anim .title[data-reveal].is-in::after { transform: scaleX(1); }
+.disc-head .title::after { display: none; }
+
+/* ---------- ukazatel postupu stránkou ---------- */
+.scroll-progress {
+  position: fixed; left: 0; top: 0; z-index: 60;
+  width: 100%; height: 3px;
+  background: var(--grad);
+  transform: scaleX(var(--p, 0)); transform-origin: left;
+  pointer-events: none;
+}
+
+/* Navigace dostane stín, jakmile se přilepí nahoru */
+.nav { transition: box-shadow .3s, background .3s; }
+.nav.is-stuck { box-shadow: 0 6px 24px rgba(0,0,0,.08); background: rgba(250,250,247,.97); }
+/* Zvýraznění aktuální sekce v menu */
+.nav__menu a:not(.nav__donio) { position: relative; }
+.nav__menu a:not(.nav__donio)::after {
+  content: ""; position: absolute; left: 12px; right: 12px; bottom: 2px; height: 2px;
+  background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform .35s;
+}
+.nav__menu a.is-current::after { transform: scaleX(1); }
+
+/* ---------- parallax ---------- */
+.videos__bg span { translate: var(--sx, 0) 0; will-change: translate; }
+.bio__photo { background-position: 0 0, 50% var(--py, 50%); background-size: auto, 100% 140%; }
+@media (max-width: 860px) { .bio__photo { background-size: auto, 100% 140%; } }
+
+/* ================= opakující se animace ================= */
+
+/* Hero: šest „hlasů“ se každých pár vteřin rozezpívá vlnou zleva doprava */
+.crew { transform-origin: bottom; }
+.hero__crew.is-singing .crew { animation: grow .9s cubic-bezier(.2,.8,.2,1) both, sing 1.1s ease-in-out; }
+.hero__crew.is-singing .crew--1 { animation-delay: 0s, 0s; }
+.hero__crew.is-singing .crew--2 { animation-delay: 0s, .09s; }
+.hero__crew.is-singing .crew--3 { animation-delay: 0s, .18s; }
+.hero__crew.is-singing .crew--4 { animation-delay: 0s, .27s; }
+.hero__crew.is-singing .crew--5 { animation-delay: 0s, .36s; }
+.hero__crew.is-singing .crew--6 { animation-delay: 0s, .45s; }
+@keyframes sing {
+  0%, 100% { scale: 1 1; }
+  30% { scale: 1 1.14; }
+  55% { scale: 1 .94; }
+  80% { scale: 1 1.04; }
+}
+
+/* Název alba: přechod barev pomalu přelévá */
+.hero__album, .disc__cover--originalno span {
+  background-image: linear-gradient(90deg, var(--grad-a), var(--grad-b), var(--grad-a));
+  background-size: 200% 100%;
+  animation: flow 8s linear infinite;
+}
+@keyframes flow { to { background-position: -200% 0; } }
+
+/* Tlačítka na Donio: občas po nich přejede odlesk */
+.btn--donio, .nav__menu .nav__donio { position: relative; overflow: hidden; }
+.btn--donio::after, .nav__menu .nav__donio::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: shine 5s ease-in-out infinite;
+}
+.nav__menu .nav__donio::after { animation-delay: 2.5s; }
+@keyframes shine {
+  0%, 70% { transform: translateX(-120%); }
+  90%, 100% { transform: translateX(120%); }
+}
+
+/* Ukazatel kampaně: světelný pruh běží po vybrané částce */
+.campaign__fill { position: relative; overflow: hidden; }
+.campaign__fill::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent);
+  transform: translateX(-100%);
+  animation: sweep 3.5s ease-in-out 2s infinite;
+}
+@keyframes sweep { 0% { transform: translateX(-100%); } 45%, 100% { transform: translateX(100%); } }
+
+/* Videa: kolem tlačítka play se jednou za čas rozběhne kruh */
+.video__play { position: relative; }
+.video__play::before {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  box-shadow: 0 0 0 2px #fff; opacity: 0;
+  animation: ring 4.5s ease-out infinite;
+}
+.video-grid li:nth-child(2) .video__play::before { animation-delay: 1.5s; }
+.video-grid li:nth-child(3) .video__play::before { animation-delay: 3s; }
+@keyframes ring {
+  0% { transform: scale(1); opacity: .9; }
+  35%, 100% { transform: scale(1.9); opacity: 0; }
+}
+
+/* Album: náhled dalšího alba se pohupuje, ať je jasné, že jde kliknout */
+.disc__next { animation: bob 5s ease-in-out infinite; }
+@keyframes bob {
+  0%, 60%, 100% { translate: 0 0; rotate: 0deg; }
+  70% { translate: -8px 0; rotate: -1.5deg; }
+  80% { translate: 4px 0; rotate: 1deg; }
+}
+
+/* Instagram, ke stažení, patička: drobné „ťuknutí“ v intervalech (přidává JS) */
+.is-pop { animation: pop .7s cubic-bezier(.3,1.6,.5,1); }
+@keyframes pop { 0%, 100% { scale: 1; } 40% { scale: 1.07; } }
+.stripe span { transform-origin: bottom; }
+.stripe.is-wave span { animation: stripe 1s ease-in-out; }
+.stripe.is-wave span:nth-child(2) { animation-delay: .08s; }
+.stripe.is-wave span:nth-child(3) { animation-delay: .16s; }
+.stripe.is-wave span:nth-child(4) { animation-delay: .24s; }
+.stripe.is-wave span:nth-child(5) { animation-delay: .32s; }
+.stripe.is-wave span:nth-child(6) { animation-delay: .40s; }
+@keyframes stripe { 0%, 100% { scale: 1 1; } 40% { scale: 1 2.2; } }
+
+/* Ikony sítí: lehké poskočení postupně jedna po druhé */
+.icons.is-hop li a { animation: hop .6s ease-out; animation-delay: calc(var(--i, 0) * .08s); }
+@keyframes hop { 0%, 100% { translate: 0 0; } 40% { translate: 0 -6px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress { display: none; }
+  .title::after { transform: none; }
+}

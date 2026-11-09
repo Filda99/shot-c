@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
 </head>
 <body>
   <!-- Sada ikon, používá se přes <use href="#i-…"> -->
@@ -187,12 +188,23 @@
     </section>
 
     <!-- Instagram -->
-    <section class="insta" id="instagram">
-      <h2 class="insta__title"><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener">Sledujte nás na Instagramu <span>@shotc.band</span></a></h2>
-      <!-- Když je v main.js nastavený INSTAGRAM.feedUrl, nahradí se placeholdery posledními příspěvky -->
-      <ul class="insta__row" data-insta>
-        <li></li><li></li><li></li><li></li><li></li><li></li>
-      </ul>
+    <section class="section insta" id="instagram">
+      <div class="wrap">
+        <h2 class="title">Instagram</h2>
+        <p class="intro"><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener">@shotc.band</a></p>
+        <!-- Když je v main.js nastavený INSTAGRAM.feedUrl, nahradí se placeholdery posledními příspěvky -->
+        <ul class="insta__grid" data-insta>
+          <li class="insta__ph" style="--c: var(--c1)"><svg aria-hidden="true"><use href="#i-instagram"/></svg></li>
+          <li class="insta__ph" style="--c: var(--c2)"><svg aria-hidden="true"><use href="#i-instagram"/></svg></li>
+          <li class="insta__ph" style="--c: var(--c3)"><svg aria-hidden="true"><use href="#i-instagram"/></svg></li>
+          <li class="insta__ph" style="--c: var(--c4)"><svg aria-hidden="true"><use href="#i-instagram"/></svg></li>
+          <li class="insta__ph" style="--c: var(--c5)"><svg aria-hidden="true"><use href="#i-instagram"/></svg></li>
+          <li class="insta__ph" style="--c: var(--c6)"><svg aria-hidden="true"><use href="#i-instagram"/></svg></li>
+        </ul>
+        <div class="center insta__more">
+          <a class="btn btn--line" href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener">Sledovat na Instagramu</a>
+        </div>
+      </div>
     </section>
 
     <!-- Ke stažení -->
@@ -256,5 +268,6 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
 </body>
 </html>

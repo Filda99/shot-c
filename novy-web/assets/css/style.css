@@ -372,20 +372,23 @@ button { font: inherit; color: inherit; }
 .dl--4 { --dc: var(--c6); } .dl--5 { --dc: var(--c4); }
 .dl--todo { opacity: .55; pointer-events: none; }
 
-/* Instagram pás */
-.insta { padding: clamp(56px, 8vw, 96px) 0 0; text-align: center; }
-.insta__title { font: 700 clamp(1.25rem, 3vw, 1.75rem)/1.2 var(--font-head); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 24px; padding: 0 20px; }
-.insta__title a { text-decoration: none; }
-.insta__title span { display: block; margin-top: 6px; font: 500 .9375rem/1 var(--font-body); letter-spacing: 0; text-transform: none; color: var(--muted); }
-.insta__row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
-.insta__row li { aspect-ratio: 1; overflow: hidden; }
-.insta__row a { display: block; height: 100%; }
-.insta__row img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
-.insta__row a:hover img { transform: scale(1.05); }
-.insta__row li:nth-child(1) { background: var(--c1); } .insta__row li:nth-child(2) { background: var(--c2); }
-.insta__row li:nth-child(3) { background: var(--c3); } .insta__row li:nth-child(4) { background: var(--c4); }
-.insta__row li:nth-child(5) { background: var(--c5); } .insta__row li:nth-child(6) { background: var(--c6); }
-@media (max-width: 600px) { .insta__row { grid-template-columns: repeat(3, 1fr); } }
+/* Instagram */
+.insta { background: #fff; }
+.intro a { color: var(--ink); font-weight: 500; text-underline-offset: 4px; }
+.insta__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.insta__grid li { aspect-ratio: 1; overflow: hidden; }
+.insta__grid a { display: block; height: 100%; }
+.insta__grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.insta__grid a:hover img { transform: scale(1.05); }
+.insta__ph {
+  display: grid; place-items: center;
+  background: var(--bg-tint);
+  border-bottom: 4px solid var(--c);
+  color: var(--c);
+}
+.insta__ph svg { width: 32px; height: 32px; opacity: .55; }
+.insta__more { margin-top: 36px; }
+@media (max-width: 760px) { .insta__grid { grid-template-columns: repeat(3, 1fr); gap: 8px; } }
 
 /* Kontakt */
 .contact .title { margin-bottom: 24px; }
