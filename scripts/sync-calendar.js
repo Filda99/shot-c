@@ -183,13 +183,36 @@ function merge(calendarEvents, existing, nowMs) {
 
 /* ---------- spuštění ---------- */
 
+/**
+ * Očistí adresu ze secretu: ořízne mezery, uvozovky a <>, webcal: → https:,
+ * doplní chybějící https://. Když to ani tak není adresa, vysvětlí proč
+ * (bez vypsání samotné adresy, ta je tajná).
+ */
+function normalizeUrl(raw) {
+  let u = String(raw).trim().replace(/^["'<]+|["'>]+$/g, '').trim();
+  u = u.replace(/^webcal:\/\//i, 'https://');
+  if (!/^[a-z][a-z0-9+.-]*:\/\//i.test(u)) { u = 'https://' + u; }
+  let parsed;
+  try { parsed = new URL(u); } catch (e) {
+    const hints = [];
+    if (/\s/.test(u)) { hints.push('obsahuje mezeru nebo nový řádek uprostřed'); }
+    if (!/\./.test(u)) { hints.push('nevypadá jako webová adresa'); }
+    throw new Error('Secret CALENDAR_ICS_URL není platná adresa (' + (hints.join(', ') || 'neznámý formát') +
+      ', délka ' + u.length + ' znaků). Má vypadat jako https://calendar.google.com/calendar/ical/…/basic.ics');
+  }
+  if (!/\.ics($|\?)/i.test(parsed.pathname + parsed.search) && !/ical/i.test(parsed.pathname)) {
+    console.log('Upozornění: adresa nekončí na .ics, zkontroluj, že je to iCal adresa kalendáře.');
+  }
+  return parsed.href;
+}
+
 async function main() {
   const url = process.env.CALENDAR_ICS_URL;
   if (!url) {
     console.log('CALENDAR_ICS_URL není nastavená, nic nedělám.');
     return;
   }
-  const res = await fetch(url.replace(/^webcal:/i, 'https:'));
+  const res = await fetch(normalizeUrl(url));
   if (!res.ok) { throw new Error('Kalendář se nepodařilo stáhnout: HTTP ' + res.status); }
   const calendar = toEvents(parseIcs(await res.text()));
   console.log('Veřejných akcí v kalendáři: ' + calendar.length);
@@ -209,4 +232,4 @@ if (require.main === module) {
   main().catch((err) => { console.error(err.message); process.exit(1); });
 }
 
-module.exports = { parseIcs, toEvents, merge, toPragueIso, zonedToUtc, offsetMinutes };
+module.exports = { normalizeUrl, parseIcs, toEvents, merge, toPragueIso, zonedToUtc, offsetMinutes };
