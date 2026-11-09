@@ -12,7 +12,7 @@
 
   /* ===== Instagram: JSON feed (např. z behold.so). Prázdné = barevné placeholdery ===== */
   var INSTAGRAM = {
-    feedUrl: '',
+    feedUrl: 'https://feeds.behold.so/KVe4qiyMuQ455cLIgPna',
     count: 6
   };
 
