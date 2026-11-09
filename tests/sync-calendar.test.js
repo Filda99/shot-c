@@ -129,4 +129,13 @@ test('not a calendar throws instead of wiping data', () => {
   assert.throws(() => S.parseIcs('<html>Přihlaste se</html>'));
 });
 
+test('secret url is cleaned up (spaces, quotes, webcal, missing https)', () => {
+  const g = 'https://calendar.google.com/calendar/ical/abc%40group.calendar.google.com/private-123/basic.ics';
+  assert.equal(S.normalizeUrl('  ' + g + '\n'), g);
+  assert.equal(S.normalizeUrl('"' + g + '"'), g);
+  assert.equal(S.normalizeUrl(g.replace('https:', 'webcal:')), g);
+  assert.equal(S.normalizeUrl(g.replace('https://', '')), g);
+  assert.throws(() => S.normalizeUrl('Tajná adresa ve formátu iCal'), /není platná adresa/);
+});
+
 console.log('\n' + passed + ' passed');
