@@ -13,7 +13,8 @@ python3 -m http.server 8000
 
 | Co | Kde |
 |---|---|
-| Odkaz na Donio, vybraná částka, cíl, konec kampaně | `assets/js/main.js`, objekt `CAMPAIGN` nahoře |
+| Odkaz na sbírku na Doniu | `data/donio.json`, pole `url`. Částku, cíl a konec pak každé 3 hodiny doplňuje GitHub Action `Stav sbírky z Donia` (`.github/workflows/donio.yml`, skript `scripts/donio.js`) |
+| Záložní čísla, když `donio.json` ještě nemá data | `assets/js/main.js`, objekt `CAMPAIGN` nahoře |
 | Barvy členů (6 barev) a přechod nápisu Originalno | `assets/css/style.css`, `:root` |
 | Koncerty | `data/events.json` (stejný formát jako na starém webu) |
 | Soubory ke stažení | `assets/files/` + sekce `#ke-stazeni` v `index.html` |
