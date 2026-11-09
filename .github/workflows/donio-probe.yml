@@ -1,0 +1,12 @@
+name: donio-probe (dočasné)
+on:
+  push:
+    branches: [claude/project-thread-6p6dxe]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -sSL -A "Mozilla/5.0 (shot-c.cz sbirka)" https://donio.cz/podporme-malou-skladatelku-zoiku -o p.html
+          wc -c p.html
+          grep -o -E '.{0,200}(Vybráno|targetAmount|collected|amount|goal|endDate|deadline|ends_at|Končí).{0,200}' p.html | head -40
