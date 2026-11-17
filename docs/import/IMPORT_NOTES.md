@@ -98,4 +98,4 @@ Podle screenshotů a vypočtených stylů originálu:
 
 - Kanonická doména (apex vs. www): pak doplnit `CNAME`, `canonical`, absolutní `og:*`, `Sitemap:` v `robots.txt`.
 - Zda staré příspěvky blogu (2019–2020) zveřejnit i na novém webu (archiv je připravený), nebo je nechat jen v záloze.
-- E-mail na webu je zatím `shotc.band@gmail.com`; po zřízení @shot-c.cz změnit v `index.html` a `koncerty/index.html`.
+- E-mail na webu: `info@shot-c.cz` (obecné, ikona v patičce, noscript u koncertů) a `koncerty@shot-c.cz` (kontakt pro pořadatele). `shotc.band@gmail.com` už na webu není.
