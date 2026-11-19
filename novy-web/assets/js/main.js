@@ -20,7 +20,7 @@
      Obě ID jsou veřejná (jsou vidět v kódu každé stránky s formulářem), API klíč sem nikdy nepatří.
      Prázdné = místo formuláře se ukáže náhradní text. ===== */
   var SENDER = {
-    accountId: '',   // z embed kódu: sender('…')
+    accountId: '4908a4a9db8401', // z embed kódu: sender('…')
     formId: 'aADB17' // z embed kódu: data-sender-form-id="…"
   };
 
@@ -309,6 +309,10 @@
     window.Sender = 'sender';
     window.sender = window.sender || function () { (window.sender.q = window.sender.q || []).push(arguments); };
     window.sender.l = Date.now();
+    window.sender.on = window.sender.on || function (ev, cb) {
+      window.sender.listeners = window.sender.listeners || {};
+      (window.sender.listeners[ev] = window.sender.listeners[ev] || []).push(cb);
+    };
     var sc = document.createElement('script');
     sc.async = true;
     sc.src = 'https://cdn.sender.net/accounts_resources/universal.js';
