@@ -305,9 +305,7 @@
     box.appendChild(field);
     box.hidden = false;
     var fb = document.querySelector('[data-sender-fallback]');
-    var gdpr = document.querySelector('[data-sender-gdpr]');
     if (fb) { fb.hidden = true; }
-    if (gdpr) { gdpr.hidden = false; }
     window.Sender = 'sender';
     window.sender = window.sender || function () { (window.sender.q = window.sender.q || []).push(arguments); };
     window.sender.l = Date.now();

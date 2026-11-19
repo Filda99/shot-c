@@ -431,7 +431,6 @@ button { font: inherit; color: inherit; }
 .newsletter__lead { margin: 0 auto 32px; max-width: 32em; font-size: 1.125rem; }
 .newsletter__form { max-width: 520px; margin: 0 auto; text-align: left; }
 .newsletter__fallback { margin: 0 auto; color: var(--muted); }
-.newsletter__gdpr { margin: 20px auto 0; max-width: 40em; font-size: .8125rem; color: var(--muted); }
 .newsletter a { text-decoration-color: var(--grad-a); text-underline-offset: 3px; }
 /* sjednocení vzhledu formuláře Senderu se zbytkem webu */
 .newsletter .sender-form-field input,
