@@ -414,35 +414,30 @@ button { font: inherit; color: inherit; }
 .stripe span:nth-child(3) { background: var(--c3); } .stripe span:nth-child(4) { background: var(--c4); }
 .stripe span:nth-child(5) { background: var(--c5); } .stripe span:nth-child(6) { background: var(--c6); }
 
-/* ---------- NEWSLETTER (formulář Sender) ---------- */
+/* ---------- NEWSLETTER (vlastní formulář → Worker → Sender) ---------- */
 .newsletter { background: var(--bg-tint); }
 .newsletter .title { margin-bottom: 20px; }
-.newsletter__lead { margin: 0 auto 32px; max-width: 32em; font-size: 1.125rem; }
-.newsletter__form { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-.newsletter__form .sender-form-field { width: 100%; }
+.newsletter__lead { margin: 0 auto 36px; max-width: 32em; font-size: 1.125rem; }
 .newsletter__fallback { margin: 0 auto; color: var(--muted); }
 .newsletter a { text-decoration-color: var(--grad-a); text-underline-offset: 3px; }
-/* Sjednocení vzhledu formuláře Senderu se zbytkem webu.
-   Stejná pravidla vkládá main.js i do shadow DOM formuláře (SENDER_CSS), pokud ho Sender používá. */
-.newsletter .sender-form-field * { font-family: var(--font-body) !important; box-sizing: border-box !important; text-align: left; }
-.newsletter .sender-form-field > div,
-.newsletter .sender-form-field > div > div,
-.newsletter .sender-form-field > div > div > div,
-.newsletter .sender-form-field form { margin-left: auto !important; margin-right: auto !important; background: transparent !important; border: 0 !important; box-shadow: none !important; }
-.newsletter .sender-form-field h1,
-.newsletter .sender-form-field h2,
-.newsletter .sender-form-field h3 { display: none !important; }
-.newsletter .sender-form-field label { font-weight: 500 !important; color: var(--ink) !important; }
-.newsletter .sender-form-field input[type="email"],
-.newsletter .sender-form-field input[type="text"] {
-  width: 100% !important; background: #fff !important; border: 1.5px solid var(--line) !important; border-radius: 12px !important;
-  padding: 14px 16px !important; font-size: 1rem !important; color: var(--ink) !important; box-shadow: none !important;
+
+.nl { max-width: 640px; margin: 0 auto; text-align: left; }
+.nl[hidden] { display: none; }
+.nl__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .nl__row { grid-template-columns: 1fr; } }
+.nl__field span { display: block; margin-bottom: 6px; font: 500 .9375rem/1.2 var(--font-head); color: var(--ink); }
+.nl__field em { font-style: normal; color: var(--muted); font-family: var(--font-body); font-size: .8125rem; }
+.nl__field input {
+  width: 100%; padding: 14px 16px; border: 1.5px solid var(--line); border-radius: var(--r-sm); background: #fff;
+  font: 400 1rem/1.3 var(--font-body); color: var(--ink); transition: border-color .2s;
 }
-.newsletter .sender-form-field input[type="email"]:focus,
-.newsletter .sender-form-field input[type="text"]:focus { border-color: var(--ink) !important; outline: none !important; }
-.newsletter .sender-form-field button {
-  width: 100% !important; text-align: center !important; background: var(--ink) !important; color: #fff !important; border: 0 !important; border-radius: 999px !important;
-  padding: 16px 28px !important; font: 500 1rem/1 var(--font-head) !important; letter-spacing: 0 !important; text-transform: none !important;
-  transition: transform .2s, box-shadow .2s !important;
-}
-.newsletter .sender-form-field button:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.15) !important; }
+.nl__field input:focus { outline: none; border-color: var(--ink); }
+.nl__hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.nl__consent { display: flex; align-items: flex-start; gap: 10px; margin: 18px 0 22px; font-size: .9375rem; cursor: pointer; }
+.nl__consent input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--ink); flex: none; }
+.nl__btn { display: flex; width: 100%; padding: 18px 24px; }
+.nl__btn:disabled { opacity: .6; cursor: wait; transform: none; }
+.nl__msg { min-height: 1.65em; margin: 14px 0 0; text-align: center; font-weight: 500; }
+.nl__msg--ok { color: var(--c2); }
+.nl__msg--err { color: var(--c4); }
+.nl__note { margin: 6px 0 0; text-align: center; font-size: .8125rem; color: var(--muted); }

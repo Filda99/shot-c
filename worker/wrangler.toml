@@ -1,0 +1,7 @@
+name = "shotc-newsletter"
+main = "newsletter.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://www.shot-c.cz,https://shot-c.cz"
+# SENDER_GROUP_ID a SENDER_API_KEY se nastavují v Cloudflare (klíč jako Secret), ne tady.

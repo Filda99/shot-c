@@ -225,13 +225,32 @@
       </div>
     </section>
 
-    <!-- Newsletter (formulář Sender, ID se nastavuje v assets/js/main.js → SENDER) -->
+    <!-- Newsletter: vlastní formulář, data jdou přes Cloudflare Worker do Senderu (adresa v assets/js/main.js → NEWSLETTER) -->
     <section class="section newsletter" id="newsletter">
       <div class="wrap wrap--narrow center">
         <h2 class="title">Novinky</h2>
         <p class="newsletter__lead">Chcete vědět o&nbsp;koncertech a&nbsp;novém albu dřív než ostatní? Nechte nám e-mail. Píšeme zhruba jednou za dva týdny, nic víc.</p>
-        <div class="newsletter__form" data-sender-form hidden></div>
-        <p class="newsletter__fallback" data-sender-fallback>Přihlášení k&nbsp;odběru brzy spustíme. Do té doby nás sledujte na <a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener">Instagramu</a>.</p>
+        <form class="nl" data-newsletter hidden novalidate>
+          <div class="nl__row">
+            <label class="nl__field">
+              <span>E-mail</span>
+              <input type="email" name="email" autocomplete="email" placeholder="vas@email.cz" required>
+            </label>
+            <label class="nl__field">
+              <span>Jméno <em>(nepovinné)</em></span>
+              <input type="text" name="name" autocomplete="given-name" placeholder="Vaše jméno" maxlength="80">
+            </label>
+          </div>
+          <label class="nl__hp" aria-hidden="true">Web <input type="text" name="web" tabindex="-1" autocomplete="off"></label>
+          <label class="nl__consent">
+            <input type="checkbox" name="consent" required>
+            <span>Souhlasím se zasíláním novinek od Shot-C.</span>
+          </label>
+          <button class="btn btn--sq nl__btn" type="submit">Přihlásit se</button>
+          <p class="nl__msg" role="status" aria-live="polite"></p>
+          <p class="nl__note">Odhlásit se můžete jedním klikem v&nbsp;každém e-mailu. Údaje použijeme jen k&nbsp;zasílání novinek a&nbsp;nikomu je nepředáme.</p>
+        </form>
+        <p class="newsletter__fallback" data-newsletter-fallback>Přihlášení k&nbsp;odběru brzy spustíme. Do té doby nás sledujte na <a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener">Instagramu</a>.</p>
       </div>
     </section>
 

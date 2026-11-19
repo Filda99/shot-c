@@ -10,12 +10,11 @@
     end: '2026-12-15T23:59:00+01:00'   // konec kampaně (ukázková hodnota)
   };
 
-  /* ===== Newsletter: formulář ze Senderu (app.sender.net → Forms → Embed).
-     Obě ID jsou veřejná (jsou vidět v kódu každé stránky s formulářem), API klíč sem nikdy nepatří.
+  /* ===== Newsletter: adresa Cloudflare Workeru (worker/newsletter.js), který přihlášku
+     předá do Senderu. API klíč Senderu je jen ve Workeru, sem nikdy nepatří.
      Prázdné = místo formuláře se ukáže náhradní text. ===== */
-  var SENDER = {
-    accountId: '4908a4a9db8401', // z embed kódu: sender('…')
-    formId: 'aADB17' // z embed kódu: data-sender-form-id="…"
+  var NEWSLETTER = {
+    endpoint: ''   // např. 'https://shotc-newsletter.<účet>.workers.dev'
   };
 
   var TZ = 'Europe/Prague';
@@ -265,65 +264,45 @@
   var y = document.querySelector('[data-year]');
   if (y) { y.textContent = new Date().getFullYear(); }
 
-  /* Newsletter: načte univerzální skript Senderu a vloží jeho embedded formulář. */
+  /* Newsletter: vlastní formulář → Worker → Sender (double opt-in řeší automatizace v Senderu). */
   function initNewsletter() {
-    var box = document.querySelector('[data-sender-form]');
-    if (!box || !/^[\w-]+$/.test(SENDER.accountId) || !/^[\w-]+$/.test(SENDER.formId)) { return; }
-    var field = document.createElement('div');
-    field.className = 'sender-form-field';
-    field.setAttribute('data-sender-form-id', SENDER.formId);
-    box.appendChild(field);
-    box.hidden = false;
-    var fb = document.querySelector('[data-sender-fallback]');
+    var form = document.querySelector('[data-newsletter]');
+    if (!form || !safeHttp(NEWSLETTER.endpoint)) { return; }
+    var fb = document.querySelector('[data-newsletter-fallback]');
     if (fb) { fb.hidden = true; }
-    window.Sender = 'sender';
-    window.sender = window.sender || function () { (window.sender.q = window.sender.q || []).push(arguments); };
-    window.sender.l = Date.now();
-    window.sender.on = window.sender.on || function (ev, cb) {
-      window.sender.listeners = window.sender.listeners || {};
-      (window.sender.listeners[ev] = window.sender.listeners[ev] || []).push(cb);
-    };
-    var sc = document.createElement('script');
-    sc.async = true;
-    sc.src = 'https://cdn.sender.net/accounts_resources/universal.js';
-    document.head.appendChild(sc);
-    window.sender(SENDER.accountId);
-    styleSenderShadow(field);
-  }
+    form.hidden = false;
 
-  /* Když Sender vykreslí formulář do (otevřeného) shadow DOM, styly webu se k němu nedostanou.
-     Proto do něj zkopírujeme pravidla .sender-form-field ze style.css. */
-  function styleSenderShadow(field) {
-    var tries = 0;
-    var css = '';
-    try {
-      Array.prototype.forEach.call(document.styleSheets, function (sh) {
-        var rules; try { rules = sh.cssRules; } catch (e) { return; }
-        Array.prototype.forEach.call(rules || [], function (r) {
-          if (r.selectorText && r.selectorText.indexOf('.sender-form-field') !== -1) {
-            css += r.cssText.replace(/\.newsletter \.sender-form-field ?/g, ':host ') + '\n';
+    var f = form.elements;
+    var msg = form.querySelector('.nl__msg');
+    var btn = form.querySelector('button[type="submit"]');
+    function say(text, kind) { msg.textContent = text; msg.className = 'nl__msg' + (kind ? ' nl__msg--' + kind : ''); }
+
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var email = f.email.value.trim();
+      if (!f.email.checkValidity() || !email) { say('Zkontrolujte prosím e-mail.', 'err'); f.email.focus(); return; }
+      if (!f.consent.checked) { say('Potvrďte prosím souhlas se zasíláním novinek.', 'err'); return; }
+      btn.disabled = true;
+      say('Odesílám…');
+      fetch(NEWSLETTER.endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, name: f.name.value.trim(), consent: true, web: f.web.value })
+      })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (d) {
+          if (d && d.ok) {
+            form.reset();
+            say('Díky! Poslali jsme vám e-mail, potvrďte v něm prosím přihlášení.', 'ok');
+          } else if (d && d.error === 'email') {
+            say('Tenhle e-mail nevypadá správně, zkontrolujte ho prosím.', 'err');
+          } else {
+            say('Něco se pokazilo. Zkuste to prosím později, nebo nám napište na info@shot-c.cz.', 'err');
           }
-        });
-      });
-    } catch (e) { return; }
-    var root = getComputedStyle(document.documentElement);
-    ['--ink', '--line', '--font-body', '--font-head'].forEach(function (v) {
-      css = css.split('var(' + v + ')').join(root.getPropertyValue(v).trim());
+        })
+        .catch(function () { say('Nepodařilo se spojit se serverem. Zkuste to prosím za chvíli.', 'err'); })
+        .then(function () { btn.disabled = false; });
     });
-    (function look() {
-      var hosts = [field].concat(Array.prototype.slice.call(field.querySelectorAll('*')));
-      var done = false;
-      hosts.forEach(function (h) {
-        if (h.shadowRoot && !h.shadowRoot.querySelector('style[data-shotc]')) {
-          var st = document.createElement('style');
-          st.setAttribute('data-shotc', '');
-          st.textContent = css;
-          h.shadowRoot.appendChild(st);
-          done = true;
-        }
-      });
-      if (!done && ++tries < 40) { setTimeout(look, 250); }
-    })();
   }
 
   initCampaign();
