@@ -15,10 +15,9 @@
 .anim [data-reveal="tilt"]  { transform: perspective(800px) rotateX(18deg) translateY(30px); transform-origin: 50% 100%; }
 .anim [data-reveal].is-in   { opacity: 1; transform: none; }
 
-/* Nadpisy: prostrkání se „stáhne“ a pod nimi se vykreslí barevná linka */
-.anim .title[data-reveal] { letter-spacing: .4em; transition-property: opacity, transform, letter-spacing; transition-duration: .9s, .9s, 1.2s; }
-.anim .title[data-reveal].is-in { letter-spacing: .12em; }
-.anim .bio__text .title[data-reveal].is-in { letter-spacing: .14em; }
+/* Nadpisy: mírné prostrkání se „stáhne“ a pod nimi se vykreslí barevná linka */
+.anim .title[data-reveal] { letter-spacing: .12em; transition-property: opacity, transform, letter-spacing; transition-duration: .9s, .9s, 1.2s; }
+.anim .title[data-reveal].is-in { letter-spacing: -.01em; }
 .title::after {
   content: ""; display: block; width: 72px; height: 4px; margin: 18px auto 0;
   background: var(--grad); border-radius: 2px;

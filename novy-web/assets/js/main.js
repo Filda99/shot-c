@@ -10,12 +10,6 @@
     end: '2026-12-15T23:59:00+01:00'   // konec kampaně (ukázková hodnota)
   };
 
-  /* ===== Instagram: JSON feed (např. z behold.so). Prázdné = barevné placeholdery ===== */
-  var INSTAGRAM = {
-    feedUrl: 'https://feeds.behold.so/KVe4qiyMuQ455cLIgPna',
-    count: 6
-  };
-
   /* ===== Newsletter: formulář ze Senderu (app.sender.net → Forms → Embed).
      Obě ID jsou veřejná (jsou vidět v kódu každé stránky s formulářem), API klíč sem nikdy nepatří.
      Prázdné = místo formuláře se ukáže náhradní text. ===== */
@@ -27,7 +21,7 @@
   var TZ = 'Europe/Prague';
   var nf = new Intl.NumberFormat('cs-CZ');
 
-  // Odkazy z cizích dat (kalendář, Behold) pouštíme jen jako http(s), ne javascript: apod.
+  // Odkazy z cizích dat (kalendář) pouštíme jen jako http(s), ne javascript: apod.
   function safeHttp(u) {
     if (typeof u !== 'string') { return null; }
     try { var p = new URL(u, location.href); return /^https?:$/.test(p.protocol) ? p.href : null; } catch (e) { return null; }
@@ -139,23 +133,22 @@
     title.textContent = ev.title;
     body.appendChild(title);
     if (!past) {
+      // „sobota 16:00 – místo konání“ (místo z pole Místo v kalendáři)
       var meta = document.createElement('p');
       meta.className = 'gig__meta';
-      // ikona místa jen u místa, čas samostatně bez ikony
+      var time = fmt(ev.startMs, { weekday: 'long' }) + (ev.allDay ? '' : ' ' + fmt(ev.startMs, { hour: 'numeric', minute: '2-digit' }));
+      var when = document.createElement('span');
+      when.className = 'gig__time';
+      when.textContent = time;
+      meta.appendChild(when);
       if (ev.venue) {
-        meta.innerHTML = svg('i-pin');
+        meta.appendChild(document.createTextNode('–'));
         var where = document.createElement('span');
+        where.className = 'gig__place';
         where.textContent = ev.venue;
         meta.appendChild(where);
       }
-      var time = ev.allDay ? '' : fmt(ev.startMs, { weekday: 'long' }) + ' ' + fmt(ev.startMs, { hour: 'numeric', minute: '2-digit' });
-      if (time) {
-        var when = document.createElement('span');
-        when.className = 'gig__time';
-        when.textContent = time;
-        meta.appendChild(when);
-      }
-      if (meta.childNodes.length) { body.appendChild(meta); }
+      body.appendChild(meta);
     }
     li.appendChild(body);
 
@@ -185,7 +178,10 @@
           var s = Date.parse(e.start);
           var en = e.end ? Date.parse(e.end) : s + 2 * 36e5;
           return Object.assign({}, e, { startMs: s, endMs: en });
-        }).filter(function (e) { return !isNaN(e.startMs); });
+        }).filter(function (e) {
+          // soukromé akce na web nepatří, veřejnost se na ně stejně nedostane
+          return !isNaN(e.startMs) && !/soukrom/i.test(e.title + ' ' + (e.venue || ''));
+        });
 
         var upcoming = events.filter(function (e) { return e.endMs >= now; })
           .sort(function (a, b) { return a.startMs - b.startMs; });
@@ -233,32 +229,6 @@
       var next = d.querySelector('.disc__next');
       if (next) { next.addEventListener('click', function () { show(i + 1); }); next.style.cursor = 'pointer'; }
     });
-  }
-
-  /* ===== Instagram: posledních pár příspěvků ===== */
-  function initInstagram() {
-    var row = document.querySelector('[data-insta]');
-    if (!row || !INSTAGRAM.feedUrl) { return; }
-    fetch(INSTAGRAM.feedUrl)
-      .then(function (r) { if (!r.ok) { throw new Error(r.status); } return r.json(); })
-      .then(function (data) {
-        var posts = (Array.isArray(data) ? data : data.posts || []).slice(0, INSTAGRAM.count);
-        if (!posts.length) { return; }
-        row.innerHTML = '';
-        posts.forEach(function (p) {
-          var img = (p.sizes && p.sizes.medium && p.sizes.medium.mediaUrl) || p.thumbnailUrl || p.mediaUrl;
-          var link = safeHttp(p.permalink);
-          if (!img || !link) { return; }
-          var li = document.createElement('li');
-          var a = document.createElement('a');
-          a.href = link; a.target = '_blank'; a.rel = 'noopener';
-          var im = document.createElement('img');
-          im.src = img; im.loading = 'lazy';
-          im.alt = (p.prunedCaption || p.caption || 'Příspěvek na Instagramu').slice(0, 120);
-          a.appendChild(im); li.appendChild(a); row.appendChild(li);
-        });
-      })
-      .catch(function () { /* necháme placeholdery */ });
   }
 
   /* ===== Videa: poslední videa z YouTube (data/videos.json plní deploy) ===== */
@@ -361,7 +331,6 @@
   initGigs();
   initPast();
   initDiscs();
-  initInstagram();
   initVideos();
   initNewsletter();
 }());
