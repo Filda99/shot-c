@@ -16,7 +16,7 @@ python3 -m http.server 8000
 | Odkaz na sbírku na Doniu | `data/donio.json`, pole `url`. Částku, cíl a konec doplní skript `scripts/donio.js` při každém nasazení webu (společný deploy workflow s kalendářem) |
 | Záložní čísla, když `donio.json` ještě nemá data | `assets/js/main.js`, objekt `CAMPAIGN` nahoře |
 | Barvy členů (6 barev) a přechod nápisu Originalno | `assets/css/style.css`, `:root` |
-| Koncerty | `data/events.json` (stejný formát jako na starém webu) |
+| Koncerty | `data/events.json` (stejný formát jako na starém webu). Místo konání se bere z pole Místo v Google Kalendáři, akce se slovem „soukromá“ se na webu nezobrazí |
 | Soubory ke stažení | `assets/files/` + sekce `#ke-stazeni` v `index.html` |
 
 ## Placeholdery, které čekají na grafiku
@@ -25,4 +25,4 @@ python3 -m http.server 8000
 - fotky členů (barevné karty s nápisem „foto“),
 - obal Originalno a Multipotenciál,
 - video z YouTube,
-- fotky do tisku, logo, obal alba a text o kapele ke stažení (zatím neaktivní).
+- press kit ke stažení (zip: logo, fotky do tisku, text o kapele), zatím neaktivní.

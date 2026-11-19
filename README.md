@@ -99,7 +99,7 @@ Před nasazením stáhne kalendář a doplní ho do `data/events.json` a `novy-w
 
 ## Instagram na novém webu
 
-V `novy-web/assets/js/main.js` je `INSTAGRAM.feedUrl`. Stačí tam dát JSON feed z [behold.so](https://behold.so) a sekce Instagram ukáže posledních 6 příspěvků. Prázdné = placeholdery.
+Sekce Instagram byla z nového webu odebrána (19. 11. 2026), odkaz na Instagram zůstává mezi ikonami sítí.
 
 ## Videa na novém webu
 

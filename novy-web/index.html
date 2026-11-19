@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
 </head>
@@ -47,7 +47,7 @@
         </p>
       </div>
 
-      <a class="btn btn--donio" href="#" data-donio-link>Podpořit nás na Doniu</a>
+      <a class="btn btn--donio" href="#" data-donio-link>Podpoř nás na Doniu</a>
 
       <ul class="icons hero__icons" aria-label="Najdete nás na">
         <li><a href="https://open.spotify.com/album/1ZzoX03czOYonL08fPU2iG" target="_blank" rel="noopener" aria-label="Spotify"><svg><use href="#i-spotify"/></svg></a></li>
@@ -81,11 +81,10 @@
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
     <ul class="nav__menu" id="menu">
       <li><a href="#koncerty">Koncerty</a></li>
-      <li><a href="#hudba">Album</a></li>
+      <li><a href="#hudba">Hudba</a></li>
       <li><a href="#videa">Videa</a></li>
-      <li><a href="#instagram">Instagram</a></li>
-      <li><a href="#ke-stazeni">Ke stažení</a></li>
       <li><a href="#o-nas">O&nbsp;nás</a></li>
+      <li><a href="#ke-stazeni">Ke stažení</a></li>
       <li><a href="#newsletter">Novinky</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
       <li><a class="nav__donio" href="#" data-donio-link>Donio</a></li>
@@ -94,25 +93,25 @@
 
   <main>
     <!-- Koncerty -->
-    <section class="section section--dark" id="koncerty">
+    <section class="section" id="koncerty">
       <div class="wrap wrap--narrow">
         <h2 class="title">Koncerty</h2>
         <ol class="gigs" data-gigs aria-live="polite">
           <li class="gigs__empty">Načítám koncerty…</li>
         </ol>
         <div class="center">
-          <button class="btn btn--line btn--light" type="button" data-past-toggle aria-expanded="false" aria-controls="past">Kde jsme už zpívali</button>
+          <button class="btn btn--line" type="button" data-past-toggle aria-expanded="false" aria-controls="past">Kde jsme už zpívali</button>
         </div>
         <ol class="gigs gigs--past" id="past" data-gigs-past hidden></ol>
         <noscript><p>Seznam koncertů potřebuje JavaScript. Aktuální info najdete na našem <a href="https://www.facebook.com/czshotc/">Facebooku</a>.</p></noscript>
       </div>
     </section>
 
-    <!-- Hudba: diskografie s přepínáním alb -->
-    <section class="section" id="hudba">
+    <!-- Hudba: diskografie s přepínáním alb (tmavá, ať vynikne světlý obal Originalna) -->
+    <section class="section section--dark" id="hudba">
       <div class="wrap">
         <div class="disc-head">
-          <h2 class="title title--left">Album</h2>
+          <h2 class="title title--left">Hudba</h2>
           <div class="arrows">
             <button type="button" data-disc="-1" aria-label="Předchozí album"><svg><use href="#i-left"/></svg></button>
             <button type="button" data-disc="1" aria-label="Další album"><svg><use href="#i-right"/></svg></button>
@@ -136,7 +135,7 @@
             <div class="disc__main">
               <div class="disc__cover disc__cover--originalno"><span>Originalno</span></div>
               <div class="disc__btns">
-                <a class="btn btn--donio btn--sq" href="#" data-donio-link>Podpořit na Doniu</a>
+                <a class="btn btn--donio btn--sq" href="#" data-donio-link>Podpoř nás na Doniu</a>
               </div>
             </div>
             <div class="disc__next disc__cover--debut" aria-hidden="true"><img src="assets/img/multipotencial.jpg" alt="" width="800" height="800" loading="lazy"></div>
@@ -163,9 +162,9 @@
             <div class="disc__main">
               <div class="disc__cover disc__cover--debut"><img src="assets/img/multipotencial.jpg" alt="Obal alba Multipotenciál" width="800" height="800" loading="lazy"></div>
               <div class="disc__btns">
-                <a class="btn btn--sq" href="https://open.spotify.com/album/1ZzoX03czOYonL08fPU2iG" target="_blank" rel="noopener"><svg><use href="#i-spotify"/></svg>Spotify</a>
-                <a class="btn btn--sq" href="https://music.apple.com/cz/album/multipotenci%C3%A1l/1556291117" target="_blank" rel="noopener"><svg><use href="#i-apple"/></svg>Apple Music</a>
-                <a class="btn btn--sq" href="https://music.youtube.com/playlist?list=OLAK5uy_mW4rZAc2PUHHcQGYXWyt-B1xyLEvFyDtU" target="_blank" rel="noopener"><svg><use href="#i-youtube"/></svg>YouTube Music</a>
+                <a class="btn btn--sq btn--stream btn--spotify" href="https://open.spotify.com/album/1ZzoX03czOYonL08fPU2iG" target="_blank" rel="noopener"><svg><use href="#i-spotify"/></svg>Spotify</a>
+                <a class="btn btn--sq btn--stream btn--apple" href="https://music.apple.com/cz/album/multipotenci%C3%A1l/1556291117" target="_blank" rel="noopener"><svg><use href="#i-apple"/></svg>Apple Music</a>
+                <a class="btn btn--sq btn--stream btn--ytmusic" href="https://music.youtube.com/playlist?list=OLAK5uy_mW4rZAc2PUHHcQGYXWyt-B1xyLEvFyDtU" target="_blank" rel="noopener"><svg><use href="#i-youtube"/></svg>YouTube Music</a>
               </div>
             </div>
             <div class="disc__next disc__cover--originalno" aria-hidden="true"><span>Originalno</span></div>
@@ -196,42 +195,7 @@
       </div>
     </section>
 
-    <!-- Instagram -->
-    <section class="section insta" id="instagram">
-      <div class="wrap">
-        <h2 class="title">Instagram</h2>
-        <p class="intro"><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener">@shotc.band</a></p>
-        <!-- Když je v main.js nastavený INSTAGRAM.feedUrl, nahradí se placeholdery posledními příspěvky -->
-        <ul class="insta__grid" data-insta>
-          <li class="insta__ph" style="--c: var(--c1)"><svg aria-hidden="true"><use href="#i-instagram"/></svg></li>
-          <li class="insta__ph" style="--c: var(--c2)"><svg aria-hidden="true"><use href="#i-instagram"/></svg></li>
-          <li class="insta__ph" style="--c: var(--c3)"><svg aria-hidden="true"><use href="#i-instagram"/></svg></li>
-          <li class="insta__ph" style="--c: var(--c4)"><svg aria-hidden="true"><use href="#i-instagram"/></svg></li>
-          <li class="insta__ph" style="--c: var(--c5)"><svg aria-hidden="true"><use href="#i-instagram"/></svg></li>
-          <li class="insta__ph" style="--c: var(--c6)"><svg aria-hidden="true"><use href="#i-instagram"/></svg></li>
-        </ul>
-        <div class="center insta__more">
-          <a class="btn btn--line" href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener">Sledovat na Instagramu</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ke stažení -->
-    <section class="section" id="ke-stazeni">
-      <div class="wrap">
-        <h2 class="title">Ke stažení</h2>
-        <p class="intro">Pro pořadatele, novináře a&nbsp;všechny, kdo o&nbsp;nás píšou.</p>
-        <ul class="downloads">
-          <li><a class="dl dl--1" href="assets/files/Shot-C-techrider-2023.pdf" target="_blank" rel="noopener"><strong>Technický rider</strong><span>PDF</span></a></li>
-          <li><a class="dl dl--2 dl--todo" href="#" aria-disabled="true"><strong>Fotky do tisku</strong><span>ZIP · doplnit</span></a></li>
-          <li><a class="dl dl--3 dl--todo" href="#" aria-disabled="true"><strong>Logo Shot-C</strong><span>PNG, SVG · doplnit</span></a></li>
-          <li><a class="dl dl--4 dl--todo" href="#" aria-disabled="true"><strong>Obal alba Originalno</strong><span>JPG · doplnit</span></a></li>
-          <li><a class="dl dl--5 dl--todo" href="#" aria-disabled="true"><strong>Text o&nbsp;kapele</strong><span>PDF · doplnit</span></a></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- O nás: půlka fotka, půlka text (úplně dole před kontaktem) -->
+    <!-- O nás: půlka fotka, půlka text -->
     <section class="bio" id="o-nas">
       <div class="bio__photo"><span>společná fotka</span></div>
       <div class="bio__text">
@@ -244,6 +208,19 @@
           <li><a href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#i-youtube"/></svg></a></li>
           <li><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a></li>
           <li><a href="https://www.facebook.com/czshotc/" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Ke stažení -->
+    <section class="section" id="ke-stazeni">
+      <div class="wrap">
+        <h2 class="title">Ke stažení</h2>
+        <p class="intro">Pro pořadatele, novináře a&nbsp;všechny, kdo o&nbsp;nás píšou.</p>
+        <ul class="downloads">
+          <li><a class="dl dl--1" href="assets/files/Shot-C-techrider-2023.pdf" target="_blank" rel="noopener"><strong>Technický rider</strong><span>PDF</span></a></li>
+          <!-- Press kit: zip s logem, fotkami do tisku a textem o kapele (assets/files/Shot-C-press-kit.zip), pak odebrat dl--todo -->
+          <li><a class="dl dl--2 dl--todo" href="#" aria-disabled="true"><strong>Press kit</strong><span>ZIP · logo, fotky do tisku a&nbsp;text o&nbsp;kapele · doplnit</span></a></li>
         </ul>
       </div>
     </section>

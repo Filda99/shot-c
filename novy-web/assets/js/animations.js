@@ -20,8 +20,6 @@
     ['.disc.is-active .disc__next', 'right', 0],
     ['.videos .center, .press', 'up', 0],
     ['.video-grid > li', 'tilt', .12],
-    ['.insta__title, .insta__more', 'up', 0],
-    ['[data-insta] > li', 'zoom', .07],
     ['.downloads > li', 'up', .08],
     ['.bio__photo', 'left', 0],
     ['.bio__text > p, .bio__icons', 'up', .1],
@@ -66,7 +64,6 @@
   }
   watch('[data-gigs]', 'left', .1);
   watch('[data-gigs-past]', 'up', .04);
-  watch('[data-insta]', 'zoom', .07);
   watch('[data-videos]', 'tilt', .12);
 
   /* ===== 2) Scroll: ukazatel postupu, navigace, parallax ===== */
@@ -178,7 +175,6 @@
       replay(items[Math.floor(Math.random() * items.length)], 'is-pop', 800);
     };
   }
-  every(document.querySelector('[data-insta]'), 2400, popRandom(':scope > li'));
   every(document.querySelector('.downloads'), 3200, popRandom('.dl'));
 
   // Barevný pruh v patičce
