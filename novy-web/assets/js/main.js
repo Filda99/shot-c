@@ -21,7 +21,7 @@
      Prázdné = místo formuláře se ukáže náhradní text. ===== */
   var SENDER = {
     accountId: '',   // z embed kódu: sender('…')
-    formId: ''       // z embed kódu: data-sender-form-id="…"
+    formId: 'aADB17' // z embed kódu: data-sender-form-id="…"
   };
 
   var TZ = 'Europe/Prague';
