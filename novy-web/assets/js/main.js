@@ -318,6 +318,42 @@
     sc.src = 'https://cdn.sender.net/accounts_resources/universal.js';
     document.head.appendChild(sc);
     window.sender(SENDER.accountId);
+    styleSenderShadow(field);
+  }
+
+  /* Když Sender vykreslí formulář do (otevřeného) shadow DOM, styly webu se k němu nedostanou.
+     Proto do něj zkopírujeme pravidla .sender-form-field ze style.css. */
+  function styleSenderShadow(field) {
+    var tries = 0;
+    var css = '';
+    try {
+      Array.prototype.forEach.call(document.styleSheets, function (sh) {
+        var rules; try { rules = sh.cssRules; } catch (e) { return; }
+        Array.prototype.forEach.call(rules || [], function (r) {
+          if (r.selectorText && r.selectorText.indexOf('.sender-form-field') !== -1) {
+            css += r.cssText.replace(/\.newsletter \.sender-form-field ?/g, ':host ') + '\n';
+          }
+        });
+      });
+    } catch (e) { return; }
+    var root = getComputedStyle(document.documentElement);
+    ['--ink', '--line', '--font-body', '--font-head'].forEach(function (v) {
+      css = css.split('var(' + v + ')').join(root.getPropertyValue(v).trim());
+    });
+    (function look() {
+      var hosts = [field].concat(Array.prototype.slice.call(field.querySelectorAll('*')));
+      var done = false;
+      hosts.forEach(function (h) {
+        if (h.shadowRoot && !h.shadowRoot.querySelector('style[data-shotc]')) {
+          var st = document.createElement('style');
+          st.setAttribute('data-shotc', '');
+          st.textContent = css;
+          h.shadowRoot.appendChild(st);
+          done = true;
+        }
+      });
+      if (!done && ++tries < 40) { setTimeout(look, 250); }
+    })();
   }
 
   initCampaign();
