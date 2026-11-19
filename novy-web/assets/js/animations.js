@@ -75,39 +75,39 @@
   var nav = document.querySelector('.nav');
   var bgSpans = document.querySelectorAll('.videos__bg span');
   var videos = document.querySelector('.videos');
-  var bioPhoto = document.querySelector('.bio__photo');
   var links = Array.prototype.map.call(document.querySelectorAll('.nav__menu a[href^="#"]:not(.nav__donio)'), function (a) {
     return { a: a, sec: document.querySelector(a.getAttribute('href')) };
   }).filter(function (l) { return l.sec; });
 
-  // poměr, jak daleko je prvek prošlý oknem (0 = vstupuje dole, 1 = odešel nahoře)
-  function progress(el) {
-    var r = el.getBoundingClientRect();
-    var h = window.innerHeight;
-    return Math.max(0, Math.min(1, (h - r.top) / (h + r.height)));
-  }
-
+  // Nejdřív všechno přečíst, pak zapisovat: střídání čtení a zápisu nutí prohlížeč
+  // přepočítávat layout v každém snímku a scroll se pak seká.
   var ticking = false;
+  var lastCurrent;
   function onScroll() {
     ticking = false;
-    var max = root.scrollHeight - window.innerHeight;
-    bar.style.setProperty('--p', max > 0 ? (window.scrollY / max).toFixed(4) : 0);
-
-    if (nav) { nav.classList.toggle('is-stuck', nav.getBoundingClientRect().top <= 0 && window.scrollY > 10); }
-
-    if (videos) {
-      var p = progress(videos);
-      Array.prototype.forEach.call(bgSpans, function (s, i) {
-        var dir = i % 2 ? 1 : -1;
-        s.style.setProperty('--sx', (dir * (p - 0.5) * 30).toFixed(2) + '%');
-      });
-    }
-    if (bioPhoto) { bioPhoto.style.setProperty('--py', (progress(bioPhoto) * 100).toFixed(1) + '%'); }
-
-    var line = window.innerHeight * 0.35;
+    var y = window.scrollY;
+    var h = window.innerHeight;
+    var max = root.scrollHeight - h;
+    var stuck = nav ? nav.getBoundingClientRect().top <= 0 && y > 10 : false;
+    var vr = videos ? videos.getBoundingClientRect() : null;
+    var line = h * 0.35;
     var current = null;
     links.forEach(function (l) { if (l.sec.getBoundingClientRect().top <= line) { current = l; } });
-    links.forEach(function (l) { l.a.classList.toggle('is-current', l === current); });
+
+    bar.style.transform = 'scaleX(' + (max > 0 ? (y / max).toFixed(4) : 0) + ')';
+    if (nav) { nav.classList.toggle('is-stuck', stuck); }
+    // obrysový nápis ve Videích se posouvá jen, když je sekce vidět (translate jen posune hotovou vrstvu, nic se nepřekresluje)
+    if (vr && vr.bottom > 0 && vr.top < h) {
+      var p = Math.max(0, Math.min(1, (h - vr.top) / (h + vr.height)));
+      Array.prototype.forEach.call(bgSpans, function (s, i) {
+        var dir = i % 2 ? 1 : -1;
+        s.style.translate = (dir * (p - 0.5) * 30).toFixed(2) + '% 0';
+      });
+    }
+    if (current !== lastCurrent) {
+      lastCurrent = current;
+      links.forEach(function (l) { l.a.classList.toggle('is-current', l === current); });
+    }
   }
   window.addEventListener('scroll', function () {
     if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
@@ -176,6 +176,12 @@
     };
   }
   every(document.querySelector('.downloads'), 3200, popRandom('.dl'));
+
+  // Nekonečné animace (přelévání barev, odlesky) běží jen, když je prvek vidět
+  var pio = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { e.target.classList.toggle('is-paused', !e.isIntersecting); });
+  });
+  document.querySelectorAll('.hero__album, .btn--donio, .campaign__fill, .video__play, .disc__next').forEach(function (el) { pio.observe(el); });
 
   // Barevný pruh v patičce
   every(document.querySelector('.stripe'), 5000, function (el) { replay(el, 'is-wave', 1500); });

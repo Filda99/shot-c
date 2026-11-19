@@ -73,6 +73,8 @@ jobs:
             case "$f" in .git|.github|_site|scripts|tests|docs|README.md|.gitignore) ;; *) cp -r "$f" _site/ ;; esac
           done
           rm -f _site/novy-web/README.md
+          # ?v=dev → ?v=<commit>, aby prohlížeče po nasazení nebraly staré CSS/JS z cache
+          sed -i "s/?v=dev/?v=${GITHUB_SHA::8}/g" _site/novy-web/index.html
           ls -A _site
 
       - uses: actions/configure-pages@v6
