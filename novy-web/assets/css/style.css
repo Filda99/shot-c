@@ -424,3 +424,16 @@ button { font: inherit; color: inherit; }
 .stripe span:nth-child(1) { background: var(--c1); } .stripe span:nth-child(2) { background: var(--c2); }
 .stripe span:nth-child(3) { background: var(--c3); } .stripe span:nth-child(4) { background: var(--c4); }
 .stripe span:nth-child(5) { background: var(--c5); } .stripe span:nth-child(6) { background: var(--c6); }
+
+/* ---------- NEWSLETTER (formulář Sender) ---------- */
+.newsletter { background: var(--bg-tint); }
+.newsletter .title { margin-bottom: 20px; }
+.newsletter__lead { margin: 0 auto 32px; max-width: 32em; font-size: 1.125rem; }
+.newsletter__form { max-width: 520px; margin: 0 auto; text-align: left; }
+.newsletter__fallback { margin: 0 auto; color: var(--muted); }
+.newsletter__gdpr { margin: 20px auto 0; max-width: 40em; font-size: .8125rem; color: var(--muted); }
+.newsletter a { text-decoration-color: var(--grad-a); text-underline-offset: 3px; }
+/* sjednocení vzhledu formuláře Senderu se zbytkem webu */
+.newsletter .sender-form-field input,
+.newsletter .sender-form-field button { font-family: var(--font-body) !important; }
+.newsletter .sender-form-field button { border-radius: 999px !important; }
