@@ -196,8 +196,7 @@ button { font: inherit; color: inherit; }
   display: flex; align-items: center; justify-content: space-between;
   height: var(--nav-h);
   padding: 0 20px;
-  background: rgba(250,250,247,.92);
-  backdrop-filter: blur(10px);
+  background: var(--bg);
   border-bottom: 1px solid var(--line);
 }
 .nav__logo { font: 700 1.625rem/1 var(--font-head); letter-spacing: .02em; text-transform: uppercase; text-decoration: none; color: var(--logo); }

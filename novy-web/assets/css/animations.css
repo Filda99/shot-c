@@ -15,9 +15,8 @@
 .anim [data-reveal="tilt"]  { transform: perspective(800px) rotateX(18deg) translateY(30px); transform-origin: 50% 100%; }
 .anim [data-reveal].is-in   { opacity: 1; transform: none; }
 
-/* Nadpisy: mírné prostrkání se „stáhne“ a pod nimi se vykreslí barevná linka */
-.anim .title[data-reveal] { letter-spacing: .12em; transition-property: opacity, transform, letter-spacing; transition-duration: .9s, .9s, 1.2s; }
-.anim .title[data-reveal].is-in { letter-spacing: -.01em; }
+/* Nadpisy: pod nimi se vykreslí barevná linka */
+
 .title::after {
   content: ""; display: block; width: 72px; height: 4px; margin: 18px auto 0;
   background: var(--grad); border-radius: 2px;
@@ -35,13 +34,13 @@
   position: fixed; left: 0; top: 0; z-index: 60;
   width: 100%; height: 3px;
   background: var(--grad);
-  transform: scaleX(var(--p, 0)); transform-origin: left;
+  transform: scaleX(0); transform-origin: left; will-change: transform;
   pointer-events: none;
 }
 
 /* Navigace dostane stín, jakmile se přilepí nahoru */
-.nav { transition: box-shadow .3s, background .3s; }
-.nav.is-stuck { box-shadow: 0 6px 24px rgba(0,0,0,.08); background: rgba(250,250,247,.97); }
+.nav { transition: box-shadow .3s; }
+.nav.is-stuck { box-shadow: 0 6px 24px rgba(0,0,0,.08); }
 /* Zvýraznění aktuální sekce v menu */
 .nav__menu a:not(.nav__donio) { position: relative; }
 .nav__menu a:not(.nav__donio)::after {
@@ -50,10 +49,11 @@
 }
 .nav__menu a.is-current::after { transform: scaleX(1); }
 
-/* ---------- parallax ---------- */
-.videos__bg span { translate: var(--sx, 0) 0; will-change: translate; }
-.bio__photo { background-position: 0 0, 50% var(--py, 50%); background-size: auto, 100% 140%; }
-@media (max-width: 860px) { .bio__photo { background-size: auto, 100% 140%; } }
+/* ---------- parallax (posun nastavuje JS přes translate) ---------- */
+.videos__bg span { will-change: translate; }
+
+/* Nekonečné animace mimo obrazovku stojí (třídu přidává JS) */
+.is-paused, .is-paused::before, .is-paused::after { animation-play-state: paused !important; }
 
 /* ================= opakující se animace ================= */
 
@@ -74,7 +74,7 @@
 }
 
 /* Název alba: přechod barev pomalu přelévá */
-.hero__album, .disc__cover--originalno span {
+.hero__album {
   background-image: linear-gradient(90deg, var(--grad-a), var(--grad-b), var(--grad-a));
   background-size: 200% 100%;
   animation: flow 8s linear infinite;
