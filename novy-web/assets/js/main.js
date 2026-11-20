@@ -10,14 +10,6 @@
     end: '2026-12-15T23:59:00+01:00'   // konec kampaně (ukázková hodnota)
   };
 
-  /* ===== Newsletter: adresa Cloudflare Workeru (worker/newsletter.js), který přihlášku
-     předá do Senderu. API klíč Senderu je jen ve Workeru, sem nikdy nepatří.
-     Prázdné = místo formuláře se ukáže náhradní text. ===== */
-  var NEWSLETTER = {
-    endpoint: '',         // adresa Workeru, např. 'https://shotc-newsletter.<účet>.workers.dev'
-    turnstileSiteKey: ''  // veřejný „Site Key“ Cloudflare Turnstile (ochrana proti robotům)
-  };
-
   var TZ = 'Europe/Prague';
   var nf = new Intl.NumberFormat('cs-CZ');
 
@@ -265,72 +257,10 @@
   var y = document.querySelector('[data-year]');
   if (y) { y.textContent = new Date().getFullYear(); }
 
-  /* Newsletter: vlastní formulář → Worker → Sender (double opt-in řeší automatizace v Senderu). */
-  function initNewsletter() {
-    var form = document.querySelector('[data-newsletter]');
-    if (!form || !/^https:\/\//.test(NEWSLETTER.endpoint) || !safeHttp(NEWSLETTER.endpoint) || !/^[\w-]+$/.test(NEWSLETTER.turnstileSiteKey)) { return; }
-    var fb = document.querySelector('[data-newsletter-fallback]');
-    if (fb) { fb.hidden = true; }
-    form.hidden = false;
-
-    // Cloudflare Turnstile: většinou neviditelné ověření, že formulář vyplňuje člověk.
-    var cap = form.querySelector('[data-turnstile]');
-    cap.className += ' cf-turnstile';
-    cap.setAttribute('data-sitekey', NEWSLETTER.turnstileSiteKey);
-    cap.setAttribute('data-language', 'cs');
-    var ts = document.createElement('script');
-    ts.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-    ts.async = true; ts.defer = true;
-    document.head.appendChild(ts);
-    function resetCaptcha() { try { if (window.turnstile) { window.turnstile.reset(cap); } } catch (e) { /* nic */ } }
-
-    var f = form.elements;
-    var msg = form.querySelector('.nl__msg');
-    var btn = form.querySelector('button[type="submit"]');
-    function say(text, kind) { msg.textContent = text; msg.className = 'nl__msg' + (kind ? ' nl__msg--' + kind : ''); }
-
-    form.addEventListener('submit', function (ev) {
-      ev.preventDefault();
-      var email = f.email.value.trim();
-      if (!f.email.checkValidity() || !email) { say('Zkontrolujte prosím e-mail.', 'err'); f.email.focus(); return; }
-      if (!f.consent.checked) { say('Potvrďte prosím souhlas se zasíláním novinek.', 'err'); return; }
-      var tokenEl = form.querySelector('[name="cf-turnstile-response"]');
-      var token = tokenEl ? tokenEl.value : '';
-      if (!token) { say('Chvilku strpení, ověřujeme, že nejste robot. Pak to zkuste znovu.', 'err'); return; }
-      btn.disabled = true;
-      say('Odesílám…');
-      fetch(NEWSLETTER.endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, name: f.name.value.trim(), consent: true, token: token, hp_field: f.hp_field.value })
-      })
-        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
-        .then(function (d) {
-          if (d && d.ok) {
-            form.reset();
-            say('Díky! Poslali jsme vám e-mail, potvrďte v něm prosím přihlášení.', 'ok');
-          } else if (d && d.error === 'email') {
-            say('Tenhle e-mail nevypadá správně, zkontrolujte ho prosím.', 'err');
-          } else if (d && d.error === 'name') {
-            say('Do jména prosím napište jen jméno, bez odkazů.', 'err');
-          } else if (d && d.error === 'rate') {
-            say('Moc pokusů najednou. Zkuste to prosím za minutu.', 'err');
-          } else if (d && d.error === 'captcha') {
-            say('Nepodařilo se ověřit, že nejste robot. Zkuste to prosím znovu.', 'err');
-          } else {
-            say('Něco se pokazilo. Zkuste to prosím později, nebo nám napište na info@shot-c.cz.', 'err');
-          }
-        })
-        .catch(function () { say('Nepodařilo se spojit se serverem. Zkuste to prosím za chvíli.', 'err'); })
-        .then(function () { btn.disabled = false; resetCaptcha(); });
-    });
-  }
-
   initCampaign();
   initNav();
   initGigs();
   initPast();
   initDiscs();
   initVideos();
-  initNewsletter();
 }());

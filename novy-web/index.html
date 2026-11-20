@@ -225,33 +225,12 @@
       </div>
     </section>
 
-    <!-- Newsletter: vlastní formulář, data jdou přes Cloudflare Worker do Senderu (adresa v assets/js/main.js → NEWSLETTER) -->
+    <!-- Newsletter: tlačítko vede na hostovaný formulář Senderu (žádný kód ani klíče na webu) -->
     <section class="section newsletter" id="newsletter">
       <div class="wrap wrap--narrow center">
         <h2 class="title">Novinky</h2>
         <p class="newsletter__lead">Chcete vědět o&nbsp;koncertech a&nbsp;novém albu dřív než ostatní? Nechte nám e-mail. Píšeme zhruba jednou za dva týdny, nic víc.</p>
-        <form class="nl" data-newsletter hidden novalidate>
-          <div class="nl__row">
-            <label class="nl__field">
-              <span>E-mail</span>
-              <input type="email" name="email" autocomplete="email" placeholder="vas@email.cz" required>
-            </label>
-            <label class="nl__field">
-              <span>Jméno <em>(nepovinné)</em></span>
-              <input type="text" name="name" autocomplete="given-name" placeholder="Vaše jméno" maxlength="50">
-            </label>
-          </div>
-          <label class="nl__hp" aria-hidden="true">Nevyplňujte <input type="text" name="hp_field" tabindex="-1" autocomplete="off"></label>
-          <label class="nl__consent">
-            <input type="checkbox" name="consent" required>
-            <span>Souhlasím se zasíláním novinek od Shot-C.</span>
-          </label>
-          <div class="nl__captcha" data-turnstile></div>
-          <button class="btn btn--sq nl__btn" type="submit">Přihlásit se</button>
-          <p class="nl__msg" role="status" aria-live="polite"></p>
-          <p class="nl__note">Odhlásit se můžete jedním klikem v&nbsp;každém e-mailu. Údaje použijeme jen k&nbsp;zasílání novinek a&nbsp;nikomu je nepředáme.</p>
-        </form>
-        <p class="newsletter__fallback" data-newsletter-fallback>Přihlášení k&nbsp;odběru brzy spustíme. Do té doby nás sledujte na <a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener">Instagramu</a>.</p>
+        <a class="btn" href="https://stats.sender.net/forms/aADB17/view" target="_blank" rel="noopener">Odebírat novinky</a>
       </div>
     </section>
 
