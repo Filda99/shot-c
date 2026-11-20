@@ -10,14 +10,6 @@
     end: '2026-12-15T23:59:00+01:00'   // konec kampaně (ukázková hodnota)
   };
 
-  /* ===== Newsletter: formulář ze Senderu (app.sender.net → Forms → Embed).
-     Obě ID jsou veřejná (jsou vidět v kódu každé stránky s formulářem), API klíč sem nikdy nepatří.
-     Prázdné = místo formuláře se ukáže náhradní text. ===== */
-  var SENDER = {
-    accountId: '4908a4a9db8401', // z embed kódu: sender('…')
-    formId: 'aADB17' // z embed kódu: data-sender-form-id="…"
-  };
-
   var TZ = 'Europe/Prague';
   var nf = new Intl.NumberFormat('cs-CZ');
 
@@ -265,72 +257,10 @@
   var y = document.querySelector('[data-year]');
   if (y) { y.textContent = new Date().getFullYear(); }
 
-  /* Newsletter: načte univerzální skript Senderu a vloží jeho embedded formulář. */
-  function initNewsletter() {
-    var box = document.querySelector('[data-sender-form]');
-    if (!box || !/^[\w-]+$/.test(SENDER.accountId) || !/^[\w-]+$/.test(SENDER.formId)) { return; }
-    var field = document.createElement('div');
-    field.className = 'sender-form-field';
-    field.setAttribute('data-sender-form-id', SENDER.formId);
-    box.appendChild(field);
-    box.hidden = false;
-    var fb = document.querySelector('[data-sender-fallback]');
-    if (fb) { fb.hidden = true; }
-    window.Sender = 'sender';
-    window.sender = window.sender || function () { (window.sender.q = window.sender.q || []).push(arguments); };
-    window.sender.l = Date.now();
-    window.sender.on = window.sender.on || function (ev, cb) {
-      window.sender.listeners = window.sender.listeners || {};
-      (window.sender.listeners[ev] = window.sender.listeners[ev] || []).push(cb);
-    };
-    var sc = document.createElement('script');
-    sc.async = true;
-    sc.src = 'https://cdn.sender.net/accounts_resources/universal.js';
-    document.head.appendChild(sc);
-    window.sender(SENDER.accountId);
-    styleSenderShadow(field);
-  }
-
-  /* Když Sender vykreslí formulář do (otevřeného) shadow DOM, styly webu se k němu nedostanou.
-     Proto do něj zkopírujeme pravidla .sender-form-field ze style.css. */
-  function styleSenderShadow(field) {
-    var tries = 0;
-    var css = '';
-    try {
-      Array.prototype.forEach.call(document.styleSheets, function (sh) {
-        var rules; try { rules = sh.cssRules; } catch (e) { return; }
-        Array.prototype.forEach.call(rules || [], function (r) {
-          if (r.selectorText && r.selectorText.indexOf('.sender-form-field') !== -1) {
-            css += r.cssText.replace(/\.newsletter \.sender-form-field ?/g, ':host ') + '\n';
-          }
-        });
-      });
-    } catch (e) { return; }
-    var root = getComputedStyle(document.documentElement);
-    ['--ink', '--line', '--font-body', '--font-head'].forEach(function (v) {
-      css = css.split('var(' + v + ')').join(root.getPropertyValue(v).trim());
-    });
-    (function look() {
-      var hosts = [field].concat(Array.prototype.slice.call(field.querySelectorAll('*')));
-      var done = false;
-      hosts.forEach(function (h) {
-        if (h.shadowRoot && !h.shadowRoot.querySelector('style[data-shotc]')) {
-          var st = document.createElement('style');
-          st.setAttribute('data-shotc', '');
-          st.textContent = css;
-          h.shadowRoot.appendChild(st);
-          done = true;
-        }
-      });
-      if (!done && ++tries < 40) { setTimeout(look, 250); }
-    })();
-  }
-
   initCampaign();
   initNav();
   initGigs();
   initPast();
   initDiscs();
   initVideos();
-  initNewsletter();
 }());
