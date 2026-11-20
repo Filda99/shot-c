@@ -238,14 +238,15 @@
             </label>
             <label class="nl__field">
               <span>Jméno <em>(nepovinné)</em></span>
-              <input type="text" name="name" autocomplete="given-name" placeholder="Vaše jméno" maxlength="80">
+              <input type="text" name="name" autocomplete="given-name" placeholder="Vaše jméno" maxlength="50">
             </label>
           </div>
-          <label class="nl__hp" aria-hidden="true">Web <input type="text" name="web" tabindex="-1" autocomplete="off"></label>
+          <label class="nl__hp" aria-hidden="true">Nevyplňujte <input type="text" name="hp_field" tabindex="-1" autocomplete="off"></label>
           <label class="nl__consent">
             <input type="checkbox" name="consent" required>
             <span>Souhlasím se zasíláním novinek od Shot-C.</span>
           </label>
+          <div class="nl__captcha" data-turnstile></div>
           <button class="btn btn--sq nl__btn" type="submit">Přihlásit se</button>
           <p class="nl__msg" role="status" aria-live="polite"></p>
           <p class="nl__note">Odhlásit se můžete jedním klikem v&nbsp;každém e-mailu. Údaje použijeme jen k&nbsp;zasílání novinek a&nbsp;nikomu je nepředáme.</p>

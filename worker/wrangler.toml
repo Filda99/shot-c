@@ -1,7 +1,15 @@
+# Nasazení: `npx wrangler deploy` ve složce worker/ (nebo vložení kódu v Cloudflare dashboardu,
+# pak ale limit NL_LIMIT nefunguje a stačí Turnstile).
 name = "shotc-newsletter"
 main = "newsletter.js"
 compatibility_date = "2026-11-01"
 
 [vars]
 ALLOWED_ORIGINS = "https://www.shot-c.cz,https://shot-c.cz"
-# SENDER_GROUP_ID a SENDER_API_KEY se nastavují v Cloudflare (klíč jako Secret), ne tady.
+# SENDER_GROUP_ID, SENDER_API_KEY a TURNSTILE_SECRET se nastavují v Cloudflare (klíče jako Secret), ne tady.
+
+# Max. 3 pokusy za minutu z jedné IP adresy.
+[[ratelimits]]
+name = "NL_LIMIT"
+namespace_id = "1001"
+simple = { limit = 3, period = 60 }

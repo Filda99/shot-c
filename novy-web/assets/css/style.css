@@ -435,6 +435,7 @@ button { font: inherit; color: inherit; }
 .nl__hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .nl__consent { display: flex; align-items: flex-start; gap: 10px; margin: 18px 0 22px; font-size: .9375rem; cursor: pointer; }
 .nl__consent input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--ink); flex: none; }
+.nl__captcha:not(:empty) { margin: 0 0 18px; }
 .nl__btn { display: flex; width: 100%; padding: 18px 24px; }
 .nl__btn:disabled { opacity: .6; cursor: wait; transform: none; }
 .nl__msg { min-height: 1.65em; margin: 14px 0 0; text-align: center; font-weight: 500; }
