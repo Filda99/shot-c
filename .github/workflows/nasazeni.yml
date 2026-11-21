@@ -25,11 +25,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -83,5 +80,25 @@ jobs:
         with:
           path: _site
 
+  # Nasazení je samostatný job (stejně jako v oficiální šabloně GitHubu).
+  # deploy-pages se hned po nahrání ptá API na artefakt a API ho občas ještě
+  # „nevidí“ („No artifacts named github-pages were found“). Mezi joby je
+  # prodleva navíc a při chybě se to po chvíli zkusí znovu.
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.retry.outputs.page_url || steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+
+      - name: Počkat a zkusit znovu
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+
+      - id: retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v5
