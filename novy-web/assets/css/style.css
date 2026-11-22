@@ -132,13 +132,16 @@ button { font: inherit; color: inherit; }
   text-shadow: 0 2px 0 #fff, 0 4px 10px rgba(0,0,0,.12);
 }
 .hero__album {
-  margin: -.12em 0 .2em;
+  /* background-clip:text barví jen plochu boxu; při line-height 1 z něj
+     ocásky g u Allury vyčnívají a zmizí. Spodní padding je vrátí do boxu,
+     záporný margin drží původní rozestup. */
+  margin: -.12em 0 -.05em;
   font: 400 clamp(3.5rem, 12vw, 7.5rem)/1 var(--font-script);
   background: var(--grad);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  padding: 0 .15em;
+  padding: 0 .15em .25em;
 }
 .hero__lead { margin: 0 auto 22px; max-width: 34em; font-size: 1.125rem; color: var(--muted); }
 .hero__icons { justify-content: center; margin-top: 18px; }
