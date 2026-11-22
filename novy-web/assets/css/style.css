@@ -235,11 +235,11 @@ button { font: inherit; color: inherit; }
 .section--dark { background: var(--ink); color: #fff; }
 
 /* O nás: půl fotka, půl text (světlé, aby se nespojilo s tmavým kontaktem) */
-.bio { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; background: var(--bg-tint); }
+.bio { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; background: var(--bg); }
 .bio__photo {
   position: relative; display: grid; place-items: center;
   background:
-    linear-gradient(90deg, transparent 60%, var(--bg-tint)),
+    linear-gradient(90deg, transparent 60%, var(--bg)),
     linear-gradient(135deg, var(--c1), var(--c4) 35%, var(--c3) 65%, var(--c2));
   color: rgba(255,255,255,.8); font-size: .875rem;
 }
@@ -252,7 +252,7 @@ button { font: inherit; color: inherit; }
 @media (max-width: 860px) {
   .bio { grid-template-columns: 1fr; min-height: 0; }
   .bio__photo { aspect-ratio: 4 / 3; background:
-    linear-gradient(180deg, transparent 60%, var(--bg-tint)),
+    linear-gradient(180deg, transparent 60%, var(--bg)),
     linear-gradient(135deg, var(--c1), var(--c4) 35%, var(--c3) 65%, var(--c2)); }
 }
 
@@ -424,6 +424,6 @@ button { font: inherit; color: inherit; }
 .stripe span:nth-child(5) { background: var(--c5); } .stripe span:nth-child(6) { background: var(--c6); }
 
 /* ---------- NEWSLETTER (tlačítko na formulář Senderu) ---------- */
-.newsletter { background: var(--bg-tint); }
+.newsletter { background: var(--bg); }
 .newsletter .title { margin-bottom: 20px; }
 .newsletter__lead { margin: 0 auto 28px; max-width: 32em; font-size: 1.125rem; }
