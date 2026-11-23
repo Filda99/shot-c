@@ -371,15 +371,13 @@ button { font: inherit; color: inherit; }
   .disc__next { display: none; }
 }
 
-/* Videa: světlá plocha s jemnými barevnými záři v rozích (místo plného přechodu)
-   a sotva viditelným obrysovým nápisem v pozadí */
+/* Videa: pás v barvách webu (#ffb000 → #ec001d), zesvětlený asi o 40 % bílé,
+   aby nebyl tak sytý; text je proto tmavý */
 .videos {
   position: relative; overflow: hidden; color: var(--ink);
-  background:
-    radial-gradient(55% 75% at 0% 0%, rgba(255, 176, 0, .20), transparent 70%),
-    radial-gradient(50% 70% at 100% 100%, rgba(236, 0, 29, .13), transparent 70%),
-    #fff;
+  background: linear-gradient(90deg, #ffd066, #f46677);
 }
+.videos .title::after { background: var(--ink); } /* barevná linka by na přechodu zanikla */
 .videos__bg {
   position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-around;
   pointer-events: none; user-select: none;
@@ -387,7 +385,7 @@ button { font: inherit; color: inherit; }
 .videos__bg span {
   display: block; white-space: nowrap;
   font: 400 clamp(8rem, 22vw, 20rem)/.9 var(--font-script);
-  color: transparent; -webkit-text-stroke: 1px rgba(24,24,27,.07);
+  color: transparent; -webkit-text-stroke: 1px rgba(24,24,27,.14);
   transform: translateX(-6%);
 }
 .videos__bg span:nth-child(2) { transform: translateX(-28%); }
@@ -397,9 +395,9 @@ button { font: inherit; color: inherit; }
 .video {
   position: relative; display: grid; place-items: center; aspect-ratio: 16 / 9;
   border-radius: var(--r); overflow: hidden;
-  background: rgba(24,24,27,.06); text-decoration: none; transition: background .2s, transform .2s, box-shadow .2s;
+  background: rgba(255,255,255,.35); text-decoration: none; transition: background .2s, transform .2s, box-shadow .2s;
 }
-.video:hover { background: rgba(24,24,27,.1); transform: translateY(-3px); box-shadow: 0 14px 32px rgba(24,24,27,.12); }
+.video:hover { background: rgba(255,255,255,.5); transform: translateY(-3px); box-shadow: 0 14px 32px rgba(24,24,27,.12); }
 .video__play {
   display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%;
   background: #fff; color: var(--ink); box-shadow: 0 6px 18px rgba(0,0,0,.25); transition: transform .2s;
@@ -418,8 +416,8 @@ button { font: inherit; color: inherit; }
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .press { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 36px; }
-.press a { font-weight: 500; text-underline-offset: 4px; text-decoration-color: var(--red); }
-.press a:hover { color: var(--red); }
+.press a { font-weight: 500; text-underline-offset: 4px; }
+.press a:hover { text-decoration-thickness: 2px; }
 @media (max-width: 760px) { .video-grid { grid-template-columns: 1fr; } }
 
 /* Ke stažení */
