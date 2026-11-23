@@ -366,11 +366,11 @@ button { font: inherit; color: inherit; }
   .disc__next { display: none; }
 }
 
-/* Videa: pás v barvách webu (#ffb000 → #ec001d), zesvětlený asi o 40 % bílé,
+/* Videa: pás v barvách webu (#ffb000 → #ec001d), zesvětlený asi o 20 % bílé,
    aby nebyl tak sytý; text je proto tmavý */
 .videos {
   position: relative; overflow: hidden; color: var(--ink);
-  background: linear-gradient(90deg, #ffd066, #f46677);
+  background: linear-gradient(90deg, #ffc033, #f0334a);
 }
 .videos .title::after { background: var(--ink); } /* barevná linka by na přechodu zanikla */
 .videos__bg {
