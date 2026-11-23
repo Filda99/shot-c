@@ -138,6 +138,10 @@ button { font: inherit; color: inherit; }
   background: url("../img/hero/hero-desktop.jpg") center / 100% 100% no-repeat;
   container-type: inline-size;
 }
+/* Velký nebo jemný (retina/4K) monitor: grafika ve 4000×2250, ať logo a Originalno nejsou rozmazané */
+@media (min-width: 1921px), (min-width: 1100px) and (min-resolution: 1.5dppx) {
+  .hero__stage { background-image: url("../img/hero/hero-desktop-4k.jpg"); }
+}
 /* Hodně široký monitor (víc než 16:9 + 15 %): plátno nepokryje celou šířku,
    tak se jeho okraje rozplynou do barvy pozadí. */
 @media (min-aspect-ratio: 2045/1000) {
