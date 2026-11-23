@@ -386,7 +386,7 @@ button { font: inherit; color: inherit; }
 .videos__bg span {
   display: block; white-space: nowrap;
   font: 400 clamp(8rem, 22vw, 20rem)/.9 var(--font-script);
-  color: transparent; -webkit-text-stroke: 1px rgba(24,24,27,.14);
+  color: transparent; -webkit-text-stroke: 1.5px rgba(24,24,27,.32);
   transform: translateX(-6%);
 }
 .videos__bg span:nth-child(2) { transform: translateX(-28%); }
