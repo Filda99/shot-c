@@ -169,7 +169,7 @@ button { font: inherit; color: inherit; }
   padding: 0;
   font-size: 1.62cqw;
   font-weight: 600;
-  box-shadow: 0 .4cqw 1.2cqw rgba(236, 0, 29, .18);
+  box-shadow: 0 .2cqw .6cqw rgba(236, 0, 29, .1);
 }
 .hero .campaign { margin: 1.6cqw 0 0; max-width: none; }
 .hero .campaign__bar { display: none; } /* grafika ukazuje jen čísla */
@@ -220,7 +220,7 @@ button { font: inherit; color: inherit; }
   }
   .hero__text { position: static; width: auto; max-width: 30em; margin: 0 auto; }
   .hero__lead { font-size: clamp(.9375rem, 3.9vw, 1.25rem); line-height: 1.45; }
-  .hero__btn.btn { margin-top: 20px; width: auto; height: auto; padding: 15px 34px; font-size: clamp(1.0625rem, 4.4vw, 1.375rem); box-shadow: 0 6px 18px rgba(236, 0, 29, .2); }
+  .hero__btn.btn { margin-top: 20px; width: auto; height: auto; padding: 15px 34px; font-size: clamp(1.0625rem, 4.4vw, 1.375rem); box-shadow: 0 3px 8px rgba(236, 0, 29, .1); }
   .hero .campaign { margin-top: 16px; }
   .hero .campaign__numbers { font-size: clamp(.9375rem, 3.6vw, 1.25rem); }
   .hero__icons { gap: 2px; margin-top: 12px; }
