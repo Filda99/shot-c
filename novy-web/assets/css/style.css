@@ -277,8 +277,10 @@ button { font: inherit; color: inherit; }
 
 /* O nás: půl fotka, půl text (světlé, aby se nespojilo s tmavým kontaktem) */
 .bio { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; background: var(--bg); }
-.bio__photo { position: relative; overflow: hidden; background: #e2e1e5; }
-.bio__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; display: block; }
+/* sekce je vždy aspoň tak vysoká jako fotka 4:3 v půlce šířky, takže se shora ani zdola neořezává
+   (hlavy); když je vyšší text, ořízne se jen kousek po stranách */
+.bio__photo { position: relative; overflow: hidden; background: #e2e1e5; min-height: calc(50vw * 3 / 4); }
+.bio__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
 .bio__text { align-self: center; padding: clamp(48px, 7vw, 96px) clamp(20px, 6vw, 96px); max-width: 640px; }
 .bio__text .title { margin-bottom: 28px; }
 .bio__text p { margin: 0 0 1em; }
@@ -377,14 +379,17 @@ button { font: inherit; color: inherit; }
   position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-around;
   pointer-events: none; user-select: none;
 }
-/* obrysový nápis Originalno od grafika (bílý, poloprůhledný PNG) */
+/* obrysový nápis Originalno od grafika (bílý, poloprůhledný PNG), opakovaný v řadách
+   přes celou šířku; řady jsou proti sobě posunuté a JS je při scrollu posouvá do stran */
 .videos__bg span {
   display: block; flex: none;
-  width: clamp(28rem, 85vw, 80rem); aspect-ratio: 1600 / 459;
-  background: url("../img/originalno-obrys.png") left center / contain no-repeat;
-  transform: translateX(-6%);
+  width: 180%; margin-left: -40%;
+  height: clamp(4.5rem, 8vw, 7.5rem);
+  background: url("../img/originalno-obrys.png") 0 50% / auto 100% repeat-x;
 }
-.videos__bg span:nth-child(2) { transform: translateX(-28%); }
+.videos__bg span:nth-child(2) { background-position-x: 38%; }
+.videos__bg span:nth-child(3) { background-position-x: 12%; }
+.videos__bg span:nth-child(4) { background-position-x: 61%; }
 .videos__inner { position: relative; }
 .videos .title { margin-bottom: 24px; }
 .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
