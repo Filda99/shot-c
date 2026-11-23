@@ -6,13 +6,15 @@
   <meta name="robots" content="noindex">
   <title>Shot-C | Originalno</title>
   <meta name="description" content="Brněnská vokální skupina Shot-C. Natáčíme nové album Originalno a vybíráme na něj na Doniu.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#e1e1e4">
+  <link rel="preload" as="image" href="assets/img/hero/hero-desktop.jpg" media="(min-width: 761px) and (min-aspect-ratio: 6/5)">
+  <link rel="preload" as="image" href="assets/img/hero/hero-mobile.jpg" media="(max-width: 760px), (max-aspect-ratio: 6/5)">
   <link rel="icon" href="assets/img/cropped-SHOT-C-color1-32x32.png" sizes="32x32">
   <link rel="icon" href="assets/img/cropped-SHOT-C-color1-192x192.png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/img/cropped-SHOT-C-color1-180x180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css?v=dev">
   <link rel="stylesheet" href="assets/css/animations.css?v=dev">
 </head>
@@ -32,49 +34,41 @@
 
   <a class="skip" href="#web">Přeskočit na obsah</a>
 
-  <!-- ===== HERO: kampaň na Doniu ===== -->
+  <!-- ===== HERO: kampaň na Doniu =====
+       Logo SHOT-C a nápis Originalno jsou součástí grafiky na pozadí
+       (assets/img/hero/hero-desktop.jpg, na mobilu hero-mobile.jpg), texty pod nimi jsou živé. -->
   <header class="hero" id="top">
-    <div class="hero__text">
-      <p class="hero__band">Shot-C</p>
-      <h1 class="hero__album"><span class="visually-hidden">Nové album </span>Originalno</h1>
-      <p class="hero__lead">Natáčíme nové album. Šest lidí, šest stylů a&nbsp;jen hlasy. Na&nbsp;Doniu teď vybíráme na&nbsp;nahrávání a&nbsp;vydání. Každá koruna je znát.</p>
+    <h1 class="visually-hidden">Shot-C: nové album Originalno</h1>
+    <div class="hero__stage">
+      <div class="hero__text">
+        <p class="hero__lead">Natáčíme nové album. Šest lidí, šest stylů a&nbsp;jen hlasy. Na&nbsp;Doniu teď vybíráme na&nbsp;nahrávání a&nbsp;vydání. Každá koruna je znát.</p>
 
-      <div class="campaign" data-campaign>
-        <div class="campaign__bar" role="progressbar" aria-label="Vybráno na Doniu" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-          <span class="campaign__fill"></span>
+        <a class="btn btn--donio hero__btn" href="#" data-donio-link>Podpoř nás na Doniu</a>
+
+        <div class="campaign" data-campaign>
+          <div class="campaign__bar" role="progressbar" aria-label="Vybráno na Doniu" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <span class="campaign__fill"></span>
+          </div>
+          <p class="campaign__numbers">
+            <strong data-raised>0&nbsp;Kč</strong> z&nbsp;<span data-goal>0&nbsp;Kč</span>
+            <span class="campaign__sep">·</span>
+            <span data-days>zbývá ? dní</span>
+          </p>
         </div>
-        <p class="campaign__numbers">
-          <strong data-raised>0&nbsp;Kč</strong> z&nbsp;<span data-goal>0&nbsp;Kč</span>
-          <span class="campaign__sep">·</span>
-          <span data-days>zbývá ? dní</span>
-        </p>
+
+        <ul class="hero__icons" aria-label="Najdete nás na">
+          <li><a href="https://open.spotify.com/album/1ZzoX03czOYonL08fPU2iG" target="_blank" rel="noopener"><img src="assets/img/hero/icon-spotify.png" alt="Spotify" width="120" height="120"></a></li>
+          <li><a href="https://music.apple.com/cz/album/multipotenci%C3%A1l/1556291117" target="_blank" rel="noopener"><img src="assets/img/hero/icon-apple-music.png" alt="Apple Music" width="120" height="120"></a></li>
+          <li><a href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener"><img src="assets/img/hero/icon-youtube.png" alt="YouTube" width="120" height="120"></a></li>
+          <li><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener"><img src="assets/img/hero/icon-instagram.png" alt="Instagram" width="120" height="120"></a></li>
+          <li><a href="https://www.facebook.com/czshotc/" target="_blank" rel="noopener"><img src="assets/img/hero/icon-facebook.png" alt="Facebook" width="120" height="120"></a></li>
+        </ul>
       </div>
-
-      <a class="btn btn--donio" href="#" data-donio-link>Podpoř nás na Doniu</a>
-
-      <ul class="icons hero__icons" aria-label="Najdete nás na">
-        <li><a href="https://open.spotify.com/album/1ZzoX03czOYonL08fPU2iG" target="_blank" rel="noopener" aria-label="Spotify"><svg><use href="#i-spotify"/></svg></a></li>
-        <li><a href="https://music.apple.com/cz/album/multipotenci%C3%A1l/1556291117" target="_blank" rel="noopener" aria-label="Apple Music"><svg><use href="#i-apple"/></svg></a></li>
-        <li><a href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#i-youtube"/></svg></a></li>
-        <li><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a></li>
-        <li><a href="https://www.facebook.com/czshotc/" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
-      </ul>
-    </div>
-
-    <!-- Placeholder pro fotku na obalu: 6 členů, 6 barev -->
-    <div class="hero__crew" aria-hidden="true">
-      <span class="crew crew--1"></span>
-      <span class="crew crew--2"></span>
-      <span class="crew crew--3"></span>
-      <span class="crew crew--4"></span>
-      <span class="crew crew--5"></span>
-      <span class="crew crew--6"></span>
-      <span class="hero__ph">fotka z obalu alba</span>
     </div>
 
     <a class="hero__next" href="#web">
-      Přejít na web
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 4v15m0 0-6-6m6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Pokračovat na web
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m5 9 7 6 7-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </header>
 

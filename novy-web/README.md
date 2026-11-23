@@ -15,13 +15,13 @@ python3 -m http.server 8000
 |---|---|
 | Odkaz na sbírku na Doniu | `data/donio.json`, pole `url`. Částku, cíl a konec doplní skript `scripts/donio.js` při každém nasazení webu (společný deploy workflow s kalendářem) |
 | Záložní čísla, když `donio.json` ještě nemá data | `assets/js/main.js`, objekt `CAMPAIGN` nahoře |
-| Barvy členů (6 barev) a přechod nápisu Originalno | `assets/css/style.css`, `:root` |
+| Barvy webu: přechod #ffb000 → #ec001d (tlačítka, akcenty, pruhy) | `assets/css/style.css`, `:root` (`--yellow`, `--red`, `--c1` až `--c6` jsou kroky přechodu) |
+| Úvodní grafika (logo a Originalno jsou v obrázku, texty jsou HTML) | `assets/img/hero/hero-desktop.jpg` (1920×1080), `hero-mobile.jpg` (1080×1920), ikony sítí `icon-*.png`; pozice textů v `style.css`, sekce HERO |
 | Koncerty | `data/events.json` (stejný formát jako na starém webu). Místo konání se bere z pole Místo v Google Kalendáři, akce se slovem „soukromá“ se na webu nezobrazí |
 | Soubory ke stažení | `assets/files/` + sekce `#ke-stazeni` v `index.html` |
 
 ## Placeholdery, které čekají na grafiku
 
-- hero: barevné „postavy“ místo fotky z obalu,
 - fotky členů (barevné karty s nápisem „foto“),
 - obal Originalno a Multipotenciál,
 - video z YouTube,

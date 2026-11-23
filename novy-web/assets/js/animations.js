@@ -154,11 +154,6 @@
     setTimeout(function () { el.classList.remove(cls); }, ms);
   }
 
-  // Hero: vlna přes šest barevných „hlasů“
-  var crew = document.querySelector('.hero__crew');
-  setTimeout(function () { if (crew) { replay(crew, 'is-singing', 1800); } }, 1600);
-  every(crew, 6000, function (el) { replay(el, 'is-singing', 1800); });
-
   // Ikony sítí: postupné poskočení
   document.querySelectorAll('.icons').forEach(function (ul, n) {
     Array.prototype.forEach.call(ul.children, function (li, i) { li.style.setProperty('--i', i); });
@@ -181,7 +176,7 @@
   var pio = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) { e.target.classList.toggle('is-paused', !e.isIntersecting); });
   });
-  document.querySelectorAll('.hero__album, .btn--donio, .campaign__fill, .video__play, .disc__next').forEach(function (el) { pio.observe(el); });
+  document.querySelectorAll('.btn--donio, .campaign__fill, .video__play, .disc__next').forEach(function (el) { pio.observe(el); });
 
   // Barevný pruh v patičce
   every(document.querySelector('.stripe'), 5000, function (el) { replay(el, 'is-wave', 1500); });
