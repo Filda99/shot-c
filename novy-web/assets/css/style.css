@@ -115,7 +115,7 @@ button { font: inherit; color: inherit; }
    Desktop: grafika 1920×1080 (logo + Originalno jsou v ní) se roztáhne přes celou
    obrazovku jako background-size: cover. Texty leží na stejném „plátně“ (.hero__stage)
    a velikosti mají v cqw (procenta šířky plátna), takže sedí na grafiku při každém rozlišení.
-   Na užším okně (např. 4:3) se ořezává hlavně vlevo (fotka), aby texty vpravo zůstaly celé. */
+   Grafika je na střed, jen na hodně úzkém okně (např. 4:3) se víc ořízne vlevo, aby texty vpravo zůstaly celé. */
 .hero {
   --hero-bg: #e1e1e4;
   position: relative;
@@ -130,7 +130,8 @@ button { font: inherit; color: inherit; }
   --w: min(max(100%, 100svh * 16 / 9), 100svh * 16 / 9 * 1.15);
   position: absolute;
   top: 50%;
-  left: calc(min(100% - var(--w), 0px) * .85 + max(100% - var(--w), 0px) * .5);
+  /* na střed; doleva se posune jen tolik, aby se vpravo neořízl text (konec textu = 93 % šířky grafiky) */
+  left: min((100% - var(--w)) / 2, 100% - var(--w) * .95);
   width: var(--w);
   aspect-ratio: 16 / 9;
   translate: 0 -50%;
