@@ -104,3 +104,13 @@ Sekce Instagram byla z nového webu odebrána (19. 11. 2026), odkaz na Instagram
 ## Videa na novém webu
 
 Deploy (`nasazeni.yml`) stáhne ze záložky Videa na kanálu YouTube (záložně z RSS kanálu) poslední 3 videa (bez Shorts) do `novy-web/data/videos.json`. API klíč není potřeba. Kanál je v poli `channel` (případně `channelId`). Když se stažení nepovede, zůstanou dlaždice s odkazem na kanál. Logika je ve `scripts/youtube.js`, testy `node tests/youtube.test.js`.
+
+## Měření návštěvnosti
+
+Cloudflare Web Analytics: zdarma, bez cookies a bez osobních údajů, takže web
+nepotřebuje cookie lištu. Skript se vkládá při nasazení (krok „Měření
+návštěvnosti“ v `.github/workflows/nasazeni.yml`) do všech stránek starého
+i nového webu, ale jen když je v repozitáři nastavená proměnná
+`CF_ANALYTICS_TOKEN` (Settings → Secrets and variables → Actions → Variables).
+Token je veřejný, proto proměnná a ne secret. Statistiky: dash.cloudflare.com →
+Analytics & Logs → Web Analytics. Vypnutí = smazat proměnnou.
