@@ -356,10 +356,8 @@ button { font: inherit; color: inherit; }
 .tracks span { display: inline-block; width: 46px; font-weight: 400; color: rgba(255,255,255,.5); }
 .disc__cover, .disc__next { aspect-ratio: 1; display: grid; place-items: center; text-align: center; padding: 12px; border-radius: var(--r); overflow: hidden; }
 .disc__cover { box-shadow: 0 24px 60px rgba(0,0,0,.45); }
-.disc__cover--originalno { background: #fff; }
-.disc__cover--originalno span { font: 400 clamp(3rem, 7vw, 5.5rem)/1 var(--font-script); background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; padding: 0 .1em; }
-.disc__cover--debut { background: #404040; padding: 0; }
-.disc__cover--debut img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.disc__cover--img { background: #404040; padding: 0; }
+.disc__cover--img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .disc__btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 /* Streamovací tlačítka: obrys, po najetí se zbarví barvou služby */
 .btn--stream { --sc: #fff; background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.45); }
@@ -368,7 +366,6 @@ button { font: inherit; color: inherit; }
 .btn--apple { --sc: #FA2D48; }
 .btn--ytmusic { --sc: #FF0033; }
 .disc__next { align-self: center; max-width: 280px; opacity: .9; transform: scale(.92); }
-.disc__next.disc__cover--originalno span { font-size: clamp(2rem, 4vw, 3.25rem); }
 @media (max-width: 1000px) {
   .disc { grid-template-columns: 1fr; }
   .disc.is-active { display: grid; }

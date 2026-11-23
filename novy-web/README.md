@@ -23,6 +23,6 @@ python3 -m http.server 8000
 ## Placeholdery, které čekají na grafiku
 
 - fotky členů (barevné karty s nápisem „foto“),
-- obal Originalno a Multipotenciál,
+
 - video z YouTube,
 - press kit ke stažení (zip: logo, fotky do tisku, text o kapele), zatím neaktivní.
