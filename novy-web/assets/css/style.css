@@ -375,21 +375,19 @@ button { font: inherit; color: inherit; }
   background: linear-gradient(90deg, #ffc033, #f0334a);
 }
 .videos .title::after { background: var(--ink); } /* barevná linka by na přechodu zanikla */
-.videos__bg {
-  position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-around;
-  pointer-events: none; user-select: none;
-}
-/* obrysový nápis Originalno od grafika (bílý, poloprůhledný PNG), opakovaný v řadách
-   přes celou šířku; řady jsou proti sobě posunuté a JS je při scrollu posouvá do stran */
+.videos__bg { position: absolute; inset: 0; pointer-events: none; user-select: none; }
+/* obrysový nápis Originalno od grafika (bílý, poloprůhledný PNG): 5 kusů rozházených
+   po ploše, JS je při scrollu lehce posouvá do stran */
 .videos__bg span {
-  display: block; flex: none;
-  width: 180%; margin-left: -40%;
-  height: clamp(4.5rem, 8vw, 7.5rem);
-  background: url("../img/originalno-obrys.png") 0 50% / auto 100% repeat-x;
+  position: absolute; display: block;
+  width: clamp(16rem, 30vw, 34rem); aspect-ratio: 1600 / 459;
+  background: url("../img/originalno-obrys.png") center / contain no-repeat;
 }
-.videos__bg span:nth-child(2) { background-position-x: 38%; }
-.videos__bg span:nth-child(3) { background-position-x: 12%; }
-.videos__bg span:nth-child(4) { background-position-x: 61%; }
+.videos__bg span:nth-child(1) { left: -6%; top: 3%; }
+.videos__bg span:nth-child(2) { left: 64%; top: -2%; }
+.videos__bg span:nth-child(3) { left: 74%; top: 46%; }
+.videos__bg span:nth-child(4) { left: -10%; top: 58%; }
+.videos__bg span:nth-child(5) { left: 34%; top: 82%; }
 .videos__inner { position: relative; }
 .videos .title { margin-bottom: 24px; }
 .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
