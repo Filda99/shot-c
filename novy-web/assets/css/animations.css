@@ -57,30 +57,6 @@
 
 /* ================= opakující se animace ================= */
 
-/* Hero: šest „hlasů“ se každých pár vteřin rozezpívá vlnou zleva doprava */
-.crew { transform-origin: bottom; }
-.hero__crew.is-singing .crew { animation: grow .9s cubic-bezier(.2,.8,.2,1) both, sing 1.1s ease-in-out; }
-.hero__crew.is-singing .crew--1 { animation-delay: 0s, 0s; }
-.hero__crew.is-singing .crew--2 { animation-delay: 0s, .09s; }
-.hero__crew.is-singing .crew--3 { animation-delay: 0s, .18s; }
-.hero__crew.is-singing .crew--4 { animation-delay: 0s, .27s; }
-.hero__crew.is-singing .crew--5 { animation-delay: 0s, .36s; }
-.hero__crew.is-singing .crew--6 { animation-delay: 0s, .45s; }
-@keyframes sing {
-  0%, 100% { scale: 1 1; }
-  30% { scale: 1 1.14; }
-  55% { scale: 1 .94; }
-  80% { scale: 1 1.04; }
-}
-
-/* Název alba: přechod barev pomalu přelévá */
-.hero__album {
-  background-image: linear-gradient(90deg, var(--grad-a), var(--grad-b), var(--grad-a));
-  background-size: 200% 100%;
-  animation: flow 8s linear infinite;
-}
-@keyframes flow { to { background-position: -200% 0; } }
-
 /* Tlačítka na Donio: občas po nich přejede odlesk */
 .btn--donio, .nav__menu .nav__donio { position: relative; overflow: hidden; }
 .btn--donio::after, .nav__menu .nav__donio::after {
