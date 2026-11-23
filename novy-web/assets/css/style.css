@@ -277,13 +277,8 @@ button { font: inherit; color: inherit; }
 
 /* O nás: půl fotka, půl text (světlé, aby se nespojilo s tmavým kontaktem) */
 .bio { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; background: var(--bg); }
-.bio__photo {
-  position: relative; display: grid; place-items: center;
-  background:
-    linear-gradient(90deg, transparent 60%, var(--bg)),
-    linear-gradient(135deg, var(--c1), var(--c4) 35%, var(--c3) 65%, var(--c2));
-  color: rgba(255,255,255,.8); font-size: .875rem;
-}
+.bio__photo { position: relative; overflow: hidden; background: #e2e1e5; }
+.bio__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; display: block; }
 .bio__text { align-self: center; padding: clamp(48px, 7vw, 96px) clamp(20px, 6vw, 96px); max-width: 640px; }
 .bio__text .title { margin-bottom: 28px; }
 .bio__text p { margin: 0 0 1em; }
@@ -292,9 +287,7 @@ button { font: inherit; color: inherit; }
 .bio__icons a:hover { background: rgba(0,0,0,.06); }
 @media (max-width: 860px) {
   .bio { grid-template-columns: 1fr; min-height: 0; }
-  .bio__photo { aspect-ratio: 4 / 3; background:
-    linear-gradient(180deg, transparent 60%, var(--bg)),
-    linear-gradient(135deg, var(--c1), var(--c4) 35%, var(--c3) 65%, var(--c2)); }
+  .bio__photo { aspect-ratio: 4 / 3; }
 }
 
 /* Koncerty: světlý podklad, řádek s datem v zaobleném rámečku */
@@ -373,21 +366,22 @@ button { font: inherit; color: inherit; }
   .disc__next { display: none; }
 }
 
-/* Videa: pás v barvách webu (#ffb000 → #ec001d), zesvětlený asi o 40 % bílé,
+/* Videa: pás v barvách webu (#ffb000 → #ec001d), zesvětlený asi o 20 % bílé,
    aby nebyl tak sytý; text je proto tmavý */
 .videos {
   position: relative; overflow: hidden; color: var(--ink);
-  background: linear-gradient(90deg, #ffd066, #f46677);
+  background: linear-gradient(90deg, #ffc033, #f0334a);
 }
 .videos .title::after { background: var(--ink); } /* barevná linka by na přechodu zanikla */
 .videos__bg {
   position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-around;
   pointer-events: none; user-select: none;
 }
+/* obrysový nápis Originalno od grafika (bílý, poloprůhledný PNG) */
 .videos__bg span {
-  display: block; white-space: nowrap;
-  font: 400 clamp(8rem, 22vw, 20rem)/.9 var(--font-script);
-  color: transparent; -webkit-text-stroke: 1.5px rgba(24,24,27,.32);
+  display: block; flex: none;
+  width: clamp(28rem, 85vw, 80rem); aspect-ratio: 1600 / 459;
+  background: url("../img/originalno-obrys.png") left center / contain no-repeat;
   transform: translateX(-6%);
 }
 .videos__bg span:nth-child(2) { transform: translateX(-28%); }
