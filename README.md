@@ -88,3 +88,13 @@ Data se stáhnou **jen do nasazované kopie webu**, do repozitáře se nic necom
 - **Videa:** `scripts/youtube.js` stáhne ze záložky Videa kanálu YouTube (záložně z RSS) poslední 3 videa bez Shorts do `data/videos.json`. Když selže, zůstanou dlaždice s odkazem na kanál.
 - `?v=dev` u CSS/JS v `index.html` se při nasazení nahradí commitem, aby prohlížeče nebraly staré soubory z cache.
 - Nenasazuje se: `.github`, `scripts`, `tests`, `docs`, `README.md`, `.gitignore`.
+
+## Měření návštěvnosti
+
+Cloudflare Web Analytics: zdarma, bez cookies a bez osobních údajů, takže web
+nepotřebuje cookie lištu. Skript se vkládá při nasazení (krok „Měření
+návštěvnosti“ v `.github/workflows/nasazeni.yml`) do všech HTML stránek webu
+(včetně 404 a přesměrování), ale jen když je v repozitáři nastavená proměnná
+`CF_ANALYTICS_TOKEN` (Settings → Secrets and variables → Actions → Variables).
+Token je veřejný, proto proměnná a ne secret. Statistiky: dash.cloudflare.com →
+Analytics & Logs → Web Analytics. Vypnutí = smazat proměnnou.
