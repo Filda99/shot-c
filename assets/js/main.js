@@ -43,14 +43,22 @@
   }
 
   function renderCampaign() {
+    // Dokud se stav sbírky nestáhne (sbírka ještě není veřejná nebo Donio neodpovídá),
+    // tlačítka na Donio se schovají, ať nevedou na chybovou stránku.
+    var live = CAMPAIGN.raised !== null && CAMPAIGN.url !== '#';
     document.querySelectorAll('[data-donio-link]').forEach(function (a) {
+      var el = a.parentElement && a.parentElement.tagName === 'LI' ? a.parentElement : a;
+      el.hidden = !live;
+      if (!live) { return; }
       a.href = CAMPAIGN.url;
-      if (CAMPAIGN.url !== '#') { a.target = '_blank'; a.rel = 'noopener'; }
+      a.target = '_blank';
+      a.rel = 'noopener';
     });
 
     var box = document.querySelector('[data-campaign]');
     if (!box) { return; }
-    if (CAMPAIGN.raised === null) { box.hidden = true; return; }
+    box.hidden = CAMPAIGN.raised === null;
+    if (box.hidden) { return; }
     var pct = Math.min(100, Math.round(CAMPAIGN.raised / CAMPAIGN.goal * 100));
     box.querySelector('[data-raised]').textContent = kc(CAMPAIGN.raised);
     box.querySelector('[data-goal]').textContent = kc(CAMPAIGN.goal);
