@@ -1,7 +1,7 @@
 'use strict';
 /*
- * Stáhne kalendář koncertů (iCal / .ics) a přepíše data/events.json
- * i novy-web/data/events.json. Spouští ho GitHub Action každou hodinu.
+ * Stáhne kalendář koncertů (iCal / .ics) a přepíše data/events.json.
+ * Spouští ho deploy workflow (po merge a každou hodinu).
  *
  *   CALENDAR_ICS_URL=https://... node scripts/sync-calendar.js
  *
@@ -20,7 +20,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const TZ = 'Europe/Prague';
-const FILES = ['data/events.json', 'novy-web/data/events.json'];
+const FILES = ['data/events.json'];
 
 /* ---------- čas ---------- */
 

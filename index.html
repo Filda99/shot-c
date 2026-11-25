@@ -1,204 +1,288 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vokální skupina SHOT-C</title>
-  <meta name="description" content="Vokální skupina Shot-C z Brna. Pět zpěváků, jeden beatboxer. Koncerty, hudba, novinky. Covery na známé hity i vlastní tvorba. Vokální kapela.">
+  <title>Shot-C | Originalno</title>
+  <meta name="description" content="Brněnská vokální skupina Shot-C. Natáčíme nové album Originalno a vybíráme na něj na Doniu.">
   <meta name="robots" content="max-image-preview:large">
-  <meta name="theme-color" content="#000000">
-
-  <!-- Open Graph / Twitter -->
   <link rel="canonical" href="https://shot-c.cz/">
   <meta property="og:url" content="https://shot-c.cz/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="cs_CZ">
-  <meta property="og:site_name" content="Shot-C Vocal Band">
-  <meta property="og:title" content="Vokální skupina SHOT-C">
-  <meta property="og:description" content="Vokální skupina Shot-C z Brna. Pět zpěváků, jeden beatboxer. Koncerty, hudba, novinky. Covery na známé hity i vlastní tvorba. Vokální kapela.">
-  <meta property="og:image" content="https://shot-c.cz/assets/img/cropped-cropped-DSC_1271-scaled-4.jpg">
+  <meta property="og:site_name" content="Shot-C">
+  <meta property="og:title" content="Shot-C | Originalno">
+  <meta property="og:description" content="Brněnská vokální skupina Shot-C. Natáčíme nové album Originalno a vybíráme na něj na Doniu.">
+  <meta property="og:image" content="https://shot-c.cz/assets/img/hero/hero-desktop.jpg">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Vokální skupina SHOT-C">
-  <meta name="twitter:description" content="Vokální skupina Shot-C z Brna. Pět zpěváků, jeden beatboxer. Koncerty, hudba, novinky. Covery na známé hity i vlastní tvorba. Vokální kapela.">
-  <meta name="twitter:image" content="https://shot-c.cz/assets/img/cropped-cropped-DSC_1271-scaled-4.jpg">
-
+  <meta name="theme-color" content="#e1e1e4">
+  <link rel="preload" as="image" href="assets/img/hero/hero-desktop.jpg" media="(min-width: 761px) and (max-width: 1920px) and (min-aspect-ratio: 6/5) and (max-resolution: 1.49dppx), (min-width: 761px) and (max-width: 1099px) and (min-aspect-ratio: 6/5)">
+  <link rel="preload" as="image" href="assets/img/hero/hero-desktop-4k.jpg" media="(min-width: 1921px) and (min-aspect-ratio: 6/5), (min-width: 1100px) and (min-resolution: 1.5dppx) and (min-aspect-ratio: 6/5)">
+  <link rel="preload" as="image" href="assets/img/hero/hero-mobile.jpg" media="(max-width: 760px), (max-aspect-ratio: 6/5)">
   <link rel="icon" href="assets/img/cropped-SHOT-C-color1-32x32.png" sizes="32x32">
   <link rel="icon" href="assets/img/cropped-SHOT-C-color1-192x192.png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/img/cropped-SHOT-C-color1-180x180.png">
-  <link rel="preload" href="assets/fonts/raleway-1ptug8zys_skggpnyc0itw.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script>document.documentElement.className += ' js';</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    // Kotvy ze starého webu (do 11/2026) → sekce nového webu, ať staré odkazy nekončí nahoře.
+    (function () {
+      var map = { '#events': '#koncerty', '#album': '#hudba', '#recordings': '#hudba', '#bio': '#o-nas', '#contact': '#kontakt' };
+      if (map[location.hash]) history.replaceState(null, '', map[location.hash]);
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css?v=dev">
+  <link rel="stylesheet" href="assets/css/animations.css?v=dev">
 </head>
 <body>
-  <a class="skip-link" href="#content">Přeskočit na obsah</a>
+  <!-- Sada ikon, používá se přes <use href="#i-…"> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-spotify" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.5a10.5 10.5 0 1 0 0 21 10.5 10.5 0 0 0 0-21Zm4.8 15.2a.7.7 0 0 1-.9.2c-2.5-1.5-5.6-1.8-9.3-1a.7.7 0 1 1-.3-1.3c4-.9 7.5-.5 10.3 1.2.3.2.4.6.2.9Zm1.3-2.9a.8.8 0 0 1-1.1.3c-2.8-1.7-7.1-2.2-10.5-1.2a.8.8 0 1 1-.5-1.6c3.8-1.1 8.6-.6 11.8 1.4.4.2.5.7.3 1.1Zm.1-3c-3.4-2-9-2.2-12.2-1.2a1 1 0 1 1-.6-1.8c3.7-1.1 9.9-.9 13.8 1.4a1 1 0 0 1-1 1.6Z"/></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M5 2h14a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Zm11.5 3.2-6.6 1.4a.8.8 0 0 0-.6.8v7.4a2.6 2.6 0 1 0 1.5 2.4V10l5-1v4.3a2.6 2.6 0 1 0 1.5 2.3V5.9a.8.8 0 0 0-.8-.7Z"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.4-1.6.5-4.8.5-4.8s0-3.2-.5-4.8ZM9.7 15V9l5.8 3-5.8 3Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M7 2.5h10A4.5 4.5 0 0 1 21.5 7v10a4.5 4.5 0 0 1-4.5 4.5H7A4.5 4.5 0 0 1 2.5 17V7A4.5 4.5 0 0 1 7 2.5Z"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 22v-8.2h2.8l.4-3.3h-3.2V8.4c0-.9.3-1.6 1.6-1.6h1.7V3.9a23 23 0 0 0-2.5-.1c-2.5 0-4.2 1.5-4.2 4.3v2.4H7.3v3.3h2.8V22h3.4Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13l10.5-6.5L8 5.5Z"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m14.5 6-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m9.5 6 6 6-6 6"/></symbol>
+  </svg>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="./"><img src="assets/img/SHOT-C-crop1.png" width="1024" height="435" alt="Shot-C Vocal Band"></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span class="nav-toggle-bars" aria-hidden="true"></span>
-        <span class="sr-only">Menu</span>
-      </button>
-      <nav id="site-nav" class="site-nav" aria-label="Hlavní menu">
-        <ul>
-          <li><a href="#album">Album</a></li>
-          <li><a href="#events">Akce</a></li>
-          <li><a href="#bio">O nás</a></li>
-          <li><a href="#contact">Sledujte nás</a></li>
-          <li><a href="#contact">Kontakt</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <div class="notice" role="note">
-    <div class="container notice-inner">
-      <span class="notice-icon" aria-hidden="true">!</span>
-      <p>Web je aktuálně v rekonstrukci a pracujeme na něm. Pokud něco nefunguje správně, omlouváme se.</p>
-    </div>
-  </div>
+  <a class="skip" href="#web">Přeskočit na obsah</a>
 
-  <main id="content">
-    <section class="hero" aria-labelledby="hero-title">
-      <img class="hero-img" src="assets/img/LBL_2894-1280.jpg" srcset="assets/img/LBL_2894-1280.jpg 1280w, assets/img/LBL_2894-scaled.jpg 2560w" sizes="100vw" width="2560" height="1709" alt="Shot-C na pódiu před plným hledištěm" fetchpriority="high">
-      <div class="hero-text">
-        <h1 id="hero-title">Shot-C</h1>
-        <p class="hero-sub">Vokální skupina</p>
-      </div>
-    </section>
+  <!-- ===== HERO: kampaň na Doniu =====
+       Logo SHOT-C a nápis Originalno jsou součástí grafiky na pozadí
+       (assets/img/hero/hero-desktop.jpg, na mobilu hero-mobile.jpg), texty pod nimi jsou živé. -->
+  <header class="hero" id="top">
+    <h1 class="visually-hidden">Shot-C: nové album Originalno</h1>
+    <div class="hero__stage">
+      <div class="hero__text">
+        <p class="hero__lead">Natáčíme nové album. Šest lidí, šest stylů a&nbsp;jen hlasy. Na&nbsp;Doniu teď vybíráme na&nbsp;nahrávání a&nbsp;vydání. Každá koruna je znát.</p>
 
-    <section id="events" class="section section-events" aria-labelledby="events-title">
-      <div class="band band-dark band-slant-down">
-        <div class="container">
-          <h2 id="events-title" class="title-xl">Kde budeme hrát</h2>
-        </div>
-      </div>
-      <div class="container events-wrap">
-        <div data-events data-events-mode="upcoming" data-events-src="data/events.json">
-          <p class="events-status">Načítám koncerty…</p>
-        </div>
-        <noscript>
-          <p class="events-status">Pro zobrazení seznamu koncertů je potřeba JavaScript. Aktuální informace najdete na našich sociálních sítích:
-            <a href="https://www.facebook.com/czshotc/" target="_blank" rel="noopener noreferrer">Facebook</a>,
-            <a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener noreferrer">Instagram</a>,
-            <a href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener noreferrer">YouTube</a>
-            nebo nám napište na <a href="mailto:info@shot-c.cz">info@shot-c.cz</a>.</p>
-        </noscript>
-        <p class="events-more"><a class="button" href="koncerty/">Předchozí koncerty</a></p>
-      </div>
-    </section>
+        <a class="btn btn--donio hero__btn" href="#" data-donio-link>Podpoř nás na Doniu</a>
 
-    <section id="recordings" class="section section-light" aria-labelledby="recordings-title">
-      <div class="slant slant-top" aria-hidden="true"></div>
-      <div class="container">
-        <h2 id="recordings-title" class="title-xl">Nejnovější záznamy</h2>
-        <ul class="pointer-list">
-          <li><a href="https://tv.a11.cz/video/21622-miroslav-dvorak-pavel-bursik-kapela-shot-c/" target="_blank" rel="noopener noreferrer">Záznam z vysílání televize A11 (1:23:59)<span class="sr-only"> (otevře se v nové záložce)</span></a></li>
-          <li><a href="https://brno.rozhlas.cz/jejich-hudba-je-tvorena-lidskymi-hlasy-brnenska-skupina-shot-c-o-vokalni-9437942" target="_blank" rel="noopener noreferrer">Záznam z vysílání rádia ČR Brno<span class="sr-only"> (otevře se v nové záložce)</span></a></li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="album" class="section section-light section-album" aria-labelledby="album-title">
-      <div class="container">
-        <h2 id="album-title" class="title-xl">Album</h2>
-        <div class="album-grid">
-          <p class="text-l">Poslechněte si naše debutové album na Spotify nebo Apple Music.</p>
-          <ul class="button-stack">
-            <li><a class="button" href="https://open.spotify.com/album/1ZzoX03czOYonL08fPU2iG?si=iO49YvCSSW6GAtT6gYm_jw" target="_blank" rel="noopener noreferrer">Spotify<span class="sr-only"> (otevře se v nové záložce)</span></a></li>
-            <li><a class="button" href="https://music.apple.com/cz/album/multipotenci%C3%A1l/1556291117" target="_blank" rel="noopener noreferrer">Apple music<span class="sr-only"> (otevře se v nové záložce)</span></a></li>
-            <li><a class="button" href="https://music.youtube.com/playlist?list=OLAK5uy_mW4rZAc2PUHHcQGYXWyt-B1xyLEvFyDtU" target="_blank" rel="noopener noreferrer">Google Play Music<span class="sr-only"> (YouTube Music, otevře se v nové záložce)</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Image carousel on the live site (Elementor swiper, 3 per view); here a horizontally scrollable strip without JS. -->
-    <ul class="gallery" tabindex="0" aria-label="Fotografie skupiny Shot-C">
-      <li><img src="assets/img/LBL_2799-1024x684.jpg" width="1024" height="684" alt="LBL_2799" loading="lazy"></li>
-      <li><img src="assets/img/cropped-cropped-DSC_1271-scaled-4-1024x575.jpg" width="1024" height="575" alt="cropped-cropped-DSC_1271-scaled-4.jpg" loading="lazy"></li>
-      <li><img src="assets/img/LBL_2756-1024x684.jpg" width="1024" height="684" alt="LBL_2756" loading="lazy"></li>
-      <li><img src="assets/img/2J1A9259-1-1024x683.jpg" width="1024" height="683" alt="2J1A9259" loading="lazy"></li>
-      <li><img src="assets/img/DSC_4160-1024x684.jpg" width="1024" height="684" alt="DSC_4160" loading="lazy"></li>
-      <li><img src="assets/img/LBL_2832-1024x684.jpg" width="1024" height="684" alt="LBL_2832" loading="lazy"></li>
-      <li><img src="assets/img/DSC_0902-1024x684.jpg" width="1024" height="684" alt="DSC_0902" loading="lazy"></li>
-    </ul>
-
-    <section id="bio" class="section section-dark" aria-labelledby="bio-title">
-      <div class="container">
-        <div class="bio-grid">
-          <div class="bio-text">
-            <h2 id="bio-title" class="title-xl bio-title">Shot-C</h2>
-            <p class="title-m bio-sub">Česká vokální skupina</p>
-            <hr class="rule">
-            <h3 class="title-m">Něco málo o nás</h3>
-            <p class="text-l text-muted">Jsme brněnská vokální skupina Shot-C.<br>Přinášíme Vám show, během které si můžete poslechnout covery na známé hity i naše originální písně.<br>Představujeme netradiční podání hudby ve formě vokálních harmonií a beatboxu. Během našeho působení jsme získali zkušenosti s vystupováním na festivalech, firemních večírcích i soukromých akcích. Pořádáme také vlastní koncerty.<br>Rádi přijedeme i k Vám!</p>
+        <div class="campaign" data-campaign>
+          <div class="campaign__bar" role="progressbar" aria-label="Vybráno na Doniu" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <span class="campaign__fill"></span>
           </div>
-          <figure class="bio-photo">
-            <a href="assets/img/DSC_1256_ed-scaled.jpg"><img src="assets/img/DSC_1256_ed-1024x683.jpg" srcset="assets/img/DSC_1256_ed-1024x683.jpg 1024w, assets/img/DSC_1256_ed-scaled.jpg 2560w" sizes="(min-width: 768px) 50vw, 100vw" width="1024" height="683" alt="Shot-C v pohodě" loading="lazy"></a>
-          </figure>
+          <p class="campaign__numbers">
+            <strong data-raised>0&nbsp;Kč</strong> z&nbsp;<span data-goal>0&nbsp;Kč</span>
+            <span class="campaign__sep">·</span>
+            <span data-days>zbývá ? dní</span>
+          </p>
         </div>
 
-        <hr class="rule rule-yellow">
-        <h3 class="sr-only">Členové skupiny</h3>
-        <ul class="members">
-          <li class="member">
-            <div class="member-text"><h4>Jiří Pavlačka</h4><p>Barytenor</p></div>
-            <img src="assets/img/DSC_0286-1-01-1024x683.jpeg" width="1024" height="683" alt="Jirka" loading="lazy">
-          </li>
-          <li class="member">
-            <div class="member-text"><h4>Filip Jahn</h4><p>Beatbox</p></div>
-            <img src="assets/img/DSC_0139-1024x683.jpg" width="1024" height="683" alt="Filip" loading="lazy">
-          </li>
-          <li class="member">
-            <div class="member-text"><h4>Patrik Šudák</h4><p>Tenor</p></div>
-            <img src="assets/img/DSC_0115-1024x683.jpg" width="1024" height="683" alt="Patrik" loading="lazy">
-          </li>
-          <li class="member">
-            <div class="member-text"><h4>Dalibor Hradský</h4><p>Baryton</p></div>
-            <img src="assets/img/DSC_0059-1024x683.jpg" width="1024" height="683" alt="Dalibor" loading="lazy">
-          </li>
-          <li class="member member-portrait">
-            <div class="member-text"><h4>Tomáš Pizúr (TOMI P)</h4><p>Bass</p></div>
-            <img src="assets/img/DSC_00032-683x1024.jpg" width="683" height="1024" alt="Tomi" loading="lazy">
-          </li>
-          <li class="member member-portrait">
-            <div class="member-text"><h4>Andrea Simba Hradská</h4><p>Alt</p></div>
-            <img src="assets/img/DSC_0231-683x1024.jpg" width="683" height="1024" alt="Simba" loading="lazy">
-          </li>
+        <ul class="hero__icons" aria-label="Najdete nás na">
+          <li><a href="https://open.spotify.com/album/1ZzoX03czOYonL08fPU2iG" target="_blank" rel="noopener"><img src="assets/img/hero/icon-spotify.png" alt="Spotify" width="120" height="120"></a></li>
+          <li><a href="https://music.apple.com/cz/album/multipotenci%C3%A1l/1556291117" target="_blank" rel="noopener"><img src="assets/img/hero/icon-apple-music.png" alt="Apple Music" width="120" height="120"></a></li>
+          <li><a href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener"><img src="assets/img/hero/icon-youtube.png" alt="YouTube" width="120" height="120"></a></li>
+          <li><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener"><img src="assets/img/hero/icon-instagram.png" alt="Instagram" width="120" height="120"></a></li>
+          <li><a href="https://www.facebook.com/czshotc/" target="_blank" rel="noopener"><img src="assets/img/hero/icon-facebook.png" alt="Facebook" width="120" height="120"></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <a class="hero__next" href="#web">
+      Pokračovat na web
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m5 9 7 6 7-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </header>
+
+  <!-- ===== KLASICKÝ WEB ===== -->
+  <nav class="nav" id="web" aria-label="Hlavní menu">
+    <a class="nav__logo" href="#top">Shot-C</a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul class="nav__menu" id="menu">
+      <li><a href="#koncerty">Koncerty</a></li>
+      <li><a href="#hudba">Hudba</a></li>
+      <li><a href="#videa">Videa</a></li>
+      <li><a href="#o-nas">O&nbsp;nás</a></li>
+      <li><a href="#ke-stazeni">Ke stažení</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a class="nav__donio" href="#" data-donio-link>Donio</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Koncerty -->
+    <section class="section" id="koncerty">
+      <div class="wrap wrap--narrow">
+        <h2 class="title">Koncerty</h2>
+        <ol class="gigs" data-gigs aria-live="polite">
+          <li class="gigs__empty">Načítám koncerty…</li>
+        </ol>
+        <div class="center">
+          <button class="btn btn--line" type="button" data-past-toggle aria-expanded="false" aria-controls="past">Kde jsme už zpívali</button>
+        </div>
+        <ol class="gigs gigs--past" id="past" data-gigs-past hidden></ol>
+        <noscript><p>Seznam koncertů potřebuje JavaScript. Aktuální info najdete na našem <a href="https://www.facebook.com/czshotc/">Facebooku</a>.</p></noscript>
+      </div>
+    </section>
+
+    <!-- Hudba: diskografie s přepínáním alb (tmavá, ať vynikne světlý obal Originalna) -->
+    <section class="section section--dark" id="hudba">
+      <div class="wrap">
+        <div class="disc-head">
+          <h2 class="title title--left">Hudba</h2>
+          <div class="arrows">
+            <button type="button" data-disc="-1" aria-label="Předchozí album"><svg><use href="#i-left"/></svg></button>
+            <button type="button" data-disc="1" aria-label="Další album"><svg><use href="#i-right"/></svg></button>
+          </div>
+        </div>
+
+        <div class="discs" data-discs>
+          <article class="disc is-active">
+            <div class="disc__info">
+              <p class="disc__year">připravujeme</p>
+              <h3 class="disc__name">Originalno</h3>
+              <ol class="tracks">
+                <li><span>01/</span>Sound of Rain</li>
+                <li><span>02/</span>Stále jdu dál</li>
+                <li><span>03/</span>Ty a Já</li>
+                <li><span>04/</span>Saturday Night</li>
+                <li><span>05/</span>Stejný Sen</li>
+                <li><span>06/</span>The Words Have To Stay In Me</li>
+                <li><span>07/</span>Probuzení</li>
+                <li><span>08/</span>S Odvahou</li>
+                <li><span>09/</span>Bludnej kruh</li>
+                <li><span>10/</span>Naše cesty</li>
+                <li><span>11/</span>Zmrzlinář</li>
+                <li><span>12/</span>TBA</li>
+              </ol>
+            </div>
+            <div class="disc__main">
+              <div class="disc__cover disc__cover--img"><img src="assets/img/originalno.jpg" alt="Obal alba Originalno" width="1000" height="1000" loading="lazy"></div>
+              <div class="disc__btns">
+                <a class="btn btn--donio btn--sq" href="#" data-donio-link>Podpoř nás na Doniu</a>
+              </div>
+            </div>
+            <div class="disc__next disc__cover--img" aria-hidden="true"><img src="assets/img/multipotencial.jpg" alt="" width="800" height="800" loading="lazy"></div>
+          </article>
+
+          <article class="disc">
+            <div class="disc__info">
+              <p class="disc__year">debut · 2021</p>
+              <h3 class="disc__name">Multipotenciál</h3>
+              <ol class="tracks">
+                <li><span>01/</span>Ain&rsquo;t No Sunshine</li>
+                <li><span>02/</span>Hey Ya!</li>
+                <li><span>03/</span>House of the Rising Sun</li>
+                <li><span>04/</span>Do Kapsy si Lhát</li>
+                <li><span>05/</span>Like Leaves We&rsquo;ll Fall In Love</li>
+                <li><span>06/</span>Multipotenciál</li>
+                <li><span>07/</span>Next To Me</li>
+                <li><span>08/</span>Sound of Silence</li>
+                <li><span>09/</span>Veď mě dál, cesto má</li>
+                <li><span>10/</span>Mezi Horami</li>
+                <li><span>11/</span>Život plný snů</li>
+              </ol>
+            </div>
+            <div class="disc__main">
+              <div class="disc__cover disc__cover--img"><img src="assets/img/multipotencial.jpg" alt="Obal alba Multipotenciál" width="800" height="800" loading="lazy"></div>
+              <div class="disc__btns">
+                <a class="btn btn--sq btn--stream btn--spotify" href="https://open.spotify.com/album/1ZzoX03czOYonL08fPU2iG" target="_blank" rel="noopener"><svg><use href="#i-spotify"/></svg>Spotify</a>
+                <a class="btn btn--sq btn--stream btn--apple" href="https://music.apple.com/cz/album/multipotenci%C3%A1l/1556291117" target="_blank" rel="noopener"><svg><use href="#i-apple"/></svg>Apple Music</a>
+                <a class="btn btn--sq btn--stream btn--ytmusic" href="https://music.youtube.com/playlist?list=OLAK5uy_mW4rZAc2PUHHcQGYXWyt-B1xyLEvFyDtU" target="_blank" rel="noopener"><svg><use href="#i-youtube"/></svg>YouTube Music</a>
+              </div>
+            </div>
+            <div class="disc__next disc__cover--img" aria-hidden="true"><img src="assets/img/originalno.jpg" alt="" width="1000" height="1000" loading="lazy"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Videa: barevný pás s obrysovým nápisem v pozadí -->
+    <section class="section videos" id="videa">
+      <div class="videos__bg" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="wrap videos__inner">
+        <h2 class="title">Videa</h2>
+        <div class="center">
+          <a class="btn btn--sq" href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener">Odebírat na YouTube</a>
+        </div>
+        <ul class="video-grid" data-videos>
+          <li><a class="video" href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener"><span class="video__play"><svg><use href="#i-play"/></svg></span><span class="video__label">video 1</span></a></li>
+          <li><a class="video" href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener"><span class="video__play"><svg><use href="#i-play"/></svg></span><span class="video__label">video 2</span></a></li>
+          <li><a class="video" href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener"><span class="video__play"><svg><use href="#i-play"/></svg></span><span class="video__label">video 3</span></a></li>
+        </ul>
+        <ul class="press">
+          <li><a href="https://tv.a11.cz/video/21622-miroslav-dvorak-pavel-bursik-kapela-shot-c/" target="_blank" rel="noopener">Záznam z&nbsp;vysílání televize A11</a></li>
+          <li><a href="https://brno.rozhlas.cz/jejich-hudba-je-tvorena-lidskymi-hlasy-brnenska-skupina-shot-c-o-vokalni-9437942" target="_blank" rel="noopener">Rozhovor pro Český rozhlas Brno</a></li>
         </ul>
       </div>
     </section>
 
-    <section id="contact" class="section section-grey" aria-labelledby="follow-title">
-      <div class="container contact">
-        <h2 id="follow-title" class="title-m">Sledujte nás</h2>
-        <ul class="social">
-          <li><a href="https://www.facebook.com/czshotc/" target="_blank" rel="noopener noreferrer"><img src="assets/img/icons/facebook.svg" width="40" height="40" alt="Facebook"></a></li>
-          <li><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener noreferrer"><img src="assets/img/icons/instagram.svg" width="40" height="40" alt="Instagram"></a></li>
-          <li><a href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener noreferrer"><img src="assets/img/icons/youtube.svg" width="40" height="40" alt="Youtube"></a></li>
-          <li><a href="mailto:info@shot-c.cz"><img src="assets/img/icons/email.svg" width="40" height="40" alt="E-mail"></a></li>
+    <!-- O nás: půlka fotka, půlka text -->
+    <section class="bio" id="o-nas">
+      <div class="bio__photo"><img src="assets/img/o-nas.jpg" alt="Shot-C: všech šest členů kapely na společné fotce" width="1600" height="1200" loading="lazy"></div>
+      <div class="bio__text">
+        <h2 class="title title--left">O&nbsp;nás</h2>
+        <p class="bio__lead">Jsme brněnská vokální skupina. Hrajeme bez nástrojů, všechno uděláme hlasem: harmonie, basu i&nbsp;bicí.</p>
+        <p>Na koncertě uslyšíte covery známých hitů i&nbsp;naše vlastní písně. Zpíváme na festivalech, firemních večírcích i&nbsp;soukromých akcích a&nbsp;pořádáme vlastní koncerty. Rádi přijedeme i&nbsp;k&nbsp;Vám!</p>
+        <p>Originalno je naše druhé album. Každý z&nbsp;nás si na něm jede po svém, a&nbsp;právě proto to drží pohromadě.</p>
+        <ul class="icons bio__icons" aria-label="Sledujte nás">
+          <li><a href="https://open.spotify.com/album/1ZzoX03czOYonL08fPU2iG" target="_blank" rel="noopener" aria-label="Spotify"><svg><use href="#i-spotify"/></svg></a></li>
+          <li><a href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#i-youtube"/></svg></a></li>
+          <li><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a></li>
+          <li><a href="https://www.facebook.com/czshotc/" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
         </ul>
+      </div>
+    </section>
 
-        <h2 class="title-m">Ke stažení</h2>
-        <p><a class="button" href="assets/files/Shot-C-techrider-2025.pdf" target="_blank" rel="noopener noreferrer">Technický rider<span class="sr-only"> (PDF, otevře se v nové záložce)</span></a></p>
-
-        <h2 class="title-m">Pro pořadatele</h2>
-        <ul class="contact-list">
-          <li><svg aria-hidden="true" viewBox="0 0 448 512" width="24" height="24"><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>Patrik Šudák</li>
-          <li><svg aria-hidden="true" viewBox="0 0 512 512" width="24" height="24"><path fill="currentColor" d="M497.4 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.7 370.7 0 0 1 130.6 204.1l60.6-49.6a23.9 23.9 0 0 0 6.9-28l-48-112A24.2 24.2 0 0 0 122.6.6l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.3 24.3 0 0 0-14-27.6z"/></svg><a href="tel:+420608511002">+420 608 511 002</a></li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="5.5" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="2"/></svg><a href="mailto:koncerty@shot-c.cz">koncerty@shot-c.cz</a></li>
+    <!-- Ke stažení -->
+    <section class="section section--dark" id="ke-stazeni">
+      <div class="wrap">
+        <h2 class="title">Ke stažení</h2>
+        <p class="intro">Pro pořadatele, novináře a&nbsp;všechny, kdo o&nbsp;nás píšou.</p>
+        <ul class="downloads">
+          <li><a class="dl dl--1" href="assets/files/Shot-C-techrider-2025.pdf" target="_blank" rel="noopener"><strong>Technický rider</strong><span>PDF</span></a></li>
+          <li><a class="dl dl--2" href="assets/files/Shot-C-press-kit.zip" download><strong>Press kit</strong><span>ZIP · logo, fotky, text o&nbsp;kapele a&nbsp;stage plan</span></a></li>
         </ul>
+      </div>
+    </section>
+
+    <!-- Newsletter: tlačítko vede na hostovaný formulář Senderu (žádný kód ani klíče na webu) -->
+    <section class="section newsletter" id="newsletter">
+      <div class="wrap wrap--narrow center">
+        <h2 class="title">Novinky</h2>
+        <p class="newsletter__lead">Chcete vědět o&nbsp;koncertech a&nbsp;novém albu dřív než ostatní? Nechte nám e-mail. Píšeme zhruba jednou za dva týdny, nic víc.</p>
+        <a class="btn" href="https://stats.sender.net/forms/aADB17/view" target="_blank" rel="noopener">Odebírat novinky</a>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="section section--dark" id="kontakt">
+      <div class="wrap center contact">
+        <h2 class="title">Kontakt</h2>
+        <p class="contact__lead">Chcete nás na svou akci? Napište nebo zavolejte, domluvíme se.</p>
+        <p class="contact__role">Pro pořadatele</p>
+        <p class="contact__name">Patrik Šudák</p>
+        <p class="contact__lines">
+          <a href="tel:+420608511002">+420 608 511 002</a>
+          <a href="mailto:koncerty@shot-c.cz">koncerty@shot-c.cz</a>
+        </p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 Shot-C vokální skupina.</p>
+  <footer class="footer">
+    <div class="stripe" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="footer__row">
+      <p>© <span data-year>2026</span> Shot-C, vokální skupina z&nbsp;Brna</p>
+      <ul class="icons icons--small" aria-label="Sledujte nás">
+        <li><a href="https://open.spotify.com/album/1ZzoX03czOYonL08fPU2iG" target="_blank" rel="noopener" aria-label="Spotify"><svg><use href="#i-spotify"/></svg></a></li>
+        <li><a href="https://youtube.com/c/ShotCVocalBand" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#i-youtube"/></svg></a></li>
+        <li><a href="https://www.instagram.com/shotc.band" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a></li>
+        <li><a href="https://www.facebook.com/czshotc/" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
+      </ul>
     </div>
   </footer>
 
-  <script src="assets/js/nav.js"></script>
-  <script src="assets/js/events.js"></script>
+  <script src="assets/js/main.js?v=dev"></script>
+  <script src="assets/js/animations.js?v=dev"></script>
 </body>
 </html>

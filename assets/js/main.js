@@ -2,18 +2,15 @@
 (function () {
   'use strict';
 
-  /* ===== Kampaň na Doniu: tady stačí přepsat čísla a odkaz ===== */
-  var CAMPAIGN = {
-    url: '#',                          // odkaz na kampaň na Doniu (doplnit)
-    raised: 86500,                     // vybráno v Kč (ukázková hodnota)
-    goal: 150000,                      // cíl v Kč (ukázková hodnota)
-    end: '2026-12-15T23:59:00+01:00'   // konec kampaně (ukázková hodnota)
-  };
+  /* ===== Kampaň na Doniu =====
+     Odkaz a čísla jsou v data/donio.json (čísla doplní při nasazení scripts/donio.js).
+     Bez platných čísel se ukazatel skryje a zůstane jen tlačítko. */
+  var CAMPAIGN = { url: '#', raised: null, goal: null, end: null };
 
   var TZ = 'Europe/Prague';
   var nf = new Intl.NumberFormat('cs-CZ');
 
-  // Odkazy z cizích dat (kalendář) pouštíme jen jako http(s), ne javascript: apod.
+  // Odkazy z cizích dat (kalendář, Donio) pouštíme jen jako http(s), ne javascript: apod.
   function safeHttp(u) {
     if (typeof u !== 'string') { return null; }
     try { var p = new URL(u, location.href); return /^https?:$/.test(p.protocol) ? p.href : null; } catch (e) { return null; }
@@ -28,14 +25,15 @@
   }
 
   /* Aktuální čísla stahuje GitHub Action z Donia do data/donio.json.
-     Když soubor chybí nebo je neplatný, zůstanou hodnoty z CAMPAIGN. */
+     Když soubor chybí nebo nemá čísla, ukazatel se skryje. */
   function initCampaign() {
     fetch('data/donio.json', { cache: 'no-cache' })
       .then(function (r) { return r.ok ? r.json() : null; })
       .catch(function () { return null; })
       .then(function (d) {
-        if (d && d.url && d.updated && d.raised >= 0 && d.goal > 0) {
-          CAMPAIGN.url = d.url;
+        var url = d && safeHttp(d.url);
+        if (url) { CAMPAIGN.url = url; }
+        if (url && d.updated && d.raised >= 0 && d.goal > 0) {
           CAMPAIGN.raised = d.raised;
           CAMPAIGN.goal = d.goal;
           CAMPAIGN.end = d.end;          // null = sbírka bez konce
@@ -52,6 +50,7 @@
 
     var box = document.querySelector('[data-campaign]');
     if (!box) { return; }
+    if (CAMPAIGN.raised === null) { box.hidden = true; return; }
     var pct = Math.min(100, Math.round(CAMPAIGN.raised / CAMPAIGN.goal * 100));
     box.querySelector('[data-raised]').textContent = kc(CAMPAIGN.raised);
     box.querySelector('[data-goal]').textContent = kc(CAMPAIGN.goal);

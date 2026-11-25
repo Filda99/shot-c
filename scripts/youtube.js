@@ -1,6 +1,6 @@
 'use strict';
 // Stáhne poslední videa z YouTube kanálu (veřejné RSS, bez API klíče)
-// a uloží je do novy-web/data/videos.json. Spouští ho deploy workflow
+// a uloží je do data/videos.json. Spouští ho deploy workflow
 // před nahráním webu, ručně: node scripts/youtube.js
 // Nic necommituje. Kanál je v videos.json (pole "channel"), ID kanálu
 // se zjistí samo ze stránky kanálu (nebo ho lze zadat jako "channelId").
@@ -9,7 +9,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const FILE = path.join(__dirname, '..', 'novy-web', 'data', 'videos.json');
+const FILE = path.join(__dirname, '..', 'data', 'videos.json');
 const COUNT = 3;
 const HEADERS = {
   'User-Agent': 'Mozilla/5.0 (compatible; shot-c.cz videa)',

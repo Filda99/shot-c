@@ -1,6 +1,9 @@
 /*
  * Shot-C concerts: pure logic + small DOM renderer.
  *
+ * Pochází ze starého webu (do 11/2026). Na webu se už nepoužívá, testy ho
+ * drží jako validátor formátu data/events.json a výstupu sync-calendar.js.
+ *
  * The first half of this file has NO DOM dependency and is exported for Node
  * tests (`node tests/events.test.js`). The second half renders into the page.
  *

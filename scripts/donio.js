@@ -1,5 +1,5 @@
 'use strict';
-// Stáhne stránku sbírky na Doniu a uloží stav do novy-web/data/donio.json.
+// Stáhne stránku sbírky na Doniu a uloží stav do data/donio.json.
 // Spouští ho deploy workflow GitHub Pages před nahráním webu, ručně: node scripts/donio.js
 // Nic necommituje, jen upraví soubor v pracovní kopii, která se nasadí.
 // Odkaz na sbírku se zadává v donio.json (pole "url"). Prázdné = nic nedělat.
@@ -7,7 +7,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const FILE = path.join(__dirname, '..', 'novy-web', 'data', 'donio.json');
+const FILE = path.join(__dirname, '..', 'data', 'donio.json');
 
 // Donio (Next.js) posílá data projektu v RSC payloadu jako escapovaný JSON.
 // Blok hlavního projektu má "currentAmountInCents", hned za ním "goalInCents"
