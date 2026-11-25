@@ -8,20 +8,22 @@ permissions:
 jobs:
   diag:
     runs-on: ubuntu-latest
+    timeout-minutes: 3
     steps:
       - name: Stáhnout stránku sbírky
         run: |
           curl -sSL -A 'Mozilla/5.0 (compatible; shot-c.cz stav sbirky)' -H 'Accept-Language: cs' \
-            -o page.html -w 'HTTP %{http_code}, finální URL %{url_effective}, %{size_download} B\n' \
+            -o page.html -w 'HTTP %{http_code}, %{size_download} B\n' \
             'https://donio.cz/shot-c-autorske-a-cappella-album'
-          grep -o '<title>[^<]*</title>' page.html | head -1 || true
-          echo '--- klíče s částkami:'
-          sed 's/\\"/"/g' page.html | grep -oE '"[A-Za-z]*(Amount|amount|goal|Goal|InCents|raised|collected)[A-Za-z]*":[^,}]{0,30}' | sort | uniq -c | head -40 || true
-          echo '--- endsAt/status:'
-          sed 's/\\"/"/g' page.html | grep -oE '"(endsAt|status|state|isPublished|published|visibility)":[^,}]{0,40}' | sort | uniq -c | head -20 || true
-          echo '--- kontext kolem collectedLabel:'
-          sed 's/\\"/"/g' page.html | grep -oE '.{0,400}"collectedLabel".{0,600}' | head -2 | cut -c1-1000 || true
-          echo '--- klíče s Cents/target/percent/deadline/end:'
-          sed 's/\\"/"/g' page.html | grep -oE '"[A-Za-z]*(Cents|cents|target|Target|percent|Percent|deadline|Deadline|endDate|EndDate|endsAt|EndsAt|daysLeft|DaysLeft|remaining|Remaining)[A-Za-z]*":[^,}]{0,30}' | sort | uniq -c | head -40 || true
-          echo '--- částky v Kč v HTML:'
-          grep -oE '[0-9][0-9  .]{2,12}&nbsp;Kč|[0-9][0-9  .]{2,12} Kč' page.html | sort | uniq -c | sort -rn | head -15 || true
+          python3 - <<'PY'
+          import re
+          s = open('page.html', encoding='utf-8').read().replace('\\"', '"')
+          def ctx(pat, n=3, w=300):
+              print('=== ' + pat)
+              for m in list(re.finditer(pat, s))[:n]:
+                  print('...' + s[max(0, m.start()-w):m.end()+w].replace('\n', ' ') + '...\n')
+          ctx(r'"collectedLabel"', 2, 500)
+          ctx(r'InCents"', 6, 150)
+          ctx(r'"endsAt"', 3, 150)
+          print('=== Kč částky:', sorted(set(re.findall(r'[0-9][0-9  .]{2,12}(?:&nbsp;| | )Kč', s)))[:20])
+          PY
