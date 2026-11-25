@@ -1,45 +1,58 @@
 # Shot-C
 
-Statická verze webu vokální skupiny Shot-C (původně WordPress + Elementor, https://www.shot-c.cz/).
-Čisté HTML, CSS a vanilla JS, žádný framework ani build krok. Jde hostovat přímo z kořene větve na GitHub Pages.
+Web vokální skupiny Shot-C k albu **Originalno**, https://shot-c.cz/.
+Jednostránkový web, čisté HTML, CSS a JS bez frameworku a bez build kroku. Hostuje se na GitHub Pages.
+
+Do 11/2026 byl v kořeni starý web (statická kopie WordPressu) a nový web žil v `/novy-web/`. Starý web je smazaný (najdete ho v historii gitu a ve větvi `stary-web-staticky`), nový web je v kořeni.
 
 ## Spuštění lokálně
 
-Načítání `data/events.json` přes `fetch` nefunguje z `file://`, proto web spouštějte přes lokální server:
+`fetch` dat (`data/*.json`) nefunguje z `file://`, proto přes lokální server:
 
 ```bash
 python3 -m http.server 8000
-# otevřete http://localhost:8000/
+# http://localhost:8000/
 ```
 
 Testy (bez závislostí):
 
 ```bash
-node tests/events.test.js
+for t in tests/*.test.js; do node "$t"; done
 ```
+
+## Co kde upravit
+
+| Co | Kde |
+|---|---|
+| Odkaz na sbírku na Doniu | `data/donio.json`, pole `url`. Částku, cíl a konec doplní při nasazení `scripts/donio.js` |
+| Záložní čísla, když `donio.json` ještě nemá data | `assets/js/main.js`, objekt `CAMPAIGN` nahoře |
+| Barvy webu: přechod #ffb000 → #ec001d (tlačítka, akcenty, pruhy) | `assets/css/style.css`, `:root` (`--yellow`, `--red`, `--c1` až `--c6` jsou kroky přechodu) |
+| Úvodní grafika (logo a Originalno jsou v obrázku, texty jsou HTML) | `assets/img/hero/hero-desktop.jpg` (1920×1080) + `hero-desktop-4k.jpg` (velké a retina monitory), `hero-mobile.jpg` (1080×1920), ikony sítí `icon-*.png`; pozice textů v `style.css`, sekce HERO |
+| Koncerty | `data/events.json` (záloha, při nasazení se přepíše z Google Kalendáře, viz níže) |
+| Videa | `data/videos.json` (záloha, při nasazení se stáhne z YouTube) |
+| Soubory ke stažení (rider, press kit) | `assets/files/` + sekce `#ke-stazeni` v `index.html` |
+| Animace | `assets/css/animations.css`, `assets/js/animations.js` |
+| Stránka pro neexistující adresy | `404.html` (cesty od kořene domény) |
 
 ## Struktura
 
 | Cesta | Obsah |
 |---|---|
-| `index.html` | Hlavní (jednostránkový) web, kotvy `#events`, `#album`, `#bio`, `#contact` |
-| `koncerty/index.html` | Výpis všech koncertů (od nejnovějších po nejstarší) |
-| `404.html` | Stránka pro neexistující adresy (používá absolutní cesty od kořene domény) |
-| `assets/css/style.css` | Styly podle původního webu (Raleway + Roboto z `assets/fonts/`, žádné externí zdroje) |
-| `assets/js/events.js` | Logika koncertů (čisté funkce + vykreslení) |
-| `assets/js/nav.js` | Mobilní menu |
-| `assets/img/`, `assets/files/`, `assets/fonts/` | Obrázky, ikony, technický rider (PDF) a písma staženého z původního webu |
-| `data/events.json` | Všechny koncerty |
-| `tests/events.test.js` | Node testy logiky koncertů |
-| `docs/import/IMPORT_NOTES.md` | Poznámky k importu ze starého webu |
-| `docs/import/wp-events-archive.json` | Surový export 75 akcí z WordPressu (popisy, adresy) |
-| `docs/import/wp-posts-archive.json` | Archiv 25 starých příspěvků blogu (2019–2020), na webu se nezobrazují |
-| `.nojekyll`, `robots.txt`, `CNAME` | Pro GitHub Pages / roboty (doména `shot-c.cz`; `/novy-web/` je pro roboty zakázaný) |
-| `novy-web/` | Nástřel nového webu k albu Originalno, dostupný na https://shot-c.cz/novy-web/ (samostatný, relativní cesty, vlastní kopie `data/events.json`) |
+| `index.html` | Celý web, sekce `#koncerty`, `#hudba`, `#videa`, `#o-nas`, `#ke-stazeni`, `#newsletter`, `#kontakt` |
+| `assets/` | CSS, JS, obrázky, soubory ke stažení |
+| `data/` | `events.json`, `videos.json`, `donio.json` |
+| `404.html` | Chybějící adresa. Staré adresy přesměruje: `/novy-web/…` → stejná cesta od kořene, `/koncerty/…` a `/events/…` → `/#koncerty` |
+| `koncerty/index.html`, `novy-web/index.html` | Přesměrování ze starých adres (`/koncerty/` → `/#koncerty`, `/novy-web/` → `/`) |
+| `scripts/` | Skripty spouštěné při nasazení (kalendář, Donio, YouTube) |
+| `tests/` | Node testy; `tests/lib/events.js` je logika koncertů ze starého webu, slouží jako validátor `data/events.json` |
+| `docs/import/` | Archiv ze starého WordPressu (akce, 25 příspěvků blogu 2019–2020), nenasazuje se |
+| `.nojekyll`, `robots.txt`, `CNAME` | Pro GitHub Pages / roboty (doména `shot-c.cz`) |
 
-## Jak přidat koncert
+Kotvy starého webu (`#events`, `#album`, `#bio`, `#contact`) se v `index.html` přepíšou na nové sekce, aby staré odkazy vedly na správné místo.
 
-Přidejte objekt do pole v `data/events.json` (pořadí v souboru nehraje roli). Koncerty se nikdy nemažou: po skončení zmizí z hlavní stránky a zůstanou na `/koncerty/`.
+## Formát koncertu
+
+Objekt v poli `data/events.json` (pořadí nehraje roli):
 
 ```json
 {
@@ -48,7 +61,6 @@ Přidejte objekt do pole v `data/events.json` (pořadí v souboru nehraje roli).
   "end": "2027-03-20T20:30:00+01:00",
   "title": "Brno – Sál U Příkladu",
   "venue": "Sál U Příkladu, Příkladová 1, Brno",
-  "note": "Volitelný popis",
   "url": "https://example.com/vstupenky"
 }
 ```
@@ -56,51 +68,23 @@ Přidejte objekt do pole v `data/events.json` (pořadí v souboru nehraje roli).
 | Pole | Povinné | Popis |
 |---|---|---|
 | `id` | ano | Stabilní jedinečný řetězec (doporučeno `RRRR-MM-DD-misto`). |
-| `start` | ano | ISO 8601 **s offsetem**: `+01:00` v zimě (CET), `+02:00` v létě (CEST). Letní čas začíná poslední neděli v březnu a končí poslední neděli v říjnu. |
-| `end` | ne | ISO 8601 s offsetem. Pokud chybí, počítá se konec = začátek + 2 h (u celodenní akce + 24 h) a na webu se zobrazí jen čas začátku. |
-| `title` | ano* | Název akce, hlavní (žlutý) nadpis karty, např. „Praha – koncert s a cappellou Intonic“. |
-| `city` | ano* | Město; použije se jako nadpis, když chybí `title`, jinak jako doplňující řádek. *Povinné je aspoň jedno z `title`/`city`. |
-| `venue` | ne | Místo konání (samostatný řádek pod datem). |
-| `note` | ne | Doplňující text/popis. |
-| `url` | ne | Odkaz na událost nebo vstupenky (jen `http(s)`), zobrazí se jako „Více informací“. |
-| `allDay` | ne | `true` = celodenní akce, čas se nezobrazuje („celý den“). Doporučeno zadat `start` v 00:00:00 a `end` v 23:59:59. |
+| `start` | ano | ISO 8601 **s offsetem**: `+01:00` v zimě (CET), `+02:00` v létě (CEST). |
+| `end` | ne | ISO 8601 s offsetem. Když chybí, počítá se začátek + 2 h. |
+| `title` / `city` | aspoň jedno | Název akce / město. |
+| `venue` | ne | Místo konání. |
+| `url` | ne | Odkaz na událost nebo vstupenky (jen `http(s)`). |
+| `allDay` | ne | `true` = celodenní akce, čas se nezobrazuje. |
 
-Pravidla zobrazení:
-
-- Hlavní stránka (`#events`): jen koncerty s `end >= teď` (budoucí a právě probíhající), vzestupně podle `start`. Když žádný není, zobrazí se „Další koncerty právě chystáme, sledujte nás.“
-- `/koncerty/`: všechny koncerty sestupně podle `start`, seskupené po letech (podle času v Praze), nadcházející a probíhající jsou zvýrazněné, proběhlé ztlumené a označené „Proběhlo“.
-- Čas se vždy formátuje v `Europe/Prague` (`Intl.DateTimeFormat`, `cs-CZ`), bez ohledu na časové pásmo prohlížeče.
-- Neplatné záznamy se přeskočí a vypíšou varování do konzole; stránka se nerozbije. Nenačte-li se `events.json`, zobrazí se hláška s odkazy na sociální sítě.
-
-### Testování času
-
-Na stránce lze "nastavit hodiny": `/?now=2026-11-15T17:30:00+01:00` (nebo `window.__NOW__ = '2026-11-15T17:30:00+01:00'` před načtením `events.js`). Hodnota musí obsahovat offset.
+Na webu jsou jen nadcházející a probíhající koncerty. Akce se slovem „soukromá“ se nezobrazí.
 
 ## Nasazení
 
-GitHub Pages přes GitHub Actions (`.github/workflows/nasazeni.yml`), vlastní doména `shot-c.cz` (nastavená v *Settings → Pages*, soubor `CNAME` zůstává pro jistotu).
+GitHub Pages přes GitHub Actions (`.github/workflows/nasazeni.yml`, *Settings → Pages → Source: GitHub Actions*), vlastní doména `shot-c.cz` (soubor `CNAME` zůstává pro jistotu). Běží po každém merge do `main`, každou hodinu a ručně (*Actions → Nasazení webu → Run workflow*).
 
-- Starý web: https://shot-c.cz/
-- Nový web (nástřel): https://shot-c.cz/novy-web/ (má `noindex`, aby ho vyhledávače zatím neindexovaly)
+Data se stáhnou **jen do nasazované kopie webu**, do repozitáře se nic necommituje (pravidlo „do `main` jen přes PR“ platí dál). Soubory v `data/` jsou záloha pro případ, že stažení selže.
 
-Koncerty jsou zatím ve dvou kopiích (`data/events.json` a `novy-web/data/events.json`). Až nový web nahradí starý, přesune se obsah `novy-web/` do kořene.
-
-## Nasazení a koncerty z kalendáře (automaticky)
-
-Web nasazuje GitHub Action `.github/workflows/nasazeni.yml` (*Settings → Pages → Source: GitHub Actions*). Běží po každém merge do `main`, každou hodinu a ručně přes *Actions → Nasazení webu → Run workflow*.
-
-Před nasazením stáhne kalendář a doplní ho do `data/events.json` a `novy-web/data/events.json`, ale **jen v nasazované kopii webu**. Do repozitáře nic necommituje, takže pravidlo „do `main` jen přes PR“ platí dál. Soubory v repu slouží jako záloha: když se kalendář nestáhne, nasadí se koncerty z nich.
-
-- Adresa kalendáře (tajná iCal adresa) je v secretu `CALENDAR_ICS_URL`. Bez něj se nasadí koncerty z repa.
-- Na web se nedostanou akce zrušené, soukromé (*Soukromé* / *Private*) a ty, jejichž název začíná `#` (např. `# zkouška`).
-- Název akce → nadpis, *Místo* → řádek s místem, odkaz v popisu → tlačítko „Více info“.
-- Starší koncerty, které v kalendáři nejsou, zůstávají v archivu. Budoucí akce, které z kalendáře zmizí, zmizí i z webu.
-- Logika je ve `scripts/sync-calendar.js`, testy `node tests/sync-calendar.test.js`.
-
-## Instagram na novém webu
-
-Sekce Instagram byla z nového webu odebrána (19. 11. 2026), odkaz na Instagram zůstává mezi ikonami sítí.
-
-## Videa na novém webu
-
-Deploy (`nasazeni.yml`) stáhne ze záložky Videa na kanálu YouTube (záložně z RSS kanálu) poslední 3 videa (bez Shorts) do `novy-web/data/videos.json`. API klíč není potřeba. Kanál je v poli `channel` (případně `channelId`). Když se stažení nepovede, zůstanou dlaždice s odkazem na kanál. Logika je ve `scripts/youtube.js`, testy `node tests/youtube.test.js`.
+- **Koncerty z kalendáře:** tajná iCal adresa je v secretu `CALENDAR_ICS_URL`. Na web se nedostanou akce zrušené, soukromé (*Soukromé* / *Private*) a ty, jejichž název začíná `#`. Starší koncerty, které v kalendáři nejsou, zůstávají v archivu. Logika `scripts/sync-calendar.js`, testy `tests/sync-calendar.test.js`.
+- **Donio:** `scripts/donio.js` stáhne stav sbírky do `data/donio.json`.
+- **Videa:** `scripts/youtube.js` stáhne ze záložky Videa kanálu YouTube (záložně z RSS) poslední 3 videa bez Shorts do `data/videos.json`. Když selže, zůstanou dlaždice s odkazem na kanál.
+- `?v=dev` u CSS/JS v `index.html` se při nasazení nahradí commitem, aby prohlížeče nebraly staré soubory z cache.
+- Nenasazuje se: `.github`, `scripts`, `tests`, `docs`, `README.md`, `.gitignore`.

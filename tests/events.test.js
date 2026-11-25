@@ -5,7 +5,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const E = require('../assets/js/events.js');
+const E = require('./lib/events.js');
 
 let passed = 0;
 function test(name, fn) {

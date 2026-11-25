@@ -2,7 +2,7 @@
 // Testy synchronizace kalendáře: node tests/sync-calendar.test.js
 const assert = require('node:assert/strict');
 const S = require('../scripts/sync-calendar.js');
-const E = require('../assets/js/events.js');
+const E = require('./lib/events.js');
 
 let passed = 0;
 function test(name, fn) {
