@@ -1,0 +1,21 @@
+# Dočasné: zjistit, co Donio vrací runneru GitHubu. Smazat spolu s větví.
+name: Donio diagnostika
+on:
+  push:
+    branches: [claude/donio-diagnostika]
+permissions:
+  contents: read
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stáhnout stránku sbírky
+        run: |
+          curl -sSL -A 'Mozilla/5.0 (compatible; shot-c.cz stav sbirky)' -H 'Accept-Language: cs' \
+            -o page.html -w 'HTTP %{http_code}, finální URL %{url_effective}, %{size_download} B\n' \
+            'https://donio.cz/shot-c-autorske-a-cappella-album'
+          grep -o '<title>[^<]*</title>' page.html | head -1 || true
+          echo '--- klíče s částkami:'
+          sed 's/\\"/"/g' page.html | grep -oE '"[A-Za-z]*(Amount|amount|goal|Goal|InCents|raised|collected)[A-Za-z]*":[^,}]{0,30}' | sort | uniq -c | head -40 || true
+          echo '--- endsAt/status:'
+          sed 's/\\"/"/g' page.html | grep -oE '"(endsAt|status|state|isPublished|published|visibility)":[^,}]{0,40}' | sort | uniq -c | head -20 || true
