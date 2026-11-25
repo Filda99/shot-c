@@ -74,6 +74,31 @@ jobs:
           sed -i "s/?v=dev/?v=${GITHUB_SHA::8}/g" _site/novy-web/index.html
           ls -A _site
 
+      # Měření návštěvnosti: Cloudflare Web Analytics (zdarma, bez cookies,
+      # bez osobních údajů → žádná cookie lišta). Token je veřejný (je vidět
+      # v HTML), proto je v proměnné repozitáře, ne v secretu:
+      # Settings → Secrets and variables → Actions → Variables → CF_ANALYTICS_TOKEN.
+      # Bez proměnné se web nasadí beze změny. Skript se vkládá jen do
+      # nasazované kopie, takže lokální náhled se do statistik nepočítá.
+      - name: Měření návštěvnosti
+        env:
+          CF_ANALYTICS_TOKEN: ${{ vars.CF_ANALYTICS_TOKEN }}
+        run: |
+          if [ -z "$CF_ANALYTICS_TOKEN" ]; then
+            echo "Proměnná CF_ANALYTICS_TOKEN není nastavená, měření se nepřidává."
+            exit 0
+          fi
+          # Token je 32 hex znaků; nic jiného do HTML nepustíme.
+          if ! printf '%s' "$CF_ANALYTICS_TOKEN" | grep -Eqx '[0-9a-f]{32}'; then
+            echo "::warning::CF_ANALYTICS_TOKEN nemá tvar 32 hex znaků, měření se nepřidává."
+            exit 0
+          fi
+          snippet="<script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" data-cf-beacon='{\"token\": \"$CF_ANALYTICS_TOKEN\"}'></script>"
+          for f in $(grep -rl --include='*.html' '</body>' _site); do
+            sed -i "s#</body>#${snippet}\n</body>#" "$f"
+            echo "měření přidáno: $f"
+          done
+
       - uses: actions/configure-pages@v6
 
       - uses: actions/upload-pages-artifact@v5
