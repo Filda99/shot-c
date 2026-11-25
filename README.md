@@ -25,7 +25,7 @@ for t in tests/*.test.js; do node "$t"; done
 | Co | Kde |
 |---|---|
 | Odkaz na sbírku na Doniu | `data/donio.json`, pole `url`. Částku, cíl a konec doplní při nasazení `scripts/donio.js` |
-| Záložní čísla, když `donio.json` ještě nemá data | `assets/js/main.js`, objekt `CAMPAIGN` nahoře |
+| Když `donio.json` nemá čísla (stažení selhalo) | ukazatel sbírky se skryje, tlačítko vede na `url` |
 | Barvy webu: přechod #ffb000 → #ec001d (tlačítka, akcenty, pruhy) | `assets/css/style.css`, `:root` (`--yellow`, `--red`, `--c1` až `--c6` jsou kroky přechodu) |
 | Úvodní grafika (logo a Originalno jsou v obrázku, texty jsou HTML) | `assets/img/hero/hero-desktop.jpg` (1920×1080) + `hero-desktop-4k.jpg` (velké a retina monitory), `hero-mobile.jpg` (1080×1920), ikony sítí `icon-*.png`; pozice textů v `style.css`, sekce HERO |
 | Koncerty | `data/events.json` (záloha, při nasazení se přepíše z Google Kalendáře, viz níže) |
