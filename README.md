@@ -43,6 +43,8 @@ for t in tests/*.test.js; do node "$t"; done
 | `data/` | `events.json`, `videos.json`, `donio.json` |
 | `404.html` | Chybějící adresa. Staré adresy přesměruje: `/novy-web/…` → stejná cesta od kořene, `/koncerty/…` a `/events/…` → `/#koncerty` |
 | `koncerty/index.html`, `novy-web/index.html` | Přesměrování ze starých adres (`/koncerty/` → `/#koncerty`, `/novy-web/` → `/`) |
+| `events/…/index.html`, `<slug-příspěvku>/index.html`, `locations/`, `category/uncategorized/` | Přesměrování starých adres WordPressu kvůli Google (skutečné stránky, ne jen `404.html`, aby Google nehlásil 404): 75 detailů koncertů → `/#koncerty`, 25 příspěvků blogu 2019–2020 a automatické stránky → `/`. Seznam adres je v `docs/import/wp-*-archive.json`. |
+| `sitemap.xml` | Mapa webu pro vyhledávače (jen úvodní stránka), odkaz v `robots.txt` |
 | `scripts/` | Skripty spouštěné při nasazení (kalendář, Donio, YouTube) |
 | `tests/` | Node testy; `tests/lib/events.js` je logika koncertů ze starého webu, slouží jako validátor `data/events.json` |
 | `docs/import/` | Archiv ze starého WordPressu (akce, 25 příspěvků blogu 2019–2020), nenasazuje se |
